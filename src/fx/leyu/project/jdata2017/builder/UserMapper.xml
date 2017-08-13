@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fx.leyu.jdata.domain.mapper.UserMapper">
+	<resultMap id="user" type="fx.leyu.jdata.domain.User">
+    	<id property="id" column="user_id"/>
+    	<result property="age" column="age"/>
+    	<result property="sex" column="sex"/>
+    	<result property="userLevel" column="user_lv_cd"/>
+    	<result property="registrationDate" column="user_reg_dt"/>
+  	</resultMap>
+
+	<insert id="insertUser" parameterType="fx.leyu.jdata.domain.User">
+		insert into user(user_id, age, sex, user_lv_cd, user_reg_dt)
+		values (#{id},#{age},#{sex},#{userLevel},#{registrationDate})
+	</insert>
+	
+	<select id="getAllUsers" resultType="fx.leyu.jdata.domain.User">
+		select * from user
+	</select>
+</mapper>

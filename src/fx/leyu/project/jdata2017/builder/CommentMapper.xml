@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fx.leyu.jdata.domain.mapper.CommentMapper">
+
+	<insert id="insertComment" parameterType="fx.leyu.jdata.domain.Comment">
+		insert into comment(dt, sku_id, comment_num, has_bad_comment, bad_comment_rate)
+		values (#{date},#{productId},#{commentNum},#{hasBadComment},#{badCommentRate})
+	</insert>
+</mapper>

@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="D:/libs/httpcomponents-client-4.5.2/lib/httpmime-4.5.2.jar"/>
 	<classpathentry kind="lib" path="D:/libs/httpcomponents-client-4.5.2/lib/jna-4.1.0.jar"/>
 	<classpathentry kind="lib" path="D:/libs/httpcomponents-client-4.5.2/lib/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/mybatis-3.4.2.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.41-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

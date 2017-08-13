@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fx.leyu.jdata.domain.mapper.ProductMapper">
+
+	<insert id="insertProduct" parameterType="fx.leyu.jdata.domain.Product">
+		insert into product(sku_id, attr1, attr2, attr3, cate, brand)
+		values (#{id},#{attr1},#{attr2},#{attr3},#{cate},#{brand})
+	</insert>
+</mapper>
