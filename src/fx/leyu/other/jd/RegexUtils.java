@@ -1,4 +1,4 @@
-package fx.leyu.jd;
+package fx.leyu.other.jd;
 
 public class RegexUtils {
     

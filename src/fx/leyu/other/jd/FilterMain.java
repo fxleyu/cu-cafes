@@ -1,4 +1,4 @@
-package fx.leyu.jd;
+package fx.leyu.other.jd;
 
 import java.util.ArrayList;
 import java.util.HashMap;

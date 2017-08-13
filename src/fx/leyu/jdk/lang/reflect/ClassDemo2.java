@@ -1,4 +1,4 @@
-package fx.leyu.lang.reflect;
+package fx.leyu.jdk.lang.reflect;
 
 public class ClassDemo2 {
 

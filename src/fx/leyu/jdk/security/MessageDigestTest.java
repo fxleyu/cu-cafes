@@ -1,4 +1,4 @@
-package fx.leyu.security;
+package fx.leyu.jdk.security;
 
 public class MessageDigestTest {
 

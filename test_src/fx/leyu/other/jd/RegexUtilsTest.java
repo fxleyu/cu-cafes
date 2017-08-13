@@ -1,7 +1,9 @@
-package fx.leyu.jd;
+package fx.leyu.other.jd;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import fx.leyu.other.jd.RegexUtils;
 
 public class RegexUtilsTest {
 

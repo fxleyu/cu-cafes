@@ -1,9 +1,12 @@
-package fx.leyu.lang.reflect;
+package fx.leyu.jdk.lang.reflect;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.junit.Test;
+
+import fx.leyu.jdk.lang.reflect.ClassUtils;
+import fx.leyu.jdk.lang.reflect.MethodTestClass;
 
 public class MothedTest {
     
@@ -17,7 +20,7 @@ public class MothedTest {
     
     @Test
     public void testInvokePublic() throws ClassNotFoundException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
-        Class cls = Class.forName("fx.leyu.lang.reflect.MethodTestClass");
+        Class cls = Class.forName("fx.leyu.jdk.lang.reflect.MethodTestClass");
         Method method = cls.getMethod("print", int.class, int.class);
         Object obj = method.invoke(cls.newInstance(), new Object[]{1,2});
         System.out.println(obj);
@@ -25,7 +28,7 @@ public class MothedTest {
     
     @Test
     public void testInvokePrivate() throws ClassNotFoundException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
-        Class cls = Class.forName("fx.leyu.lang.reflect.MethodTestClass");
+        Class cls = Class.forName("fx.leyu.jdk.lang.reflect.MethodTestClass");
         Method method = cls.getDeclaredMethod("print", int.class, int.class, int.class);
         method.setAccessible(true);
         Object obj = method.invoke(cls.newInstance(), new Object[]{1,2, 3});

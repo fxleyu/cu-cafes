@@ -1,4 +1,4 @@
-package fx.leyu.net;
+package fx.leyu.jdk.net;
 
 import java.io.IOException;
 import java.net.Socket;
