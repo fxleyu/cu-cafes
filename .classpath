@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="test_src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry exported="true" kind="lib" path="libs/spring-context-4.3.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="D:/libs/httpcomponents-client-4.5.2/lib/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="D:/libs/httpcomponents-client-4.5.2/lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="D:/libs/httpcomponents-client-4.5.2/lib/fluent-hc-4.5.2.jar"/>
@@ -16,5 +17,9 @@
 	<classpathentry kind="lib" path="D:/libs/httpcomponents-client-4.5.2/lib/jna-platform-4.1.0.jar"/>
 	<classpathentry kind="lib" path="libs/mybatis-3.4.2.jar"/>
 	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.41-bin.jar"/>
+	<classpathentry kind="lib" path="libs/spring-beans-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring-core-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring-aop-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring-expression-4.3.9.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
