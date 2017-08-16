@@ -1,4 +1,4 @@
-package fx.leyu.learn.spring;
+package fx.leyu.learn.springframework;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

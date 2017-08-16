@@ -1,4 +1,4 @@
-package fx.leyu.learn.spring;
+package fx.leyu.learn.springframework;
 
 public interface MessageService {
     String getMessage();

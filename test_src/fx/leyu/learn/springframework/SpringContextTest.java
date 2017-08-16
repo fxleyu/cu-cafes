@@ -1,8 +1,11 @@
-package fx.leyu.learn.spring;
+package fx.leyu.learn.springframework;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import fx.leyu.learn.springframework.Application;
+import fx.leyu.learn.springframework.MessagePrinter;
 
 public class SpringContextTest {
 
