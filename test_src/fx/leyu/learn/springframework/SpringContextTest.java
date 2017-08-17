@@ -11,9 +11,10 @@ public class SpringContextTest {
 
     @Test
     public void test() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
         MessagePrinter printer = context.getBean(MessagePrinter.class);
         printer.printMessage();
+        context.close();
     }
 
 }

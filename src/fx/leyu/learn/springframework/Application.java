@@ -8,12 +8,20 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 public class Application {
     
-    @Bean
+    @Bean(initMethod="fxInit", destroyMethod="fxDestory")
     MessageService mockMessageService() {
         return new MessageService() {
             @Override
             public String getMessage() {
                 return "Hello World!";
+            }
+            
+            public void fxInit() {
+                System.out.println("fxInit");
+            }
+            
+            public void fxDestory() {
+                System.out.println("fxDestory");
             }
             
         };
