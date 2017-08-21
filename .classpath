@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test_src"/>
+	<classpathentry kind="src" path="resource"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="D:/libs/httpcomponents-client-4.5.2/lib/commons-codec-1.9.jar"/>
@@ -21,5 +22,6 @@
 	<classpathentry kind="lib" path="libs/springframework/spring-context-4.3.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="libs/springframework/spring-core-4.3.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="libs/springframework/spring-expression-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/朱智慧/Desktop/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
