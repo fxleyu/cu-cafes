@@ -20,7 +20,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="imooc.Message">
+<mapper namespace="fx.leyu.learn.mybatis.imooc.dao.MessageInterface">
 	<resultMap id="MessageResult" type="fx.leyu.learn.mybatis.imooc.bean.Message">
 		<id column="id" property="id" />
 		<result property="command" column="command" />
@@ -32,7 +32,7 @@
 		select id, command, description, content from message where 1 = 1;
 	</select>
 
-	<select id="selectMessageByMessage" parameterType="fx.leyu.learn.mybatis.imooc.bean.Message" resultMap="MessageResult">
+	<select id="selectMessageByMybatis" parameterType="fx.leyu.learn.mybatis.imooc.bean.Message" resultMap="MessageResult">
 		select id, command, description, content from message where 1 = 1
 		<if test="command != null and !&quot;&quot;.equals(command.trim())">and command = #{command}</if>
 		<if test="description != null and !&quot;&quot;.equals(description.trim())">and description = #{description}</if>

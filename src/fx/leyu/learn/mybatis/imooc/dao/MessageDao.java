@@ -46,7 +46,9 @@ public class MessageDao {
         Message message = new Message();
         message.setCommand(command);
         SqlSession session = DbAccess.getSqlSession();
-        return session.selectList("selectMessageByMessage", message);
+        MessageInterface messageInterface = session.getMapper(MessageInterface.class);
+        return messageInterface.selectMessageByMybatis(message);
+        //return session.selectList("selectMessageByMyBatis", message);
     }
     
     public void deleteMessageByMybatis(int id) throws IOException{
