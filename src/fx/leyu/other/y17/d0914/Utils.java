@@ -86,7 +86,7 @@ public class Utils {
     public static List<String> getResultArr() {
         List<String> result = new LinkedList<>();
         for (int i = 1;i < 8; i++) {
-            putResultArrToList(i, result)
+            putResultArrToList(i, result);
         }
            
         return result;
