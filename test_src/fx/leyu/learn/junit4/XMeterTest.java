@@ -10,8 +10,8 @@ public class XMeterTest {
         XMeter one = new XMeter(MeterType.METER, 1);
         XMeter other = new XMeter(MeterType.METER, 1);
         XMeter another = new XMeter(MeterType.METER, 2);
-        Assert.assertTrue(one.lengthEquals(other));
-        Assert.assertFalse(one.lengthEquals(another));
+        Assert.assertTrue(one.equalsXMeter(other));
+        Assert.assertFalse(one.equalsXMeter(another));
     }
     
     @Test
@@ -19,8 +19,8 @@ public class XMeterTest {
         XMeter one = new XMeter(MeterType.CENTIMETER, 1);
         XMeter other = new XMeter(MeterType.CENTIMETER, 1);
         XMeter another = new XMeter(MeterType.CENTIMETER, 2);
-        Assert.assertTrue(one.lengthEquals(other));
-        Assert.assertFalse(one.lengthEquals(another));
+        Assert.assertTrue(one.equalsXMeter(other));
+        Assert.assertFalse(one.equalsXMeter(another));
     }
     
     @Test
@@ -28,8 +28,20 @@ public class XMeterTest {
         XMeter one = new XMeter(MeterType.METER, 1);
         XMeter other = new XMeter(MeterType.CENTIMETER, 100);
         XMeter another = new XMeter(MeterType.CENTIMETER, 200);
-        Assert.assertTrue(one.lengthEquals(other));
-        Assert.assertFalse(one.lengthEquals(another));
+        Assert.assertTrue(one.equalsXMeter(other));
+        Assert.assertFalse(one.equalsXMeter(another));
+    }
+    
+    @Test
+    public void testLengthStringForMeter() {
+        XMeter one = new XMeter(MeterType.METER, 1);
+        Assert.assertTrue(one.equalsString("1m"));
+    }
+    
+    @Test
+    public void testLengthStringForCentimeterAndMeter() {
+        XMeter one = new XMeter(MeterType.CENTIMETER, 100);
+        Assert.assertTrue(one.equalsString("1m"));
     }
 
 }
