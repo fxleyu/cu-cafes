@@ -42,6 +42,7 @@ public class XMeterTest {
     public void testLengthStringForCentimeterAndMeter() {
         XMeter one = new XMeter(MeterType.CENTIMETER, 100);
         Assert.assertTrue(one.equalsString("1m"));
+        Assert.assertFalse(one.equalsString("100cm"));
     }
 
 }
