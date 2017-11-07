@@ -9,8 +9,8 @@ public class SpecialDateTest {
 
     public static void main(String[] args) throws ParseException {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-        String str3 = "1989-4-15 23:59:59";
-        String str4 = "1989-4-16 1:0:0";
+        String str3 = "1990-4-14 23:59:59";
+        String str4 = "1990-4-15 1:0:0";
         Date sDt3 = sf.parse(str3);
         Date sDt4 = sf.parse(str4);
         System.out.println(sDt3);
