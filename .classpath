@@ -22,5 +22,8 @@
 	<classpathentry kind="lib" path="libs/springframework/spring-context-4.3.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="libs/springframework/spring-core-4.3.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="libs/springframework/spring-expression-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Software/java_ee_sdk-8/glassfish5/mq/lib/jms.jar"/>
+	<classpathentry kind="lib" path="D:/Software/apache-activemq-5.15.2/lib/slf4j-api-1.7.25.jar"/>
+	<classpathentry kind="lib" path="D:/Software/apache-activemq-5.15.2/activemq-all-5.15.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
