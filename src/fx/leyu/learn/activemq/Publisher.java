@@ -21,6 +21,7 @@ public class Publisher {
     public static void main(String[] args) throws JMSException {
         ConnectionFactory factory = new ActiveMQConnectionFactory(user,password,url);
         Connection connection = factory.createConnection();
+        // Boolean.TRUE 指定使用队列
         Session session = connection.createSession(Boolean.TRUE,Session.AUTO_ACKNOWLEDGE);
         
         Destination dest = session.createQueue("queue-fxleyu-test");
