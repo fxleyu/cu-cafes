@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.http.entity.mime.content.StringBody;
-
 public class Utils {
     public static int sumByWhile(int[] arr) {
         int result = 0;
