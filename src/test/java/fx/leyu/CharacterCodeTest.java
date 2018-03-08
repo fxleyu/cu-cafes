@@ -2,6 +2,7 @@ package fx.leyu;
 
 import java.io.UnsupportedEncodingException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CharacterCodeTest {
@@ -21,7 +22,8 @@ public class CharacterCodeTest {
     public void test8859To8859() throws UnsupportedEncodingException {
         byte[] byteArray = TEST_STRING.getBytes(ISO_8859_1);
         // 打印4个?字符
-        System.out.println(new String(byteArray, ISO_8859_1));
+        Assert.assertEquals("\"风雪乐雨\".getBytes(ISO_8859_1).length == 4", 4, byteArray.length);
+        Assert.assertEquals("4个汉字转换为8859，再转换为string是?", "????", new String(byteArray, ISO_8859_1));
     }
 
 }
