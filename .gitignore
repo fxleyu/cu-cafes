@@ -1,4 +1,4 @@
-bin
-target
-.idea
 *.iml
+/jdk-test/target/
+/.idea/
+/target/
