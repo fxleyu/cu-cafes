@@ -1,10 +1,10 @@
 package fx.leyu.jdk.util.concurrent;
 
+import org.junit.Test;
+
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-
-import org.junit.Test;
 
 public class CountDownLatchTest {
     private static final int COUNT = 5;

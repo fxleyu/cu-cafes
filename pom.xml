@@ -3,7 +3,10 @@
   <groupId>fx.leyu</groupId>
   <artifactId>cu-cafes</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <modules>
+    <module>jdk-test</module>
+  </modules>
+  <packaging>pom</packaging>
   
   <dependencies>
   	<dependency>

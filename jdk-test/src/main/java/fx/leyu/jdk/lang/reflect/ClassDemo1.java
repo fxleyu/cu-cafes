@@ -12,7 +12,7 @@ public class ClassDemo1 {
         System.out.println(c1 == c3); // true
         
         // 被用于动态加载
-        Foo foo2 = (Foo) c1.newInstance(); // throw Exception
+        Foo foo2 = c1.newInstance(); // throw Exception
         foo2.print();
     }
 

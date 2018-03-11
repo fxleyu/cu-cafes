@@ -1,10 +1,10 @@
 package fx.leyu.jdk.util;
 
+import org.junit.Test;
+
 import java.util.Base64;
 import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
-
-import org.junit.Test;
 
 public class Base64Test {
 

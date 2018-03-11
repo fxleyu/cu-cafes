@@ -1,12 +1,9 @@
 package fx.leyu.jdk.lang.reflect;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import org.junit.Test;
 
-import fx.leyu.jdk.lang.reflect.ClassUtils;
-import fx.leyu.jdk.lang.reflect.MethodTestClass;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class MothedTest {
     

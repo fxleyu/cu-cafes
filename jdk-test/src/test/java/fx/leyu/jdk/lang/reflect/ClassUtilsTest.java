@@ -1,10 +1,6 @@
 package fx.leyu.jdk.lang.reflect;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
-
-import fx.leyu.jdk.lang.reflect.ClassUtils;
 
 public class ClassUtilsTest {
 
