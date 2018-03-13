@@ -46,13 +46,13 @@ public class ReaderWriterSolution {
  */
 
 interface RWLock {
-    public abstract void acquireReadLock(int readerNum);
+    void acquireReadLock(int readerNum);
 
-    public abstract void acquireWriteLock(int writerNum);
+    void acquireWriteLock(int writerNum);
 
-    public abstract void releaseReadLock(int readerNum);
+    void releaseReadLock(int readerNum);
 
-    public abstract void releaseWriteLock(int writerNum);
+    void releaseWriteLock(int writerNum);
 }
 
 // ****************************************************************
@@ -166,7 +166,7 @@ class Reader implements Runnable {
 
             database.releaseReadLock(readerNum);
         }
-    };
+    }
 }
 
 // **************************************************************

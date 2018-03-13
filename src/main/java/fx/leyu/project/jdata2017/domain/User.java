@@ -128,8 +128,6 @@ public class User {
             return false;
         if (sex != other.sex)
             return false;
-        if (userLevel != other.userLevel)
-            return false;
-        return true;
+        return userLevel == other.userLevel;
     }
 }

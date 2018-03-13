@@ -32,10 +32,7 @@ public class Problem404 {
     }
 
     private boolean isLeave(TreeNode left) {
-        if (left != null && left.right == null && left.left == null) {
-            return true;
-        }
-        return false;
+        return left != null && left.right == null && left.left == null;
     }
 
 }

@@ -12,7 +12,7 @@ public class CharsetTest {
         handleGbk();
     }
     
-    private static void handleGbk() throws FileNotFoundException, UnsupportedEncodingException {
+    private static void handleGbk() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("data/gbk.txt"), "gbk");
         byte[] bs = sc.nextLine().getBytes();
         sc.close();

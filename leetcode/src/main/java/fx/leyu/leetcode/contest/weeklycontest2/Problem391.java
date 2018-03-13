@@ -44,10 +44,7 @@ public class Problem391 {
         if (min[0] >= is2[2] || min[1] >= is2[3]) {
             return false;
         }
-        if (max[0] <= is2[0] || max[1] <= is2[1]) {
-            return false;
-        }
-        return true;
+        return max[0] > is2[0] && max[1] > is2[1];
     }
 
     private long handleArea(int[] min, int[] max) {
@@ -58,10 +55,7 @@ public class Problem391 {
         if (is[0] >= is2[2] || is[1] >= is2[3]) {
             return false;
         }
-        if (is[2] <= is2[0] || is[3] <= is2[1]) {
-            return false;
-        }
-        return true;
+        return is[2] > is2[0] && is[3] > is2[1];
     }
 
     private void handleMAX(int[] is, int[] max) {

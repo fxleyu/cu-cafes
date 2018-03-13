@@ -37,12 +37,12 @@ public class MessageDao {
         return result;
     }
     
-    public List<Message> queryMessageListByMybatis() throws SQLException, IOException {
+    public List<Message> queryMessageListByMybatis() throws IOException {
         SqlSession session = DbAccess.getSqlSession();
         return session.selectList("selectAllMessages");
     }
     
-    public List<Message> queryMessageByMybatis(String command) throws SQLException, IOException {
+    public List<Message> queryMessageByMybatis(String command) throws IOException {
         Message message = new Message();
         message.setCommand(command);
         SqlSession session = DbAccess.getSqlSession();

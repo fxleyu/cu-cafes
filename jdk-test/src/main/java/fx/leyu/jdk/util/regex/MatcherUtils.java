@@ -8,11 +8,11 @@ import java.util.regex.Pattern;
 public class MatcherUtils {
 
     public interface MatchFilter {
-        abstract boolean acceptMatch(Matcher matcher, String input);
+        boolean acceptMatch(Matcher matcher, String input);
     }
 
     public interface TransformFilter {
-        abstract String transformUrl(Matcher match, String url);
+        String transformUrl(Matcher match, String url);
     }
 
     public static String replaceAll(String input, Pattern pattern, String replacement, MatchFilter matchFilter) {

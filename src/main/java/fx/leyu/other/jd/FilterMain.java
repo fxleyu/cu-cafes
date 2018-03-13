@@ -100,12 +100,8 @@ class CouponNode {
         if (minVersion != null && minVersion.compareTo(clientInfo) > 0) {
             return false;
         }
-        
-        if (maxVersion != null && maxVersion.compareTo(clientInfo) < 0) {
-            return false;
-        }
-        
-        return true;
+
+        return maxVersion == null || maxVersion.compareTo(clientInfo) >= 0;
     }
     
     @Override

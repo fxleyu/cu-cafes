@@ -5,22 +5,22 @@ import org.junit.*;
 public class QuantifierOfRegexTest {
 
     @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
+    public static void setUpBeforeClass() {
         System.out.println("setUpBeforeClass");
     }
 
     @AfterClass
-    public static void tearDownAfterClass() throws Exception {
+    public static void tearDownAfterClass() {
         System.out.println("tearDownAfterClass");
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         System.out.println("setUp");
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.out.println("tearDown");
     }
     

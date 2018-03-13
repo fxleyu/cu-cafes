@@ -40,7 +40,7 @@ public class Solution {
             temp = temp / 10;
         }
         
-        return x == other ? true : false;
+        return x == other;
     }
 
 }

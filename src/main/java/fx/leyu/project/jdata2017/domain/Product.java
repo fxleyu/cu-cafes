@@ -100,9 +100,7 @@ public class Product {
             return false;
         if (cate != other.cate)
             return false;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
     @Override
     public String toString() {

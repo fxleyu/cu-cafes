@@ -102,9 +102,7 @@ public class Comment {
             return false;
         if (id != other.id)
             return false;
-        if (productId != other.productId)
-            return false;
-        return true;
+        return productId == other.productId;
     }
     @Override
     public String toString() {

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class SocketTest {
 
-    public static void main(String[] args) throws UnknownHostException, IOException {
+    public static void main(String[] args) throws IOException {
         Socket socket = new Socket("127.0.0.1", 10240);
         Scanner scanner = new Scanner(socket.getInputStream());
         System.out.println(new String(scanner.nextLine().getBytes(), "utf-8"));

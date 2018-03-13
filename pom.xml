@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>jdk-test</module>
+    <module>leetcode</module>
   </modules>
   <packaging>pom</packaging>
   

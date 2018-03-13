@@ -9,22 +9,22 @@ import org.junit.Test;
 public class JunitFlowTest {
 
     @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
+    public static void setUpBeforeClass() {
         System.out.println("Before Class ...");
     }
 
     @AfterClass
-    public static void tearDownAfterClass() throws Exception {
+    public static void tearDownAfterClass() {
         System.out.println("After Class ...");
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         System.out.println("Before ....");
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.out.println("After ...");
     }
 

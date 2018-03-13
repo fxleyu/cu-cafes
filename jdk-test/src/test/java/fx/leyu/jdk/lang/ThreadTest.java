@@ -49,7 +49,7 @@ public class ThreadTest {
      * Join end
      */
     @Test
-    public void testJoinWithArgs() throws InterruptedException {
+    public void testJoinWithArgs() {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {

@@ -8,7 +8,7 @@ public enum MeterType {
     private final long base;
     private final String description;
     
-    private MeterType(long base, String description) {
+    MeterType(long base, String description) {
         this.base = base;
         this.description = description;
     }

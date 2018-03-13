@@ -42,7 +42,7 @@ public class QueryMessageTest {
     
     @Test
     public void testDeleteMessagesByMybatis() {
-        List<Integer> list = Arrays.asList(new Integer[]{2,3});
+        List<Integer> list = Arrays.asList(2,3);
         new MessageService().deleteMessagesByMybatis(list);
     }
 
