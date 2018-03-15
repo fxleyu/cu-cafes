@@ -6,6 +6,8 @@
   <modules>
     <module>jdk-test</module>
     <module>leetcode</module>
+    <module>effective-java</module>
+    <module>stackoverflow</module>
   </modules>
   <packaging>pom</packaging>
   
