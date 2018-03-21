@@ -8,6 +8,8 @@
     <module>leetcode</module>
     <module>effective-java</module>
     <module>stackoverflow</module>
+    <module>learn-spring</module>
+    <module>fxleyu-another</module>
   </modules>
   <packaging>pom</packaging>
   
