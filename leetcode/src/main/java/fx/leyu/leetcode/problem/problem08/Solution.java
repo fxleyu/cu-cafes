@@ -80,7 +80,7 @@ public class Solution {
             return str;
         }
         
-        Pattern p = Pattern.compile("[+-]{0,1}[0-9]{1,}");
+        Pattern p = Pattern.compile("[+-]?[0-9]+");
         Matcher matcher = p.matcher(str.trim());
         if (!matcher.find() || matcher.start() != 0) {
             return null;
