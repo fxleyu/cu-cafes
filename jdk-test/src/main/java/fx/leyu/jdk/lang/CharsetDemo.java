@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
-public class CharsetTest {
+public class CharsetDemo {
 
     public static void main(String[] args) throws UnsupportedEncodingException, FileNotFoundException {
         handleUtf8();

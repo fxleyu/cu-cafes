@@ -3,7 +3,7 @@ package fx.leyu.jdk.lang;
 import org.junit.Test;
 
 public class ThreadTest {
-    
+
     @Test
     public void testJoin() {
         Thread thread = new Thread(new Runnable() {
