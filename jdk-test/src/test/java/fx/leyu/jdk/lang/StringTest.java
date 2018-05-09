@@ -39,4 +39,10 @@ public class StringTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testSubstring() {
+        String string = "string";
+        Assert.assertEquals("", string.substring(string.indexOf("g") + 1));
+    }
 }
