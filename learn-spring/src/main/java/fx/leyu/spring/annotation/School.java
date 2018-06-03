@@ -1,15 +1,18 @@
 package fx.leyu.spring.annotation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 public class School {
-    private List<Teacher> teachers;
+    private Teacher teacher;
 
-    public List<Teacher> getTeachers() {
-        return teachers;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTeachers(List<Teacher> teachers) {
-        this.teachers = teachers;
+    @Autowired
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }
