@@ -7,6 +7,6 @@ public class RegexPatternTest {
     @Test
     public void testMetacharacter() {
         String test = "\\";
-        Assert.assertTrue("file.txt".matches("file" + RegexPattern.METACHARACTER + ".txt"));
+        Assert.assertTrue("file.txt".matches("file" + RegexPattern.ESCAPE_CHARACTER + ".txt"));
     }
 }
