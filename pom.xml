@@ -12,6 +12,7 @@
         <module>hello-stackoverflow</module>
         <module>hello-world</module>
         <module>read-blog</module>
+        <module>hello-regex</module>
     </modules>
     <packaging>pom</packaging>
 
