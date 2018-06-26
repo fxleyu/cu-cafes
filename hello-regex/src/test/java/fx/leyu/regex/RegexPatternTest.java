@@ -44,4 +44,45 @@ public class RegexPatternTest {
         Assert.assertTrue("F".matches(RegexPattern.NOT_NUMBER_PATTERN));
         Assert.assertTrue("朱".matches(RegexPattern.NOT_NUMBER_PATTERN));
     }
+
+    @Test
+    public void testArrayMark() {
+        Assert.assertTrue("[0]".matches(RegexPattern.ARRAY_ZERO_MARK));
+    }
+
+    @Test
+    public void test() {
+        Assert.assertTrue("\\".matches("\\\\"));
+    }
+
+    @Test
+    public void testReturnLine() {
+        Assert.assertTrue("\n".matches("\n"));
+    }
+
+    @Test
+    public void testNumberMetacharacter() {
+        Assert.assertTrue("\n".matches(RegexPattern.NOT_NUMBER_METACHARACTER));
+        Assert.assertTrue("Z".matches(RegexPattern.NOT_NUMBER_METACHARACTER));
+        Assert.assertTrue(" ".matches(RegexPattern.NOT_NUMBER_METACHARACTER));
+        Assert.assertTrue("朱".matches(RegexPattern.NOT_NUMBER_METACHARACTER));
+
+        Assert.assertTrue("1".matches(RegexPattern.NUMBER_METACHARACTER));
+    }
+
+    @Test
+    public void testWhiteMetacharacter() {
+        Assert.assertTrue("\n".matches(RegexPattern.WHITE_METACHARACTER));
+        Assert.assertTrue("Z".matches(RegexPattern.NOT_WHITE_METACHARACTER));
+        Assert.assertTrue(" ".matches(RegexPattern.WHITE_METACHARACTER));
+        Assert.assertTrue("朱".matches(RegexPattern.NOT_WHITE_METACHARACTER));
+    }
+
+    @Test
+    public void testPosix() {
+        Assert.assertTrue("a".matches(RegexPattern.AL_NUM_POSIX));
+        Assert.assertTrue("z".matches(RegexPattern.AL_NUM_POSIX));
+        Assert.assertTrue("0".matches(RegexPattern.AL_NUM_POSIX));
+        Assert.assertTrue("9".matches(RegexPattern.AL_NUM_POSIX));
+    }
 }
