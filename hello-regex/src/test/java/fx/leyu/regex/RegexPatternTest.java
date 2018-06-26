@@ -85,4 +85,14 @@ public class RegexPatternTest {
         Assert.assertTrue("0".matches(RegexPattern.AL_NUM_POSIX));
         Assert.assertTrue("9".matches(RegexPattern.AL_NUM_POSIX));
     }
+
+    @Test
+    public void testEmail() {
+        Assert.assertTrue("fxleyu@qq.com".matches(RegexPattern.EMAIL_PATTERN));
+        Assert.assertTrue("784978881@qq.com".matches(RegexPattern.EMAIL_PATTERN));
+        Assert.assertTrue("fx_leyu@qq.com".matches(RegexPattern.EMAIL_PATTERN));
+
+        Assert.assertFalse("朱智慧@qq.com".matches(RegexPattern.EMAIL_PATTERN));
+        Assert.assertFalse("fx.leyu@qq.com".matches(RegexPattern.EMAIL_PATTERN));
+    }
 }

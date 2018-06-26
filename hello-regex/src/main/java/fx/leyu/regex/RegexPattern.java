@@ -12,4 +12,5 @@ public class RegexPattern {
     public static final String WHITE_METACHARACTER = "\\s";
     public static final String NOT_WHITE_METACHARACTER = "\\S";
     public static final String AL_NUM_POSIX = "\\p{Alnum}";           //  java 不支持 POSIX 字符
+    public static final String EMAIL_PATTERN = "\\w+@\\w+\\.\\w+";
 }
