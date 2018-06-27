@@ -3,6 +3,9 @@ package fx.leyu.regex;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegexPatternTest {
     @Test
     public void testMetacharacter() {
@@ -94,5 +97,44 @@ public class RegexPatternTest {
 
         Assert.assertFalse("朱智慧@qq.com".matches(RegexPattern.EMAIL_PATTERN));
         Assert.assertFalse("fx.leyu@qq.com".matches(RegexPattern.EMAIL_PATTERN));
+    }
+
+    @Test
+    public void testMyHomePage() {
+        Assert.assertTrue("https://fxleyu.github.io/".matches(RegexPattern.MY_HOME_PAGE));
+        Assert.assertTrue("http://fxleyu.github.io/".matches(RegexPattern.MY_HOME_PAGE));
+    }
+
+    @Test
+    public void testOnes() {
+        Assert.assertTrue("111".matches(RegexPattern.THREE_ONES));
+        Assert.assertTrue("111".matches(RegexPattern.THREE_TO_FIVE_ONES));
+        Assert.assertTrue("111".matches(RegexPattern.AT_LEAST_THREE_ONES));
+
+        Assert.assertFalse("1111".matches(RegexPattern.THREE_ONES));
+        Assert.assertTrue("1111".matches(RegexPattern.THREE_TO_FIVE_ONES));
+        Assert.assertTrue("1111".matches(RegexPattern.AT_LEAST_THREE_ONES));
+
+        Assert.assertFalse("111111".matches(RegexPattern.THREE_TO_FIVE_ONES));
+        Assert.assertTrue("111111".matches(RegexPattern.AT_LEAST_THREE_ONES));
+    }
+
+    @Test
+    public void testBoldType() {
+        Assert.assertTrue("<B> AK </B> and <B> HI </B>".matches(RegexPattern.BOLD_TYPE_ERROR));
+        Assert.assertTrue("<B> AK </B> and <B> HI </B>".matches(RegexPattern.BOLD_TYPE)); // WTF ?
+
+        String string = "<B> AK </B> and <B> HI </B>";
+        Pattern pattern = Pattern.compile(RegexPattern.BOLD_TYPE_ERROR);
+        Matcher matcher = pattern.matcher(string);
+        while(matcher.find()) {
+            Assert.assertEquals(string, matcher.group());
+        }
+
+        pattern = Pattern.compile(RegexPattern.BOLD_TYPE);
+        matcher = pattern.matcher(string);
+        while(matcher.find()) {
+            Assert.assertNotEquals(string, matcher.group());
+        }
     }
 }
