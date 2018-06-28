@@ -19,4 +19,6 @@ public class RegexPattern {
     public static final String AT_LEAST_THREE_ONES = "1{3,}";
     public static final String BOLD_TYPE_ERROR = "<[bB]>.*</[bB]>";  // 贪婪模式
     public static final String BOLD_TYPE = "<[bB]>.*?</[bB]>";        // 懒惰模式
+    public static final String PATTERN_0_255 = "((1?\\d{1,2})|2(([0-4]\\d)|(5[0-5])))";
+    public static final String IP_PATTERN = "(" + PATTERN_0_255 + "\\.){3}" + PATTERN_0_255;
 }

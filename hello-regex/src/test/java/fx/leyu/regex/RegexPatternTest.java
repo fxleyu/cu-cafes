@@ -168,4 +168,37 @@ public class RegexPatternTest {
         Assert.assertFalse("I love china! \n yes, chine.".matches("^.*$")); // . 模式不支持换行
         Assert.assertTrue("I love china! yes, chine.".matches("^.*$"));
     }
+
+    @Test
+    public void testSubexpression() {
+        Assert.assertTrue("GOOD!GOOD!GOOD!".matches("(GOOD!){3,}"));
+
+        Assert.assertTrue("19".matches("19|20\\d{2}"));
+        Assert.assertTrue("2009".matches("19|20\\d{2}"));
+        Assert.assertFalse("1997".matches("19|20\\d{2}"));
+
+        Assert.assertTrue("1997".matches("(19|20)\\d{2}"));
+    }
+
+    @Test
+    public void testIp() {
+        Assert.assertTrue("0.1.9.10".matches(RegexPattern.IP_PATTERN));
+        Assert.assertTrue("10.11.99.100".matches(RegexPattern.IP_PATTERN));
+        Assert.assertTrue("100.111.199.200".matches(RegexPattern.IP_PATTERN));
+        Assert.assertTrue("200.211.229.230".matches(RegexPattern.IP_PATTERN));
+        Assert.assertTrue("255.250.249.230".matches(RegexPattern.IP_PATTERN));
+
+        Assert.assertFalse("256.250.249.230".matches(RegexPattern.IP_PATTERN));
+    }
+
+    @Test
+    public void testPatten0To255() {
+        for (int i = 0; i < 1001; i++) {
+            if (i < 256) {
+                Assert.assertTrue(i + " is error", Integer.toString(i).matches(RegexPattern.PATTERN_0_255));
+            } else {
+                Assert.assertFalse(i + " is error", Integer.toString(i).matches(RegexPattern.PATTERN_0_255));
+            }
+        }
+    }
 }
