@@ -137,4 +137,35 @@ public class RegexPatternTest {
             Assert.assertNotEquals(string, matcher.group());
         }
     }
+
+    @Test
+    public void testFxleyu() {
+        Assert.assertEquals("I am FXLEYU", "I am Fxleyu".replaceAll(RegexPattern.NET_NAME_PATTERN, "FXLEYU"));
+        Assert.assertEquals("I am FXLEYU;", "I am Fxleyu;".replaceAll(RegexPattern.NET_NAME_PATTERN, "FXLEYU"));
+        Assert.assertEquals("FXLEYU-!", "Fxleyu-!".replaceAll(RegexPattern.NET_NAME_PATTERN, "FXLEYU"));
+        Assert.assertNotEquals("FXLEYU_-!", "Fxleyu_-!".replaceAll(RegexPattern.NET_NAME_PATTERN, "FXLEYU"));
+    }
+
+    @Test
+    public void testChinese() {
+        // https://github.com/fxleyu/west-world/issues/34 对 \b 的说法有问题
+        Assert.assertTrue("朱".matches("\\b朱\\b"));
+        Assert.assertFalse("朱".matches("\\w"));
+        Assert.assertEquals("我是 朱智慧！", "我是 智慧！".replaceAll("\\b智慧\\b", "朱智慧"));
+    }
+
+    @Test
+    public void testStringBoundary() {
+        Assert.assertTrue("$".matches("\\$"));
+        Assert.assertTrue("$a".matches("\\$a"));
+        Assert.assertFalse("$a".matches("$a"));
+
+        Assert.assertTrue("a^".matches("a\\^"));
+        Assert.assertFalse("a^".matches("a^"));
+
+        Assert.assertTrue("fxleyu".matches("^fxleyu$"));
+
+        Assert.assertFalse("I love china! \n yes, chine.".matches("^.*$")); // . 模式不支持换行
+        Assert.assertTrue("I love china! yes, chine.".matches("^.*$"));
+    }
 }
