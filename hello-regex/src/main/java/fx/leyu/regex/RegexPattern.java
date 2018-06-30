@@ -21,4 +21,6 @@ public class RegexPattern {
     public static final String BOLD_TYPE = "<[bB]>.*?</[bB]>";        // 懒惰模式
     public static final String PATTERN_0_255 = "((1?\\d{1,2})|2(([0-4]\\d)|(5[0-5])))";
     public static final String IP_PATTERN = "(" + PATTERN_0_255 + "\\.){3}" + PATTERN_0_255;
+    public static final String HEAD_PATTERN = "<[hH]([1-6])>.*?</[hH]\\1>";
+    public static final String TWO_SAME_WORDS = "(\\w+)\\W+\\1";
 }

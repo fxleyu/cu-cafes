@@ -192,6 +192,11 @@ public class RegexPatternTest {
     }
 
     @Test
+    public void testOther() {
+        Assert.assertTrue("0.0.0.0".matches(RegexPattern.PATTERN_0_255 + "((\\.)\\1){3}"));
+    }
+
+    @Test
     public void testPatten0To255() {
         for (int i = 0; i < 1001; i++) {
             if (i < 256) {
@@ -200,5 +205,30 @@ public class RegexPatternTest {
                 Assert.assertFalse(i + " is error", Integer.toString(i).matches(RegexPattern.PATTERN_0_255));
             }
         }
+    }
+
+    @Test
+    public void testHeadPattern() {
+        Assert.assertTrue("<H1>Hello World!</H1>".matches(RegexPattern.HEAD_PATTERN));
+        Assert.assertTrue("<H2>Hello World!</h2>".matches(RegexPattern.HEAD_PATTERN));
+        Assert.assertTrue("<h1>Hello World!</h1>".matches(RegexPattern.HEAD_PATTERN));
+
+        Assert.assertFalse("<h1>Hello World!</h2>".matches(RegexPattern.HEAD_PATTERN));
+    }
+
+    @Test
+    public void testTwoSameWord() {
+        Assert.assertTrue("Good!!Good".matches(RegexPattern.TWO_SAME_WORDS));
+        Assert.assertTrue("Hi Hi".matches(RegexPattern.TWO_SAME_WORDS));
+
+        Assert.assertFalse("Hi Ho".matches(RegexPattern.TWO_SAME_WORDS));
+
+        System.out.print("Good!!Good".replaceAll(RegexPattern.TWO_SAME_WORDS, "$1 $1 $1"));
+    }
+
+    @Test
+    public void testReplace() {
+        Assert.assertEquals("Good Good Good",
+                "Good!!Good".replaceAll(RegexPattern.TWO_SAME_WORDS, "$1 $1 $1"));
     }
 }
