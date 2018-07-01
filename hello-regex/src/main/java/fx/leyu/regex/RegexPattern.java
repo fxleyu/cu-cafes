@@ -23,4 +23,5 @@ public class RegexPattern {
     public static final String IP_PATTERN = "(" + PATTERN_0_255 + "\\.){3}" + PATTERN_0_255;
     public static final String HEAD_PATTERN = "<[hH]([1-6])>.*?</[hH]\\1>";
     public static final String TWO_SAME_WORDS = "(\\w+)\\W+\\1";
+    public static final String PROTOCOL_PATTERN = "\\b\\w+?(?=://)";   // 向前查找
 }

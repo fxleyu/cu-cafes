@@ -231,4 +231,13 @@ public class RegexPatternTest {
         Assert.assertEquals("Good Good Good",
                 "Good!!Good".replaceAll(RegexPattern.TWO_SAME_WORDS, "$1 $1 $1"));
     }
+
+    @Test
+    public void testProtocolPattern() {
+        Assert.assertEquals("HTTP://baidu.com",
+                "https://baidu.com".replaceAll(RegexPattern.PROTOCOL_PATTERN,"HTTP"));
+        Assert.assertEquals("HTTP://baidu.com",
+                "http://baidu.com".replaceAll(RegexPattern.PROTOCOL_PATTERN,"HTTP"));
+
+    }
 }
