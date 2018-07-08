@@ -17,7 +17,7 @@ public class WeakHashMapTest {
     @BeforeClass
     public static void beforeClass() {
         for (int i = 0; i < MAX; i++) {
-            list.add(RandomUtils.nextInt(0, i), "test" + 1);
+            list.add(RandomUtils.nextInt(0, i), "test" + i);
         }
     }
 
