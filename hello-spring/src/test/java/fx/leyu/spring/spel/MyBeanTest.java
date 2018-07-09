@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //@ContextConfiguration("classpath:spring-spel.xml")
 public class MyBeanTest {
     @Configuration
-    @ComponentScan(basePackages = {"fx.leyu.jd.spring.spel"})
+    @ComponentScan(basePackages = {"fx.leyu.spring.spel"})
     public static class Config{
     }
     @Autowired
