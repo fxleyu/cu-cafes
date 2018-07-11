@@ -21,7 +21,7 @@ public class UserInfoService {
         return userInfoMap.get(user);
     }
 
-    @Cacheable(value = "userInfoCache", key = "#user.nation")
+    @Cacheable(value = "userInfoCache", key = "#user.name")
     //@Cacheable(value = "userInfoCache")
     public String getUserInfo(User user) {
         System.out.println("User requested " + user);
