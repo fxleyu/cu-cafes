@@ -8,9 +8,11 @@
     <context:component-scan base-package="fx.leyu.spring.cache"/>
     <cache:annotation-driven cache-manager="MyCacheManager"/>
 
-    <bean id="MyCacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+    <bean id="MyCacheManager" primary="true" class="org.springframework.cache.support.SimpleCacheManager">
         <property name="caches">
             <set>
+                <bean id="stringCache" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+                <bean id="userCache" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
                 <bean id="userInfoCache" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
             </set>
         </property>
