@@ -20,4 +20,11 @@ public class UserInfoService {
         System.out.println("User requested " + user);
         return userInfoMap.get(user);
     }
+
+    @Cacheable(value = "userInfoCache", key = "#user.nation")
+    //@Cacheable(value = "userInfoCache")
+    public String getUserInfo(User user) {
+        System.out.println("User requested " + user);
+        return userInfoMap.get(user.getName());
+    }
 }

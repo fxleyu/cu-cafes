@@ -14,8 +14,22 @@ public class UserInfoServiceTest {
     private UserInfoService service;
 
     @Test
-    public void testCache() {
+    public void testgetUserInfoString() {
         service.getUserInfo("fxleyu");
         service.getUserInfo("fxleyu");
+        System.out.println("----");
+        service.getUserInfo("fxyuer");
+        service.getUserInfo("fxyuer");
+    }
+
+    @Test
+    public void testgetUserInfoUser() {
+        User fxleyu = new User("fxleyu", "cn");
+        User fxyuer = new User("fxyuer", "cn");
+        service.getUserInfo(fxleyu);
+        service.getUserInfo(fxyuer);
+        System.out.println("----");
+        service.getUserInfo(fxyuer);
+        service.getUserInfo(fxleyu);
     }
 }
