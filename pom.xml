@@ -14,6 +14,7 @@
         <module>read-blog</module>
         <module>hello-regex</module>
         <module>hello-web</module>
+        <module>hello-redis</module>
 
     </modules>
     <packaging>pom</packaging>
