@@ -119,10 +119,11 @@ public class ThreadTest {
                         
                     }
                 } catch(Exception e) {
-                    System.out.println(e);
-                    e.printStackTrace();
+                    throw new IllegalArgumentException(e);
+                    //System.out.println(e);
+                    //e.printStackTrace();
                 }
-                System.out.println("Thread stop!");
+                //System.out.println("Thread stop!");
             }
         });
         thread.start();
