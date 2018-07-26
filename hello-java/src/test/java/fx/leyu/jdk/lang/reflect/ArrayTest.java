@@ -15,7 +15,6 @@ public class ArrayTest {
         int[] intArray = {1, 2};
         Assert.assertEquals(2, Array.getLength(intArray));
 
-        intArray = null;
-        Assert.assertEquals(0, ArrayUtils.getLength(intArray));
+        Assert.assertEquals(0, ArrayUtils.getLength(null));
     }
 }
