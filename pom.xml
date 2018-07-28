@@ -15,6 +15,7 @@
         <module>hello-regex</module>
         <module>hello-web</module>
         <module>hello-redis</module>
+        <module>hello-jvm</module>
 
     </modules>
     <packaging>pom</packaging>
