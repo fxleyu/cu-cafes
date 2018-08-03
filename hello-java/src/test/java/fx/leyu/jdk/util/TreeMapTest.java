@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.TreeMap;
 
 public class TreeMapTest {
+    private static final String NULL_KEY = null;
 
     @Test(expected = NullPointerException.class)
     public void testGetByNullKey() {
@@ -18,5 +19,11 @@ public class TreeMapTest {
     public void testGetByNullKeyWithMapUtils() {
         TreeMap<String, String> treeMap = Maps.newTreeMap();
         MapUtils.getString(treeMap, null);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testContainsByNullKey() {
+        TreeMap<String, String> treeMap = Maps.newTreeMap();
+        treeMap.containsKey(NULL_KEY);
     }
 }

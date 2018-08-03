@@ -8,15 +8,22 @@ import org.junit.Test;
 import java.util.HashMap;
 
 public class HashMapTest {
+    private static final String NULL_KEY = null;
+    private static final String VALUE = "NULL KEY VALUE";
+
     @Test
     public void testGetByNullKey() {
-        final String nullKey = null;
-        final String value = "NULL KEY VALUE";
-
         HashMap<String, String> hashMap = Maps.newHashMap();
-        hashMap.put(nullKey, value);
+        hashMap.put(NULL_KEY, VALUE);
 
-        Assert.assertEquals(value, hashMap.get(nullKey));
-        Assert.assertEquals(hashMap.get(nullKey), MapUtils.getString(hashMap, nullKey));
+        Assert.assertEquals(VALUE, hashMap.get(NULL_KEY));
+        Assert.assertEquals(hashMap.get(NULL_KEY), MapUtils.getString(hashMap, NULL_KEY));
+    }
+
+    @Test
+    public void testContainsByNullKey() {
+        HashMap<String, String> hashMap = Maps.newHashMap();
+        hashMap.put(NULL_KEY, VALUE);
+        Assert.assertTrue(hashMap.containsKey(NULL_KEY));
     }
 }
