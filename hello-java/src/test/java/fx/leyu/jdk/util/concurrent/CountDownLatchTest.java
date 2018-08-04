@@ -2,9 +2,10 @@ package fx.leyu.jdk.util.concurrent;
 
 import org.junit.Test;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Random;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class CountDownLatchTest {
     private static final int COUNT = 5;
@@ -35,5 +36,13 @@ public class CountDownLatchTest {
                 latch.countDown();
             }
         }).start();
+
+        ThreadPoolExecutor executorService = new ThreadPoolExecutor(5, 5, 30, TimeUnit.SECONDS,new LinkedBlockingQueue(20));
+        executorService.execute(() -> {});
+        executorService.execute(() -> {});
+        executorService.execute(() -> {});
+        executorService.execute(() -> {});
+        executorService.execute(() -> {});
+        executorService.execute(() -> {});
     }
 }
