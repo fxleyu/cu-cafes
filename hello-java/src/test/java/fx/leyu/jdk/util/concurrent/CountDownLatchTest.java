@@ -1,9 +1,8 @@
 package fx.leyu.jdk.util.concurrent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.concurrent.*;
 
@@ -36,13 +35,13 @@ public class CountDownLatchTest {
                 latch.countDown();
             }
         }).start();
+    }
 
-        ThreadPoolExecutor executorService = new ThreadPoolExecutor(5, 5, 30, TimeUnit.SECONDS,new LinkedBlockingQueue(20));
-        executorService.execute(() -> {});
-        executorService.execute(() -> {});
-        executorService.execute(() -> {});
-        executorService.execute(() -> {});
-        executorService.execute(() -> {});
-        executorService.execute(() -> {});
+    @Test
+    public void testConstructor() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(0);
+        TimeUnit.SECONDS.sleep(1);
+        latch.await();
+        Assert.assertTrue(true);
     }
 }
