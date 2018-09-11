@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 
@@ -44,5 +45,25 @@ public class StringTest {
     public void testSubstring() {
         String string = "string";
         Assert.assertEquals("", string.substring(string.indexOf("g") + 1));
+    }
+
+    @Test
+    public void testSplit() {
+        String string = "=x";
+        Assert.assertEquals(2, string.split("=").length);
+        Assert.assertEquals(1, StringUtils.split(string, "=").length);
+        string = "x=x";
+        Assert.assertEquals(2, string.split("=").length);
+        Assert.assertEquals(2, StringUtils.split(string, "=").length);
+
+        string = "x=";
+        Assert.assertEquals(1, string.split("=").length);
+        Assert.assertEquals(1, StringUtils.split(string, "=").length);
+
+        string = "";
+        Assert.assertEquals(1, string.split("=").length);
+        Assert.assertEquals(0, StringUtils.split(string, "=").length);
+
+        Assert.assertEquals(null, StringUtils.split(null, "="));
     }
 }
