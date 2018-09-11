@@ -16,6 +16,7 @@
         <module>hello-web</module>
         <module>hello-redis</module>
         <module>hello-jvm</module>
+        <module>hello-design-pattern</module>
 
     </modules>
     <packaging>pom</packaging>
@@ -41,6 +42,16 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
+            <version>5.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>5.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
             <version>5.0.4.RELEASE</version>
         </dependency>
 
