@@ -1,4 +1,4 @@
-package fx.leyu.spring.annotation;
+package fx.leyu.spring.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,8 +1,6 @@
-package fx.leyu.spring.annotation;
+package fx.leyu.spring.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 
 public class School {
     @Autowired
@@ -12,7 +10,6 @@ public class School {
         System.out.println("getTeacher");
         return teacher;
     }
-
 
     public void setTeacher(Teacher teacher) {
         System.out.println("setTeacher");
