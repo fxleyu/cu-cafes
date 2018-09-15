@@ -8,5 +8,6 @@ public class BeanConfigurationTest {
     public void test() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
         School school = context.getBean("school", School.class);
+        Teacher teacher = context.getBean("teacher", Teacher.class);
     }
 }
