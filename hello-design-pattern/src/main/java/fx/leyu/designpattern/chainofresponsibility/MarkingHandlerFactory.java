@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MarkingHandlerFactory {
-    @Bean("markingHandler")
+    @Bean(name = "markingHandler")
     public static MarkingHandler gainMarkingHandler() {
         MarkingHandler markingHandler = new ChoicenessMarkingHandler();
         MarkingHandler supermarketMarkingHandler = new SupermarketMarkingHandler();

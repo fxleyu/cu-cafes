@@ -1,5 +1,7 @@
 package fx.leyu.spring.annotation;
 
+import fx.leyu.spring.domain.School;
+import fx.leyu.spring.domain.Teacher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
