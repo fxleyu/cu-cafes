@@ -17,6 +17,7 @@
         <module>hello-redis</module>
         <module>hello-jvm</module>
         <module>hello-design-pattern</module>
+        <module>hello-zookeeper</module>
 
     </modules>
     <packaging>pom</packaging>
