@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = "fx.leyu.spring")
 public class Application {
     
     @Bean(initMethod="fxInit", destroyMethod="fxDestory")
