@@ -9,6 +9,9 @@ This is a repository of Java. And CU is a cafes unders downstairs.
 - OJ练习代码
 - 极小的或者未完成项目代码
 
+## 其他
+只是用于学习。
+
 
 # 代码架构
 使用Maven管理依赖包
