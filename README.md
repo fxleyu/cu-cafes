@@ -15,6 +15,3 @@ This is a repository of Java. And CU is a cafes unders downstairs.
 
 # 代码架构
 使用Maven管理依赖包
-
-# 春节计划
-- LeetCode
