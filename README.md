@@ -1,16 +1,10 @@
 # cu-cafes
-This is a repository of Java. And CU is a cafes unders downstairs.
+This is a repository of Java. And CU is a cafes under downstairs.
 
-这是一个Java代码仓库，其中包含各种练习以及项目代码。
-
-各个项目内容包含：
-- JDK API练习代码
-- 框架学习代码
-- OJ练习代码
-- 极小的或者未完成项目代码
+该项目定位于 Java 语言的日常练习与自我学习。
 
 ## 项目涉及内容
-- Java SE
+- Java SE API
 - Spring
 - [Leet Code](https://leetcode-cn.com/problemset/algorithms/)
 
