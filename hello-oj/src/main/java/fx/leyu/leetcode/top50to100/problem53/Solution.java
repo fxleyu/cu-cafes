@@ -9,23 +9,13 @@ public class Solution {
         int max = Integer.MIN_VALUE;
         int temp = 0;
         for (int num : nums) {
-            if (num == 0) {
-                max = Math.max(num, max);
-            } else if (num > 0) {
-                if (temp > 0) {
-                    temp += num;
-                    continue;
-                }
-                temp = num;
-            } else {
-                max = Math.max(num, max);
-                if (temp <= 0) {
-                    temp = num;
-                    continue;
-                }
+            if (temp > 0) {
                 temp += num;
+            } else {
+                temp = num;
             }
+            max = Math.max(temp, max);
         }
-        return Math.max(temp, max);
+        return max;
     }
 }
