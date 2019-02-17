@@ -1,4 +1,4 @@
-package fx.leyu.leetcode.top50to100.problem53;
+package fx.leyu.leetcode.top51to100.problem53;
 
 public class Solution {
     public int maxSubArray(int[] nums) {

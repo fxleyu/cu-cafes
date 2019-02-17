@@ -1,6 +1,5 @@
 package fx.leyu.leetcode.top51to100.problem53;
 
-import fx.leyu.leetcode.top50to100.problem53.Solution;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
