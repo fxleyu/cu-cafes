@@ -16,7 +16,12 @@ public class Solution {
         int result = 1;
         for (int i = 1; i < s.length(); i++) {
             Integer beforeIndex = map.get(s.charAt(i));
-            book[i] = beforeIndex == null ? book[i - 1] + 1 : i - beforeIndex;
+            if (beforeIndex == null) {
+                book[i] = book[i - 1] + 1;
+            } else {
+                book[i] = Math.min(book[i - 1] + 1, i - beforeIndex);
+            }
+
             map.put(s.charAt(i), i);
             result = Math.max(result, book[i]);
         }

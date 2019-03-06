@@ -9,5 +9,6 @@ public class SolutionTest {
         Assert.assertEquals(3, new Solution().lengthOfLongestSubstring("abcabcbb"));
         Assert.assertEquals(1, new Solution().lengthOfLongestSubstring("bbbbbb"));
         Assert.assertEquals(3, new Solution().lengthOfLongestSubstring("pwwkew"));
+        Assert.assertEquals(2, new Solution().lengthOfLongestSubstring("abba"));
     }
 }
