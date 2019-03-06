@@ -65,5 +65,10 @@ public class StringTest {
         Assert.assertEquals(0, StringUtils.split(string, "=").length);
 
         Assert.assertEquals(null, StringUtils.split(null, "="));
+
+
+        string = "=====";
+        Assert.assertEquals(0, string.split("=").length);
+        Assert.assertEquals(0, StringUtils.split(string, "=").length);
     }
 }
