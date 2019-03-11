@@ -24,7 +24,7 @@ public class Solution {
         }
 
         if (result.isEmpty()) {
-            return "";
+            return "/";
         }
 
         StringBuilder builder = new StringBuilder();
