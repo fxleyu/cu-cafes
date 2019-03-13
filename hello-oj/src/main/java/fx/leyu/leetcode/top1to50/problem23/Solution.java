@@ -5,17 +5,46 @@ public class Solution {
         if (lists == null || lists.length == 0) {
             return null;
         }
+
+        for (int left = gainLeftNull(lists, 0), right = gainRightNotNull(lists, lists.length - 1);
+             left < right;
+             left = gainLeftNull(lists, left), right = gainRightNotNull(lists, right)) {
+            exchange(lists, right, left);
+        }
+
         createSmallTopHeap(lists);
 
         ListNode head = new ListNode(-1);
         ListNode index = head;
-        while(lists[0] != null) {
+        while (lists[0] != null) {
+            printList(lists);
             index.next = lists[0];
             index = index.next;
             lists[0] = index.next;
             adjustSmallTopHeap(lists);
         }
         return head.next;
+    }
+
+    private void printList(ListNode[] lists) {
+        System.out.println();
+        for (int i = 0; i < lists.length; i++) {
+            if (lists[i] != null) {
+                System.out.print(" - > " + lists[i]);
+            }
+        }
+    }
+
+    private int gainRightNotNull(ListNode[] lists, int i) {
+        for (; i >= 0 && lists[i] == null; i--) {
+        }
+        return i;
+    }
+
+    private int gainLeftNull(ListNode[] lists, int i) {
+        for (; i < lists.length && lists[i] != null; i++) {
+        }
+        return i;
     }
 
     private void adjustSmallTopHeap(ListNode[] lists) {
@@ -55,9 +84,9 @@ public class Solution {
             if (lists[i] == null) {
                 break;
             }
-            for(int next = i, top = (next - 1) / 2;
-                top >= 0 && lists[top].val > lists[next].val;
-                next = top, top = (next - 1) / 2) {
+            for (int next = i, top = (next - 1) / 2;
+                 top >= 0 && lists[top].val > lists[next].val;
+                 next = top, top = (next - 1) / 2) {
                 exchange(lists, top, next);
             }
         }
