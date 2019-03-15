@@ -18,6 +18,7 @@
         <module>hello-jvm</module>
         <module>hello-design-pattern</module>
         <module>hello-zookeeper</module>
+        <module>hello-hadoop</module>
     </modules>
     <packaging>pom</packaging>
 
