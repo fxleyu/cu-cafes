@@ -19,4 +19,13 @@ public class StringJoinerTest {
         joiner.add("123").add("345");
         Assert.assertEquals("[123,345]", joiner.toString());
     }
+
+    @Test
+    public void testMerge() {
+        StringJoiner one = new StringJoiner(":", "[", "]");
+        StringJoiner two = new StringJoiner("#", "<", ">");
+        one.add("123").add("345");
+        two.add("123").add("345");
+        Assert.assertEquals("[123:345:123#345]", one.merge(two).toString());
+    }
 }
