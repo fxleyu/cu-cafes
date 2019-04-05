@@ -9,7 +9,7 @@ public class Solution {
         int right = nums.length - 1;
         while (left < right && nums[left] > nums[right]) {
             int mid = (left + right) / 2;
-            if (nums[mid] > nums[left]) {
+            if (nums[mid] >= nums[left]) {
                 left = mid + 1;
             } else {
                 right = mid;
