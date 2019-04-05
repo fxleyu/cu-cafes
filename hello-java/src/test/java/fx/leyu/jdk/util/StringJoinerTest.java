@@ -21,6 +21,15 @@ public class StringJoinerTest {
     }
 
     @Test
+    public void testNull() {
+        StringJoiner joiner = new StringJoiner(",");
+        Assert.assertEquals("", joiner.toString());
+
+        joiner = new StringJoiner(",", "[", "]");
+        Assert.assertEquals("[]", joiner.toString());
+    }
+
+    @Test
     public void testMerge() {
         StringJoiner one = new StringJoiner(":", "[", "]");
         StringJoiner two = new StringJoiner("#", "<", ">");
