@@ -3,6 +3,10 @@ package fx.leyu.jdk.util.concurrent;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
+/**
+ * 有i，j，k三个线程,，i线程输出i，j线程输出j， k线程输出k，
+ * 要求，同时启动三个线程,，按顺序输出ijk，循环10次。
+ */
 public class AlternatePrint {
     private static final CyclicBarrier barrierI = new CyclicBarrier(2);
     private static final CyclicBarrier barrierJ = new CyclicBarrier(2);
