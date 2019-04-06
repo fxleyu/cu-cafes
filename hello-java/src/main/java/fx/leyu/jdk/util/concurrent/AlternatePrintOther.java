@@ -45,13 +45,12 @@ public class AlternatePrintOther {
                 }
             }
         });
-
         semaphoreI.acquire();
         semaphoreJ.acquire();
         semaphoreK.acquire();
         threadI.start();
         threadJ.start();
         threadK.start();
-        semaphoreI.acquire();
+        semaphoreI.release();
     }
 }
