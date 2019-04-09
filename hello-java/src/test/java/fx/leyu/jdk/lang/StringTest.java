@@ -71,4 +71,11 @@ public class StringTest {
         Assert.assertEquals(0, string.split("=").length);
         Assert.assertEquals(0, StringUtils.split(string, "=").length);
     }
+
+    @Test
+    public void testReplace() {
+        String string = "#name# love #name#!";
+        String expected = "fxleyu love fxleyu!";
+        Assert.assertEquals(expected, StringUtils.replace(string, "#name#", "fxleyu"));
+    }
 }
