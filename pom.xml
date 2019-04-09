@@ -19,6 +19,7 @@
         <module>hello-design-pattern</module>
         <module>hello-zookeeper</module>
         <module>hello-hadoop</module>
+        <module>hello-hystrix</module>
     </modules>
     <packaging>pom</packaging>
 
