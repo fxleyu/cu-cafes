@@ -8,6 +8,10 @@
 - Spring
 - [Leet Code](https://leetcode-cn.com/problemset/algorithms/)
 - Hadoop
+- Hystrix
+- Redis
+- ZooKeeper
+- Spring
 
 # 代码架构
 - MAVEN 管理
