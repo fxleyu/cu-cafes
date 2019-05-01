@@ -15,3 +15,11 @@
 
 # 代码架构
 - MAVEN 管理
+
+# 注释书写
+```
+[项目]: LeetCode
+[类型]: 编程练习
+[内容]: 具体内容为（https://leetcode.com/problems/merge-two-sorted-lists/）。其中包含规范代码以及自己写的代码
+[模块]: "Merge Two Sorted Lists"
+```
