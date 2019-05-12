@@ -25,12 +25,10 @@ class LRUCache {
     }
 
     public void put(int key, int value) {
-        if (capacity <= map.size() && !map.containsKey(key)) {
-            map.remove(accessList.removeLast());
-        }
-
         if (map.containsKey(key)) {
             accessList.remove(Integer.valueOf(key));
+        } else if (capacity <= map.size()) {
+            map.remove(accessList.removeLast());
         }
 
         map.put(key, value);
