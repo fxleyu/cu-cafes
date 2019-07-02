@@ -24,4 +24,5 @@ public class RegexPattern {
     public static final String HEAD_PATTERN = "<[hH]([1-6])>.*?</[hH]\\1>";
     public static final String TWO_SAME_WORDS = "(\\w+)\\W+\\1";
     public static final String PROTOCOL_PATTERN = "\\b\\w+?(?=://)";   // 向前查找
+    public static final String COMMA_DELIMITED_NUMBERS = "(\\d+,)+(\\d+)";
 }

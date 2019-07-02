@@ -240,4 +240,9 @@ public class RegexPatternTest {
                 "http://baidu.com".replaceAll(RegexPattern.PROTOCOL_PATTERN,"HTTP"));
 
     }
+
+    @Test
+    public void testNumber() {
+        Assert.assertTrue("12,12,2".matches(RegexPattern.COMMA_DELIMITED_NUMBERS));
+    }
 }
