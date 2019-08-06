@@ -45,5 +45,16 @@ public class ConcurrentHashMapTest {
         }).start();
 
         latch.await();
+        /*
+        for-each start
+        visit key is 1
+        add/remove start
+        add key is 2
+        visit key is 3
+        remove key is 5
+        add/remove end
+        visit key is 5
+        for-each end
+        */
     }
 }
