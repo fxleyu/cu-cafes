@@ -9,6 +9,7 @@ public class MyOtherBean {
     MyBean myBean;
     public void sayHelloDelayed() throws InterruptedException {
         Thread.sleep(1000);
+        new RuntimeException("print").printStackTrace();
         System.out.println("Hello ......");
     }
 }
