@@ -6,8 +6,10 @@ import org.apache.commons.collections4.ListUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ArrayListTest {
     @Test
@@ -26,5 +28,15 @@ public class ArrayListTest {
         for (int i = 0; i < newSmallLists.size(); i++) {
             Assert.assertTrue(CollectionUtils.isEqualCollection(newSmallLists.get(i), smallLists.get(i)));
         }
+    }
+
+    @Test
+    public void test() {
+        ArrayList<Integer> listA = Lists.newArrayList();
+        Stream<Integer> streamA = listA.parallelStream();
+        streamA.count();
+
+        List<Integer> listB = Lists.newArrayList();
+        Stream<Integer> streamB = listB.stream();
     }
 }
