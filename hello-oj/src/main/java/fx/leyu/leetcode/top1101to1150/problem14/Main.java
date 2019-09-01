@@ -5,6 +5,13 @@ public class Main {
         Foo foo = new Foo();
         new Thread(() -> {
             try {
+                foo.first(() -> System.out.print("one"));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        new Thread(() -> {
+            try {
                 foo.third(() -> System.out.print("three"));
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -17,12 +24,6 @@ public class Main {
                 e.printStackTrace();
             }
         }).start();
-        new Thread(() -> {
-            try {
-                foo.first(() -> System.out.print("one"));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
+
     }
 }

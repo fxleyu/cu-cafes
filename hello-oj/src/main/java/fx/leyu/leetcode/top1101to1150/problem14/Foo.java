@@ -1,8 +1,8 @@
 package fx.leyu.leetcode.top1101to1150.problem14;
 
 public class Foo {
-    private final static Object LOCK = new Object();
-    private volatile static int flag = 1;
+    private final Object LOCK = new Object();
+    private volatile int flag = 1;
     public Foo() {
     }
 
