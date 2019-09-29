@@ -1,4 +1,4 @@
-package fx.leyu.jdk.util;
+package fx.leyu.jdk.math;
 
 import org.junit.Assert;
 import org.junit.Test;
