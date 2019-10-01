@@ -4,6 +4,7 @@
 该项目定位于 Java 语言的日常练习与自我学习。
 
 ## 项目涉及内容
+- [Hello Java](./hello-java/README.md) 用于描述 JDK 中相关内容
 - Java SE API
 - Algorithm
 - Spring
