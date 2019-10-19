@@ -3,8 +3,9 @@ package fx.leyu.leetcode.contest.weeklycontest2;
 public class Problem390 {
 
     public static void main(String[] args) {
-        for(int i = 1; i < 23; i++) 
-        System.out.println(i + " = " + new Problem390().lastRemaining(i));
+        for (int i = 1; i < 23; i++) {
+            System.out.println(i + " = " + new Problem390().lastRemaining(i));
+        }
     }
     
     public int lastRemaining(int n) {
