@@ -75,6 +75,7 @@ class Database implements RWLock {
         db = new Semaphore(1);
     }
 
+    @Override
     public void acquireReadLock(int readerNum) {
         try {
             // mutual exclusion for readerCount
@@ -98,6 +99,7 @@ class Database implements RWLock {
         mutex.release();
     }
 
+    @Override
     public void releaseReadLock(int readerNum) {
         try {
             // mutual exclusion for readerCount
@@ -119,6 +121,7 @@ class Database implements RWLock {
         mutex.release();
     }
 
+    @Override
     public void acquireWriteLock(int writerNum) {
         try {
             db.acquire();
@@ -127,6 +130,7 @@ class Database implements RWLock {
         System.out.println("Writer " + writerNum + " is writing.");
     }
 
+    @Override
     public void releaseWriteLock(int writerNum) {
         System.out.println("Writer " + writerNum + " is done writing.");
         db.release();
@@ -153,6 +157,7 @@ class Reader implements Runnable {
         this.database = database;
     }
 
+    @Override
     public void run() {
         while (true) {
             SleepUtilities.nap();
@@ -186,6 +191,7 @@ class Writer implements Runnable {
         database = d;
     }
 
+    @Override
     public void run() {
         while (true) {
             SleepUtilities.nap();

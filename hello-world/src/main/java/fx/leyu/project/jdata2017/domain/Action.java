@@ -99,34 +99,7 @@ public class Action {
         result = prime * result + userId;
         return result;
     }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Action other = (Action) obj;
-        if (brand != other.brand)
-            return false;
-        if (cate != other.cate)
-            return false;
-        if (id != other.id)
-            return false;
-        if (modelId != other.modelId)
-            return false;
-        if (productId != other.productId)
-            return false;
-        if (time == null) {
-            if (other.time != null)
-                return false;
-        } else if (!time.equals(other.time))
-            return false;
-        if (type != other.type)
-            return false;
-        return userId == other.userId;
-    }
+
     @Override
     public String toString() {
         return "Action [id=" + id + ", userId=" + userId + ", productId="

@@ -235,8 +235,9 @@ public class ObservableCollapserGetWordForNumber extends HystrixObservableCollap
 
 				// wait a little bit after running half of the requests so that we don't collapse all of them into one batch
 				// TODO this can probably be improved by using a test scheduler
-				if (number == noOfRequests / 2)
-					sleep(1000);
+                if (number == noOfRequests / 2) {
+                    sleep(1000);
+                }
 			}
 
 			assertThat(subscribersByNumber.size(), is(noOfRequests));

@@ -6,6 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MatcherUtils {
+    private static final Pattern PATTERN =
+            Pattern.compile("([0-9]+)[-\\./]+([01]?[0-9])[-\\./]+([0-3]?[0-9])");
 
     public interface MatchFilter {
         boolean acceptMatch(Matcher matcher, String input);
@@ -31,7 +33,7 @@ public class MatcherUtils {
     }
     
     public static void main(String[] args) {
-        Pattern pattern = Pattern.compile("([0-9]+)[-\\./]+([01]?[0-9])[-\\./]+([0-3]?[0-9])");
+
         String input = "都市报道60分 (2016-08-28） && 2016年3月2日黄历|农历2016-12-30吉时 -汉典老黄历 && ​一周吉凶提醒 2015/12/15-2015/12/21_姜宜绘_新浪博客";
         String replacement = "$1年$2月$3日";
         MatchFilter matchFilter = new MatchFilter() {
@@ -61,7 +63,7 @@ public class MatcherUtils {
                 return true;
             }
         };
-        
-        System.out.println(replaceAll(input, pattern, replacement, matchFilter));
+
+        System.out.println(replaceAll(input, PATTERN, replacement, matchFilter));
     }
 }
