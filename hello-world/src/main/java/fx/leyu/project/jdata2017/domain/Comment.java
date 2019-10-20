@@ -1,5 +1,7 @@
 package fx.leyu.project.jdata2017.domain;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 import java.sql.Date;
 
 public class Comment {
@@ -65,6 +67,7 @@ public class Comment {
     public void setBadCommentRate(double badCommentRate) {
         this.badCommentRate = badCommentRate;
     }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -79,31 +82,28 @@ public class Comment {
         result = prime * result + productId;
         return result;
     }
+
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
-        if (obj == null)
+        }
+
+        if (o == null || getClass() != o.getClass()) {
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Comment other = (Comment) obj;
-        if (Double.doubleToLongBits(badCommentRate) != Double
-                .doubleToLongBits(other.badCommentRate))
-            return false;
-        if (commentNum != other.commentNum)
-            return false;
-        if (date == null) {
-            if (other.date != null)
-                return false;
-        } else if (!date.equals(other.date))
-            return false;
-        if (hasBadComment != other.hasBadComment)
-            return false;
-        if (id != other.id)
-            return false;
-        return productId == other.productId;
+        }
+
+        Comment comment = (Comment) o;
+        return new EqualsBuilder()
+                .append(id, comment.id)
+                .append(productId, comment.productId)
+                .append(commentNum, comment.commentNum)
+                .append(hasBadComment, comment.hasBadComment)
+                .append(badCommentRate, comment.badCommentRate)
+                .append(date, comment.date)
+                .isEquals();
     }
+
     @Override
     public String toString() {
         return "Comment [id=" + id + ", date=" + date + ", productId="

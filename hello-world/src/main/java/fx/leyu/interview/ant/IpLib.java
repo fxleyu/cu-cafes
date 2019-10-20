@@ -5,8 +5,12 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * @author fxleyu
+ */
 public class IpLib {
     private static IpList[] ipLists = new IpList[0];
+
     public static void createIpLib(String[] array) {
         if (array == null) {
             return;
@@ -44,6 +48,7 @@ public class IpLib {
         private long start;
         private long end;
         private String config;
+
         public IpList(String config) {
             if (StringUtils.isBlank(config)) {
                 throw new IllegalArgumentException("invalid config is blank ");
@@ -83,8 +88,12 @@ public class IpLib {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
             IpList ipList = (IpList) o;
             return start == ipList.start &&
                     end == ipList.end &&

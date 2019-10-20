@@ -11,10 +11,10 @@ public class Solution {
         LinkedList<String> result = new LinkedList<String>();
         String[] pathNames = path.split("/");
         for (String name : pathNames) {
-            if (name == null || name.trim().length() == 0 || name.equals(".")) {
+            if (name == null || name.trim().length() == 0 || ".".equals(name)) {
                 continue;
             }
-            if (!name.equals("..")) {
+            if (!"..".equals(name)) {
                 result.addLast(name.trim());
                 continue;
             }

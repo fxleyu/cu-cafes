@@ -4,6 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
+/**
+ * @author fxleyu
+ */
 public class Message {
     private long timestamp;
     private String message;
@@ -43,8 +46,12 @@ public class Message {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Message message1 = (Message) o;
         return timestamp == message1.timestamp &&
                 Objects.equals(message, message1.message);

@@ -1,9 +1,10 @@
 package fx.leyu.project.interest.record;
 
-import java.io.*;
-import java.net.*;
-
 import fx.leyu.project.interest.bean.Record;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 public class Web {
 
@@ -17,7 +18,7 @@ public class Web {
 			int idStart = content.indexOf("<td>", content.indexOf("证件类型"))+4;
 			int idEnd = content.indexOf("</td>", idStart);
 			String id = content.substring(idStart, idEnd);
-			if(id.equals("ID")){
+			if ("ID".equals(id)) {
 				r.setId(getValue(content, "证件编号"));
 				r.setName(getValue(content, "姓名"));
 				r.setEmail(getValue(content, "电子邮件"));
@@ -44,7 +45,7 @@ public class Web {
 		int start = content.indexOf("<td>", content.indexOf(flag)) + 4;
 		int end = content.indexOf("</td>", start);
 		String result = content.substring(start, end);
-		if(result.equals("&nbsp;")){
+		if ("&nbsp;".equals(result)) {
 			result = "";
 		}
 		return result;
