@@ -81,27 +81,7 @@ public class Product {
         result = prime * result + id;
         return result;
     }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Product other = (Product) obj;
-        if (attr1 != other.attr1)
-            return false;
-        if (attr2 != other.attr2)
-            return false;
-        if (attr3 != other.attr3)
-            return false;
-        if (brand != other.brand)
-            return false;
-        if (cate != other.cate)
-            return false;
-        return id == other.id;
-    }
+
     @Override
     public String toString() {
         return "Product [id=" + id + ", attr1=" + attr1 + ", attr2=" + attr2

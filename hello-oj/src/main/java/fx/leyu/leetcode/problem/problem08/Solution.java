@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/*
+/**
  * Implement atoi to convert a string to an integer.
  * 
  * Hint: Carefully consider all possible input cases. If you want a challenge, 
@@ -41,8 +41,11 @@ import java.util.regex.Pattern;
  * Hide Tags Math String
  * Hide Similar Problems (E) Reverse Integer (H) Valid Number
  *
+ * @author fxleyu
+ *
  */
 public class Solution {
+    private static final Pattern p = Pattern.compile("[+-]?[0-9]+");
 
     public static void main(String[] args) {
         System.out.println(new Solution().myAtoi(" +11 "));
@@ -79,8 +82,7 @@ public class Solution {
         if(str==null || str.length()==0) {
             return str;
         }
-        
-        Pattern p = Pattern.compile("[+-]?[0-9]+");
+
         Matcher matcher = p.matcher(str.trim());
         if (!matcher.find() || matcher.start() != 0) {
             return null;

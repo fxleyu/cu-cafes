@@ -16,7 +16,10 @@ public class ZeroEvenOdd {
 
     // printNumber.accept(x) outputs "x", where x is an integer.
     public void zero(IntConsumer printNumber) throws InterruptedException {
-        if (n < 0) return;
+        if (n < 0) {
+            return;
+        }
+
         while (true) {
             zeroSemaphore.acquire();
             printNumber.accept(0);
@@ -29,12 +32,16 @@ public class ZeroEvenOdd {
             } else {
                 oddSemaphore.release();
             }
-            if (shouldReturn) return;
+            if (shouldReturn) {
+                return;
+            }
         }
     }
 
     public void even(IntConsumer printNumber) throws InterruptedException {
-        if (n < 2) return;
+        if (n < 2) {
+            return;
+        }
         while (true) {
             evenSemaphore.acquire();
             printNumber.accept(index.get());
@@ -45,7 +52,9 @@ public class ZeroEvenOdd {
             if (index.getAndIncrement() < n) {
                 zeroSemaphore.release();
             }
-            if (shouldReturn) return;
+            if (shouldReturn) {
+                return;
+            }
         }
     }
 
@@ -60,7 +69,9 @@ public class ZeroEvenOdd {
             if (index.getAndIncrement() < n) {
                 zeroSemaphore.release();
             }
-            if (shouldReturn) return;
+            if (shouldReturn) {
+                return;
+            }
         }
     }
 }
