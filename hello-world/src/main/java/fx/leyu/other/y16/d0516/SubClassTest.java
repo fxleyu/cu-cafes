@@ -4,7 +4,8 @@ class SubClassTest {
     public static void main(String[] args) {
         new SubClassTest().father.doSomething();
     }
-    Father father = new Father() {  
+
+    BaseFather father = new BaseFather() {
         @Override
         public void doSomething() {
             getName();
@@ -14,7 +15,8 @@ class SubClassTest {
         System.out.println("SubClassTest");
     }
 }
-abstract class Father {
+
+abstract class BaseFather {
     abstract public void doSomething();
     public void getName(){
         System.out.println("Father");
