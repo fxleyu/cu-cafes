@@ -11,7 +11,7 @@ public class HelloStringTest {
     public void testSetAndGet() {
         String key = "hello";
         String value = "world";
-        try(JedisPool pool = new JedisPool(new JedisPoolConfig(), "192.168.199.120")) {
+        try (JedisPool pool = new JedisPool(new JedisPoolConfig(), "192.168.0.101")) {
             try (Jedis jedis = pool.getResource()) {
                 long start = System.nanoTime();
                 jedis.set(key, value);
