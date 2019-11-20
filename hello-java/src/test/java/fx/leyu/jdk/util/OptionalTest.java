@@ -15,8 +15,13 @@ public class OptionalTest {
     }
 
     @Test
-    public void test() {
+    public void testFilter() {
         String string = Optional.ofNullable("null").filter(Objects::isNull).orElse(null);
         Assert.assertNull(string);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testThrow() {
+        String string = Optional.ofNullable("null").filter(Objects::isNull).orElseThrow(NullPointerException::new);
     }
 }
