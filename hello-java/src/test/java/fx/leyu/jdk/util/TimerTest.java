@@ -10,7 +10,9 @@ public class TimerTest {
 
     @Test
     public void testSchedule() throws InterruptedException {
+        // 一个时间线程
         Timer timer = new Timer("Schedule print");
+
         System.out.println("outer = " + System.currentTimeMillis() / 1000);
         timer.schedule(new TimerTask() {
             @Override
@@ -24,6 +26,7 @@ public class TimerTest {
                 System.out.println("end " + System.currentTimeMillis() / 1000);
             }
         }, 1000L, 2000L);
+        System.out.println("GAME OVER");
         TimeUnit.SECONDS.sleep(20);
     }
 }
