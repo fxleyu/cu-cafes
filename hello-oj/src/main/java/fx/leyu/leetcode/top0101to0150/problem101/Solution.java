@@ -1,5 +1,7 @@
 package fx.leyu.leetcode.top0101to0150.problem101;
 
+import fx.leyu.leetcode.datastructure.TreeNode;
+
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
