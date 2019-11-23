@@ -1,24 +1,21 @@
 package fx.leyu.leetcode.top0101to0150.problem101;
 
-/**
- * @author fxleyu
- */
-
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * Definition for a binary tree node.
- * public class TreeNode {
- * <p>
- * }
+ * 镜像数判断
+ *
+ * @author fxleyu
  */
 class Solution {
+    private static final Function<TreeNode, Integer> VAL_MAPPER = treeNode -> treeNode.val;
+    private static final Function<TreeNode, TreeNode> RIGHT_MAPPER = treeNode -> treeNode.right;
+    private static final Function<TreeNode, TreeNode> LEFT_MAPPER = treeNode -> treeNode.left;
+
     public boolean isSymmetric(TreeNode root) {
-        Optional<TreeNode> left = Optional.ofNullable(root).map(x -> x.left);
-        Optional<TreeNode> right = Optional.ofNullable(root).map(x -> x.right);
-        return isSymmetric(left, right);
+        return isSymmetric(Optional.ofNullable(root).map(LEFT_MAPPER), Optional.ofNullable(root).map(RIGHT_MAPPER));
     }
 
     private boolean isSymmetric(Optional<TreeNode> left, Optional<TreeNode> right) {
@@ -27,15 +24,13 @@ class Solution {
             return true;
         }
 
-        Function<TreeNode, Integer> function = treeNode -> treeNode.val;
         // 左右子树的root值不相等
-        if (!Objects.equals(left.map(function).orElse(null), right.map(function).orElse(null))) {
+        if (!Objects.equals(left.map(VAL_MAPPER).orElse(null), right.map(VAL_MAPPER).orElse(null))) {
             return false;
         }
 
-        Function<TreeNode, TreeNode> rightMapper = treeNode -> treeNode.right;
-        Function<TreeNode, TreeNode> leftMapper = treeNode -> treeNode.left;
-        return isSymmetric(left.map(rightMapper), right.map(leftMapper))
-                && isSymmetric(left.map(leftMapper), right.map(rightMapper));
+        // 左右子树处理
+        return isSymmetric(left.map(RIGHT_MAPPER), right.map(LEFT_MAPPER))
+                && isSymmetric(left.map(LEFT_MAPPER), right.map(RIGHT_MAPPER));
     }
 }
