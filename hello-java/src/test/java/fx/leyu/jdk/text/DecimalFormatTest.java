@@ -7,11 +7,13 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 /**
+ * 数字格式化
+ *
  * @author fxleyu
  */
 public class DecimalFormatTest {
     @Test
-    public void test() {
+    public void testFormat() {
         Assert.assertEquals(".0120", new DecimalFormat(".0000").format(new BigDecimal("0.012001")));
         Assert.assertEquals(".012", new DecimalFormat(".####").format(new BigDecimal("0.01200001")));
         Assert.assertEquals("0.0120", new DecimalFormat("0.0000").format(new BigDecimal("0.01200001")));
