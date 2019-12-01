@@ -3,8 +3,11 @@
 
 该项目定位于 Java 语言的日常练习与自我学习。
 
+项目使用 UTF-8 编码格式,使用 MAVEN 进行包管理。
+
 ## 项目涉及内容
 - [Java SE API](./hello-java/README.md) 用于练习 JDK 中相关内容
+- [JVM](./hello-jvm) 用于验证 JVM 相关特性
 - [Algorithm](./hello-algorithm/README.md) 用于练习一些高级的算法
 - [Spring](./hello-spring/README.md) 练习 Spring 相关内容
 - [OJ](./hello-oj) 用于练习一些练习题，例如 [Leet Code](https://leetcode-cn.com/problemset/algorithms/) 等
