@@ -7,7 +7,7 @@ import java.util.Objects;
 public class NullPointerExceptionPractices {
 
     public static @Nonnull Integer add(@Nonnull Integer a, @Nonnull Integer b) {
-        return 2;
+        return a + b;
     }
 
     public static @Nonnull Integer addWithUncertainty(@Nullable Integer a, @Nullable Integer b) {
