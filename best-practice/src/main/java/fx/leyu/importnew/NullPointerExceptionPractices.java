@@ -4,6 +4,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
 
+/**
+ * @author fxleyu
+ * <p>
+ * NPE 实践
+ */
 public class NullPointerExceptionPractices {
 
     public static @Nonnull Integer add(@Nonnull Integer a, @Nonnull Integer b) {
