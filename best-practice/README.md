@@ -1,8 +1,8 @@
 # best-practice
 
 
-## 阅读列表
-- [ ] 避免Java应用中NullPointerException的技巧和最佳实践
+## 列表
+- 关于 NPE
 
 
 ## Java 基础
