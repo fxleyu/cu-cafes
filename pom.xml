@@ -10,7 +10,6 @@
         <module>hello-oj</module>
         <module>effective-java</module>
         <module>hello-spring</module>
-        <module>hello-stackoverflow</module>
         <module>hello-world</module>
         <module>hello-regex</module>
         <module>hello-web</module>

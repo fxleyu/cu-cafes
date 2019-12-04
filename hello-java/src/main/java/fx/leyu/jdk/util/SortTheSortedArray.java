@@ -1,4 +1,4 @@
-package fx.leyu.stackoverflow;
+package fx.leyu.jdk.util;
 
 import java.util.Arrays;
 import java.util.Random;
