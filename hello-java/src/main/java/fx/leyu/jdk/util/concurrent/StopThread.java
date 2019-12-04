@@ -1,27 +1,25 @@
-package fx.leyu.effective.concurrent;
+package fx.leyu.jdk.util.concurrent;
 
 import java.util.concurrent.TimeUnit;
 
-public class StopThreadForSync {
+public class StopThread {
     private static boolean stopRequest;
-    
-    private static synchronized void requestStop() {
-        stopRequest = true;
-        
-    }
-
-    private static synchronized boolean stopRequested() {
-        return stopRequest;
-    }
 
     public static void main(String[] args) throws InterruptedException {
         Thread backgroundThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 int i = 0;
-                while (!stopRequested()) {
+                while (!stopRequest) {
                     i++;
                 }
+                /* 与上述代码块等同
+                if (!stopRequest) {
+                    while(true) {
+                        i++
+                    }
+                }
+                */
                 System.out.println("线程运行结束 i= " + i);
             }
         });
@@ -30,8 +28,13 @@ public class StopThreadForSync {
         TimeUnit.SECONDS.sleep(1);
 
         // 期待程序终止
-        requestStop();
-        
+        stopRequest = true;
+
+        // 结果为:程序一直运行
+        /*
+         * 结果：程序一直运行
+         * 原因为由于VM优化提升（hositing），导致活性失败（liveness failure）
+         */
         System.out.println("Game Over!");
     }
 }

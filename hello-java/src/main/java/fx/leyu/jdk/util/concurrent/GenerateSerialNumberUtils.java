@@ -1,4 +1,4 @@
-package fx.leyu.effective.concurrent;
+package fx.leyu.jdk.util.concurrent;
 
 import java.util.concurrent.atomic.AtomicLong;
 
