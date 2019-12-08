@@ -1,12 +1,13 @@
 package fx.leyu.spring.boot.domain;
 
-
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author fxleyu
  */
-@Data
+@Setter
+@Getter
 public class Person {
     private String name;
 }
