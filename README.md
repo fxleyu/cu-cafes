@@ -15,6 +15,7 @@
 - [Hystrix](./hello-hystrix/README.md) Hystrix 框架
 - [Redis](./hello-redis/README.md) Redis 练习
 - [ZooKeeper](./hello-zookeeper/README.md)
+- [LOG](./hello-log/README.md) 熟悉日志框架
 
 # 代码架构
 - MAVEN 管理
