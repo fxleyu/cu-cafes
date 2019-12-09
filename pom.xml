@@ -19,6 +19,7 @@
         <module>hello-hadoop</module>
         <module>hello-hystrix</module>
         <module>hello-algorithm</module>
+        <module>hello-log</module>
     </modules>
     <packaging>pom</packaging>
 
