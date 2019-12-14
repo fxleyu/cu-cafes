@@ -20,6 +20,7 @@
         <module>hello-hystrix</module>
         <module>hello-algorithm</module>
         <module>hello-log</module>
+        <module>hello-junit</module>
     </modules>
     <packaging>pom</packaging>
 
