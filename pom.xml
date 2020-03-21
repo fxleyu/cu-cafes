@@ -21,6 +21,7 @@
         <module>hello-algorithm</module>
         <module>hello-log</module>
         <module>hello-junit</module>
+        <module>hello-io</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -69,7 +70,11 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>4.0.38</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
