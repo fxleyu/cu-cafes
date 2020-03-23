@@ -11,4 +11,12 @@ public class ExceptionDemo {
             return FINALLY_STRING;
         }
     }
+
+    public static int getOne() {
+        try {
+            return 1;
+        } finally {
+            throw new NullPointerException("x");
+        }
+    }
 }
