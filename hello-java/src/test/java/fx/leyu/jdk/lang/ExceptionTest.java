@@ -9,4 +9,9 @@ public class ExceptionTest {
     public void testFinallyReturn() {
         Assert.assertEquals(ExceptionDemo.returnStringWithFinally(), ExceptionDemo.FINALLY_STRING);
     }
+
+    @Test
+    public void testFinallyException() {
+        System.out.println(ExceptionDemo.getOne());
+    }
 }
