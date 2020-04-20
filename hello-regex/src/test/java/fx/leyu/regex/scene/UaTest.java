@@ -1,5 +1,6 @@
 package fx.leyu.regex.scene;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.regex.Matcher;
@@ -15,7 +16,7 @@ public class UaTest {
         Pattern pattern = Pattern.compile("fxleyu/([.\\d]+)");
         Matcher matcher = pattern.matcher(ua.toLowerCase());
         if (matcher.find()) {
-            System.out.print(matcher.group(1));
+            Assert.assertEquals("12.1.2", matcher.group(1));
         }
     }
 }
