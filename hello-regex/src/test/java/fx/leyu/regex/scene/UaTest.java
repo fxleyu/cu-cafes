@@ -18,5 +18,12 @@ public class UaTest {
         if (matcher.find()) {
             Assert.assertEquals("12.1.2", matcher.group(1));
         }
+
+        ua = "xxx FxleyuNAME/12.1.2";
+        pattern = Pattern.compile("fxleyu(name)?/([.\\d]+)");
+        matcher = pattern.matcher(ua.toLowerCase());
+        if (matcher.find()) {
+            Assert.assertEquals("12.1.2", matcher.group(2));
+        }
     }
 }
