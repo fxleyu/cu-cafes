@@ -27,4 +27,31 @@ public class CompleteFutureTest {
         System.out.println(System.currentTimeMillis() + " main : " + Thread.currentThread().getName());
         System.out.println(one.join());
     }
+
+    @Test
+    public void aToB() {
+        CompletableFuture<List<String>>  result = CompletableFuture.supplyAsync(() -> {
+            System.out.println(System.currentTimeMillis() + " future 1 START: " + Thread.currentThread().getName());
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(System.currentTimeMillis() + " future 1 END: " + Thread.currentThread().getName());
+            return Lists.newArrayList("one");
+        }).thenApplyAsync((list) -> {
+            System.out.println(System.currentTimeMillis() + " future 2 START: " + Thread.currentThread().getName());
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(System.currentTimeMillis() + " future 2 END: " + Thread.currentThread().getName());
+            list.add("two");
+            return list;
+        });
+
+        System.out.println(System.currentTimeMillis() + " main : " + Thread.currentThread().getName());
+        System.out.println(result.join());
+    }
 }
