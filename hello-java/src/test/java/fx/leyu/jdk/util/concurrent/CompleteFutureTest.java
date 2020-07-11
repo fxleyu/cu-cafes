@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
-public class CompleteFutureTest {
+public class CompleteFutureTest<list> {
     CompletableFuture<List<String>> ASYNC_TASK_5 = CompletableFuture.supplyAsync(() -> {
         testSleep(5);
         System.out.println((System.currentTimeMillis() / 1000) + " THREE_S_TASK: " + Thread.currentThread().getName());
@@ -19,7 +20,13 @@ public class CompleteFutureTest {
 
     Consumer<List<String>> CONSUMER_2 = x -> {
         testSleep(2);
-        System.out.println((System.currentTimeMillis() / 1000) + " ConsumerAsync " + x + Thread.currentThread().getName());
+        System.out.println((System.currentTimeMillis() / 1000) + " Consumer " + x + Thread.currentThread().getName());
+    };
+
+     Function<List<String>, String> FUNCTION_2 = (list) -> {
+        testSleep(2);
+         System.out.println((System.currentTimeMillis() / 1000) + " Function " + Thread.currentThread().getName());
+        return list.toString();
     };
 
     @Test(timeout = 4500)
@@ -27,6 +34,16 @@ public class CompleteFutureTest {
         // ASYNC_TASK MAIN_TASK 先执行完的执行 Consumer 活动，Consumer活动在 main 的线程中执行
         CompletableFuture<Void> result = ASYNC_TASK_5.acceptEither(MAIN_TASK_0, CONSUMER_2);
         System.out.println((System.currentTimeMillis() / 1000) + " main : " + Thread.currentThread().getName());
+        testSleep(2);
+        result.join();
+        System.out.println("END");
+    }
+
+    @Test(timeout = 2500)
+    public void testAcceptEitherAsync() {
+        // ASYNC_TASK MAIN_TASK 先执行完的执行 Consumer 活动，Consumer活动在 ForkJoinPool.commonPool 线程中执行
+        CompletableFuture<Void> result = ASYNC_TASK_5.acceptEitherAsync(MAIN_TASK_0, CONSUMER_2);
+        System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         testSleep(2);
         result.join();
         System.out.println("END");
@@ -48,14 +65,22 @@ public class CompleteFutureTest {
         System.out.println(result.join());
     }
 
+    @Test(timeout = 4500)
+    public void testApplyToEither() {
+        // ASYNC_TASK MAIN_TASK 先执行完的执行 Consumer 活动，Consumer活动在 main 的线程中执行
+        CompletableFuture<String> result = ASYNC_TASK_5.applyToEither(MAIN_TASK_0, FUNCTION_2);
+        System.out.println((System.currentTimeMillis() / 1000) + " main : " + Thread.currentThread().getName());
+        testSleep(2);
+        System.out.println("result.join()");
+    }
+
     @Test(timeout = 2500)
-    public void testAcceptEitherAsync() {
-        // ASYNC_TASK MAIN_TASK 先执行完的执行 Consumer 活动，Consumer活动在 ForkJoinPool.commonPool 线程中执行
-        CompletableFuture<Void> result = ASYNC_TASK_5.acceptEitherAsync(MAIN_TASK_0, CONSUMER_2);
+    public void testApplyToEitherAsync() {
+        // ASYNC_TASK MAIN_TASK 先执行完的执行 Function，Consumer活动在 ForkJoinPool.commonPool 线程中执行
+        CompletableFuture<String> result = ASYNC_TASK_5.applyToEitherAsync(MAIN_TASK_0, FUNCTION_2);
         System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         testSleep(2);
-        result.join();
-        System.out.println("END");
+        System.out.println(result.join());
     }
 
     @Test
