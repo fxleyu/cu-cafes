@@ -102,6 +102,16 @@ public class CompleteFutureTest {
     }
 
     @Test
+    public void testComplete() {
+        // 是否被触发替换操作
+        Assert.assertFalse(MAIN_TASK_0.complete(null));
+        Assert.assertNotNull(MAIN_TASK_0.join());
+
+        Assert.assertTrue(ASYNC_TASK_5.complete(null));
+        Assert.assertNull(ASYNC_TASK_5.join());
+    }
+
+    @Test
     public void test() {
         CompletableFuture<List<String>>  one = CompletableFuture.supplyAsync(() -> {
             System.out.println(System.currentTimeMillis() + " future 1 START: " + Thread.currentThread().getName());
