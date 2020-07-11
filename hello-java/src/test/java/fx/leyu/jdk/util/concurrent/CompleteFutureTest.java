@@ -179,6 +179,53 @@ public class CompleteFutureTest {
         Assert.assertEquals("NULL", stringCompletableFuture.join());
     }
 
+    @Test
+    public void testIsCancelled() {
+        // mayInterruptIfRunning 入参没有用
+        // 中断是否执行 false
+        Assert.assertFalse(MAIN_TASK_0.cancel(true));
+        // 中断是否执行 true
+        Assert.assertTrue(ASYNC_TASK_5.cancel(false));
+
+        // 未被中断
+        Assert.assertFalse(MAIN_TASK_0.isCancelled());
+        // 被中断
+        Assert.assertTrue(ASYNC_TASK_5.isCancelled());
+    }
+
+    @Test
+    public void testIsCompletedExceptionally() {
+        // 不抛异常
+        Assert.assertFalse(MAIN_TASK_0.completeExceptionally(new IllegalArgumentException()));
+        // 抛异常
+        Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
+
+        // 完成没有异常
+        Assert.assertFalse(MAIN_TASK_0.isCompletedExceptionally());
+        // 完成有异常
+        Assert.assertTrue(ASYNC_TASK_5.isCompletedExceptionally());
+    }
+
+    @Test
+    public void testIsCompletedExceptionally2() {
+        // 完成
+        Assert.assertTrue(ASYNC_TASK_5.complete(null));
+
+        // 完成没有异常
+        Assert.assertFalse(ASYNC_TASK_5.isCompletedExceptionally());
+    }
+
+    @Test
+    public void testIsDone() {
+        // 抛异常
+        Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
+
+        // 完成没有异常
+        Assert.assertTrue(MAIN_TASK_0.isDone());
+        // 完成有异常
+        Assert.assertTrue(ASYNC_TASK_5.isDone());
+    }
+
 
     @Test
     public void test() {
