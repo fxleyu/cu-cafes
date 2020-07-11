@@ -16,6 +16,7 @@ public class CompleteFutureTest {
     });
 
     CompletableFuture<List<String>> MAIN_TASK_0 = CompletableFuture.completedFuture(Lists.newArrayList("main"));
+
     Consumer<List<String>> CONSUMER_2 = x -> {
         testSleep(2);
         System.out.println((System.currentTimeMillis() / 1000) + " ConsumerAsync " + x + Thread.currentThread().getName());
@@ -29,6 +30,22 @@ public class CompleteFutureTest {
         testSleep(2);
         result.join();
         System.out.println("END");
+    }
+
+    @Test(timeout = 5500)
+    public void testAllOf() {
+        // ASYNC_TASK MAIN_TASK 均执行完
+        CompletableFuture<Void> result = CompletableFuture.allOf(MAIN_TASK_0, ASYNC_TASK_5);
+        result.join();
+        System.out.println("END");
+    }
+
+    @Test(timeout = 500)
+    public void testAnyOf() {
+        // ASYNC_TASK MAIN_TASK 有一个执行完
+        CompletableFuture<Object> result = CompletableFuture.anyOf(MAIN_TASK_0, ASYNC_TASK_5);
+        result.join();
+        System.out.println(result.join());
     }
 
     @Test(timeout = 2500)
