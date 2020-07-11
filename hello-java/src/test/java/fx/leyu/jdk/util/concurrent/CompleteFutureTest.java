@@ -226,6 +226,26 @@ public class CompleteFutureTest {
         Assert.assertTrue(ASYNC_TASK_5.isDone());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testObtrudeException() throws Throwable {
+        // 强制抛弃异常
+        MAIN_TASK_0.obtrudeException(new IllegalArgumentException());
+        try {
+            MAIN_TASK_0.join();
+        } catch (Exception exception) {
+            Throwable throwable = exception.getCause();
+            Assert.assertNotNull(throwable);
+            throw throwable;
+        }
+    }
+
+    @Test
+    public void testObtrudeValue() {
+        // 强制返回特定值
+        MAIN_TASK_0.obtrudeValue(null);
+        Assert.assertNull(MAIN_TASK_0.join());
+    }
+
 
     @Test
     public void test() {
