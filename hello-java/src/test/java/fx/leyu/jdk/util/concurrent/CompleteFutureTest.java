@@ -27,6 +27,7 @@ public class CompleteFutureTest {
     });
 
     CompletableFuture<List<String>> MAIN_TASK_0 = CompletableFuture.completedFuture(Lists.newArrayList("main"));
+    CompletableFuture<List<String>> MAIN_OTHER_TASK_0 = CompletableFuture.completedFuture(Lists.newArrayList("main"));
 
     Consumer<List<String>> CONSUMER_2 = x -> {
         testSleep(2);
@@ -46,6 +47,11 @@ public class CompleteFutureTest {
             return "NULL";
         }
         return list.get(0);
+    };
+
+    Runnable RUNNABLE_2 = () -> {
+        testSleep(2);
+        System.out.println((System.currentTimeMillis() / 1000) + " Runnable " + Thread.currentThread().getName());
     };
 
 
@@ -244,6 +250,42 @@ public class CompleteFutureTest {
         // 强制返回特定值
         MAIN_TASK_0.obtrudeValue(null);
         Assert.assertNull(MAIN_TASK_0.join());
+    }
+
+    @Test
+    public void testRunAfterBoth() {
+        // ASYNC_TASK_5 MAIN_TASK_0 均完成后执行 RUNNABLE_2，在最后执行完执行线程内执行？
+        CompletableFuture<Void> future = MAIN_OTHER_TASK_0.runAfterBoth(MAIN_TASK_0, RUNNABLE_2);
+        // 执行时间 7（main testSleep） + 2（RUNNABLE_2）
+        future.join();
+    }
+
+    @Test
+    public void testRunAfterBothAync() {
+        // ASYNC_TASK_5 MAIN_TASK_0 均完成后执行 RUNNABLE_2，RUNNABLE_2 在 ForkJoinPool.commonPool
+        CompletableFuture<Void> future = MAIN_OTHER_TASK_0.runAfterBothAsync(MAIN_TASK_0, RUNNABLE_2);
+        // 执行时间 5（ASYNC_TASK_5， or main testSleep） + 2（RUNNABLE_2）
+        future.join();
+    }
+
+    @Test(timeout = 4500)
+    public void testRunAfterEither() {
+        // ASYNC_TASK MAIN_TASK_0 先执行完的执行 RUNNABLE_2，RUNNABLE_2 在 main 线程中执行
+        CompletableFuture<Void> result = ASYNC_TASK_5.runAfterEither(MAIN_TASK_0, RUNNABLE_2);
+        System.out.println((System.currentTimeMillis() / 1000) + " main : " + Thread.currentThread().getName());
+        testSleep(2);
+        result.join();
+        System.out.println("END");
+    }
+
+    @Test(timeout = 2500)
+    public void testRunAfterEitherAsync() {
+        // ASYNC_TASK MAIN_TASK 先执行完的执行 RUNNABLE_2，RUNNABLE_2 在 ForkJoinPool.commonPool 线程中执行
+        CompletableFuture<Void> result = ASYNC_TASK_5.runAfterEitherAsync(MAIN_TASK_0, RUNNABLE_2);
+        System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
+        testSleep(2);
+        result.join();
+        System.out.println("END");
     }
 
 
