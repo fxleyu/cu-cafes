@@ -129,11 +129,17 @@ public class CompleteFutureTest {
     }
 
     @Test
-    public void testExceptionally() throws Throwable {
+    public void testExceptionally() {
         // 被触发，抛出定义异常
         Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
         ASYNC_TASK_5 = ASYNC_TASK_5.exceptionally((exception) -> null);
         Assert.assertNull(ASYNC_TASK_5.join());
+    }
+
+    @Test
+    public void testGetNumberOfDependents() {
+        // 待完成的 CompleteFuture 个数
+        Assert.assertEquals(0, ASYNC_TASK_5.getNumberOfDependents());
     }
 
 
