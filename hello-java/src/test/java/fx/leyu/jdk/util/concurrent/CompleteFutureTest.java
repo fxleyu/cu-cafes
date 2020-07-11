@@ -9,7 +9,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class CompleteFutureTest<list> {
+/**
+ * CompleteFuture 学习
+ *
+ * @author fxleyu
+ */
+public class CompleteFutureTest {
     CompletableFuture<List<String>> ASYNC_TASK_5 = CompletableFuture.supplyAsync(() -> {
         testSleep(5);
         System.out.println((System.currentTimeMillis() / 1000) + " THREE_S_TASK: " + Thread.currentThread().getName());
