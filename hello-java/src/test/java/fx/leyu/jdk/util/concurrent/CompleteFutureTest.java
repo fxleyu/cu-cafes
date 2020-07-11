@@ -117,7 +117,7 @@ public class CompleteFutureTest {
         Assert.assertFalse(MAIN_TASK_0.completeExceptionally(new IllegalArgumentException()));
         Assert.assertNotNull(MAIN_TASK_0.join());
 
-        // 被触发，跑出定义异常
+        // 被触发，抛出定义异常
         Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
         try {
             ASYNC_TASK_5.join();
@@ -127,6 +127,15 @@ public class CompleteFutureTest {
             throw throwable;
         }
     }
+
+    @Test
+    public void testExceptionally() throws Throwable {
+        // 被触发，抛出定义异常
+        Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
+        ASYNC_TASK_5 = ASYNC_TASK_5.exceptionally((exception) -> null);
+        Assert.assertNull(ASYNC_TASK_5.join());
+    }
+
 
     @Test
     public void test() {
