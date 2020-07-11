@@ -1,13 +1,16 @@
 package fx.leyu.jdk.util.concurrent;
 
 import com.google.common.collect.Lists;
+import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -30,11 +33,21 @@ public class CompleteFutureTest {
         System.out.println((System.currentTimeMillis() / 1000) + " Consumer " + x + Thread.currentThread().getName());
     };
 
-     Function<List<String>, String> FUNCTION_2 = (list) -> {
+    Function<List<String>, String> FUNCTION_2 = (list) -> {
         testSleep(2);
-         System.out.println((System.currentTimeMillis() / 1000) + " Function " + Thread.currentThread().getName());
+        System.out.println((System.currentTimeMillis() / 1000) + " Function " + Thread.currentThread().getName());
         return list.toString();
     };
+
+    BiFunction<List<String>, Throwable, String> BI_FUNCTION_2 = (list, throwable) -> {
+        testSleep(2);
+        System.out.println((System.currentTimeMillis() / 1000) + " BiFunction " + Thread.currentThread().getName());
+        if (Objects.nonNull(throwable) || CollectionUtils.size(list) < 1) {
+            return "NULL";
+        }
+        return list.get(0);
+    };
+
 
     @Test(timeout = 4500)
     public void testAcceptEither() {
@@ -140,6 +153,30 @@ public class CompleteFutureTest {
     public void testGetNumberOfDependents() {
         // 待完成的 CompleteFuture 个数
         Assert.assertEquals(0, ASYNC_TASK_5.getNumberOfDependents());
+    }
+
+    @Test
+    public void testHandle() {
+        // BI_FUNCTION_2 在 main 线程中执行
+        CompletableFuture<String> stringCompletableFuture = MAIN_TASK_0.handle(BI_FUNCTION_2);
+        Assert.assertEquals("main", stringCompletableFuture.join());
+
+        // BI_FUNCTION_2 在 main 线程中执行
+        Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
+        stringCompletableFuture = ASYNC_TASK_5.handle(BI_FUNCTION_2);
+        Assert.assertEquals("NULL", stringCompletableFuture.join());
+    }
+
+    @Test
+    public void testHandleAsync() {
+        // BI_FUNCTION_2 在 ForkJoinPool.commonPool 线程中执行
+        CompletableFuture<String> stringCompletableFuture = MAIN_TASK_0.handleAsync(BI_FUNCTION_2);
+        Assert.assertEquals("main", stringCompletableFuture.join());
+
+        // BI_FUNCTION_2 在 ForkJoinPool.commonPool 线程中执行
+        Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
+        stringCompletableFuture = ASYNC_TASK_5.handleAsync(BI_FUNCTION_2);
+        Assert.assertEquals("NULL", stringCompletableFuture.join());
     }
 
 
