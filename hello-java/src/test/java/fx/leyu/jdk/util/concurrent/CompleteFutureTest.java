@@ -1,9 +1,11 @@
 package fx.leyu.jdk.util.concurrent;
 
 import com.google.common.collect.Lists;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
@@ -86,6 +88,17 @@ public class CompleteFutureTest {
         System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         testSleep(2);
         System.out.println(result.join());
+    }
+
+    @Test(expected = CancellationException.class)
+    public void testCancel() {
+        // mayInterruptIfRunning 入参没有用
+        // 中断是否执行 false
+        Assert.assertFalse(MAIN_TASK_0.cancel(true));
+        // 中断是否执行 true
+        Assert.assertTrue(ASYNC_TASK_5.cancel(false));
+        // 被中断，抛 CancellationException
+        ASYNC_TASK_5.join();
     }
 
     @Test
