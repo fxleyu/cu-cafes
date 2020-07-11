@@ -111,6 +111,23 @@ public class CompleteFutureTest {
         Assert.assertNull(ASYNC_TASK_5.join());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testCompleteExceptionally() throws Throwable {
+        // 是否被触发替换操作
+        Assert.assertFalse(MAIN_TASK_0.completeExceptionally(new IllegalArgumentException()));
+        Assert.assertNotNull(MAIN_TASK_0.join());
+
+        // 被触发，跑出定义异常
+        Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
+        try {
+            ASYNC_TASK_5.join();
+        } catch (Exception exception) {
+            Throwable throwable = exception.getCause();
+            Assert.assertNotNull(throwable);
+            throw throwable;
+        }
+    }
+
     @Test
     public void test() {
         CompletableFuture<List<String>>  one = CompletableFuture.supplyAsync(() -> {
