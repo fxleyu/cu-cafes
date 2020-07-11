@@ -288,6 +288,19 @@ public class CompleteFutureTest {
         System.out.println("END");
     }
 
+    @Test
+    public void testThenApply() {
+        // MAIN_TASK_0 后执行 FUNCTION_2
+        MAIN_TASK_0.thenApply(FUNCTION_2)
+                .join();
+    }
+
+    @Test
+    public void testThenApplyAsync() {
+        // MAIN_TASK_0 后执行 FUNCTION_2，FUNCTION_2 异步执行
+        MAIN_TASK_0.thenApplyAsync(FUNCTION_2)
+                .join();
+    }
 
     @Test
     public void test() {
