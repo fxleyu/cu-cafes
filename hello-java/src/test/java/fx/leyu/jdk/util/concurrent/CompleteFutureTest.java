@@ -56,6 +56,16 @@ public class CompleteFutureTest {
         return list.get(0);
     };
 
+    BiFunction<List<String>, List<String>, String> BI_FUNCTION_S_S_2 = (list1, list2) -> {
+        testSleep(2);
+        System.out.println((System.currentTimeMillis() / 1000) + " BiFunction " + Thread.currentThread().getName());
+        if (CollectionUtils.size(list1) < 1 || CollectionUtils.size(list2) < 1) {
+            return "NULL";
+        }
+        list1.addAll(list2);
+        return list1.toString();
+    };
+
     Runnable RUNNABLE_2 = () -> {
         testSleep(2);
         System.out.println((System.currentTimeMillis() / 1000) + " Runnable " + Thread.currentThread().getName());
@@ -327,6 +337,22 @@ public class CompleteFutureTest {
         CompletableFuture<Void> future = MAIN_TASK_0.thenAcceptBothAsync(ASYNC_TASK_5, BI_CONSUMER_2);
         System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         future.join();
+    }
+
+    @Test
+    public void testThenCombine() {
+        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用线程为最晚执行完所在线程
+        CompletableFuture<String> future = MAIN_TASK_0.thenCombine(ASYNC_TASK_5, BI_FUNCTION_S_S_2);
+        System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
+        System.out.println(future.join());
+    }
+
+    @Test
+    public void testThenCombineAysn() {
+        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用线程为 ForkJoinPool.commonPool
+        CompletableFuture<String> future = MAIN_TASK_0.thenCombineAsync(ASYNC_TASK_5, BI_FUNCTION_S_S_2);
+        System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
+        System.out.println(future.join());
     }
 
     @Test
