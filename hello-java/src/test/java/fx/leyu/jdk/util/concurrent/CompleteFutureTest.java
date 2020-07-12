@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -31,7 +32,13 @@ public class CompleteFutureTest {
 
     Consumer<List<String>> CONSUMER_2 = x -> {
         testSleep(2);
-        System.out.println((System.currentTimeMillis() / 1000) + " Consumer " + x + Thread.currentThread().getName());
+        System.out.println((System.currentTimeMillis() / 1000) + " Consumer " + Thread.currentThread().getName() + "; result = " + x);
+    };
+
+    BiConsumer<List<String>, List<String>> BI_CONSUMER_2 = (x, y) -> {
+        testSleep(2);
+        x.addAll(y);
+        System.out.println((System.currentTimeMillis() / 1000) + " BiConsumer " + Thread.currentThread().getName() + "; result = " + x);
     };
 
     Function<List<String>, String> FUNCTION_2 = (list) -> {
@@ -306,6 +313,21 @@ public class CompleteFutureTest {
         future.join();
     }
 
+    @Test
+    public void testThenAcceptBoth() {
+        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用线程为  最晚执行完所在线程
+        CompletableFuture<Void> future = MAIN_TASK_0.thenAcceptBoth(ASYNC_TASK_5, BI_CONSUMER_2);
+        System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
+        future.join();
+    }
+
+    @Test
+    public void testThenAcceptBothAsync() {
+        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用 ForkJoinPool.commonPool 为最晚执行完所在线程
+        CompletableFuture<Void> future = MAIN_TASK_0.thenAcceptBothAsync(ASYNC_TASK_5, BI_CONSUMER_2);
+        System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
+        future.join();
+    }
 
     @Test
     public void testThenApply() {
