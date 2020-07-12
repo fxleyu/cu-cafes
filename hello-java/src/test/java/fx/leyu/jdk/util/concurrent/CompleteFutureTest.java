@@ -41,6 +41,18 @@ public class CompleteFutureTest {
         System.out.println((System.currentTimeMillis() / 1000) + " BiConsumer " + Thread.currentThread().getName() + "; result = " + x);
     };
 
+    BiConsumer<List<String>, Throwable> BI_CONSUMER_T_2 = (x, y) -> {
+        testSleep(2);
+        System.out.println((System.currentTimeMillis() / 1000) + " BI_CONSUMER_T_2 " + Thread.currentThread().getName() + "; result = " + x);
+        if (y != null) {
+            y.addSuppressed(new NullPointerException());
+        }
+
+        if (x != null) {
+            x.add("HAHAHA");
+        }
+    };
+
     Function<List<String>, String> FUNCTION_2 = (list) -> {
         testSleep(2);
         System.out.println((System.currentTimeMillis() / 1000) + " Function " + Thread.currentThread().getName());
@@ -387,6 +399,19 @@ public class CompleteFutureTest {
     public void testThenComposeAsync() {
         // MAIN_TASK_0 返回结果作为 FUNCTION_COMPOSE_2 入参，FUNCTION_COMPOSE_2 使用 ForkJoinPool.commonPool 所在的线程执行
         CompletableFuture<String> future = MAIN_TASK_0.thenComposeAsync(FUNCTION_COMPOSE_2);
+        System.out.println(future.join());
+    }
+
+    @Test
+    public void testWhenComplete() {
+        // BI_CONSUMER_T_2 感觉是用于打印日志所用
+        CompletableFuture<List<String>> future = ASYNC_TASK_5.whenComplete(BI_CONSUMER_T_2);
+        System.out.println(future.join());
+    }
+
+    @Test
+    public void testWhenCompleteAsync() {
+        CompletableFuture<List<String>> future = MAIN_TASK_0.whenCompleteAsync(BI_CONSUMER_T_2);
         System.out.println(future.join());
     }
 
