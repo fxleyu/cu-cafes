@@ -325,7 +325,7 @@ public class CompleteFutureTest {
 
     @Test
     public void testThenAcceptBoth() {
-        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用线程为  最晚执行完所在线程
+        // MAIN_TASK_0, ASYNC_TASK_5 都执行完后，执行 BI_CONSUMER_2，使用线程为  最晚执行完所在线程
         CompletableFuture<Void> future = MAIN_TASK_0.thenAcceptBoth(ASYNC_TASK_5, BI_CONSUMER_2);
         System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         future.join();
@@ -333,7 +333,7 @@ public class CompleteFutureTest {
 
     @Test
     public void testThenAcceptBothAsync() {
-        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用 ForkJoinPool.commonPool 为最晚执行完所在线程
+        // MAIN_TASK_0, ASYNC_TASK_5 都执行完后，执行 BI_CONSUMER_2，使用 ForkJoinPool.commonPool 为最晚执行完所在线程
         CompletableFuture<Void> future = MAIN_TASK_0.thenAcceptBothAsync(ASYNC_TASK_5, BI_CONSUMER_2);
         System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         future.join();
@@ -341,7 +341,7 @@ public class CompleteFutureTest {
 
     @Test
     public void testThenCombine() {
-        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用线程为最晚执行完所在线程
+        // MAIN_TASK_0, ASYNC_TASK_5 都执行完后，执行BI_FUNCTION_S_S_2 使用线程为最晚执行完所在线程
         CompletableFuture<String> future = MAIN_TASK_0.thenCombine(ASYNC_TASK_5, BI_FUNCTION_S_S_2);
         System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         System.out.println(future.join());
@@ -349,7 +349,7 @@ public class CompleteFutureTest {
 
     @Test
     public void testThenCombineAysn() {
-        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用线程为 ForkJoinPool.commonPool
+        // MMAIN_TASK_0, ASYNC_TASK_5 都执行完后，执行BI_FUNCTION_S_S_2，使用线程为 ForkJoinPool.commonPool
         CompletableFuture<String> future = MAIN_TASK_0.thenCombineAsync(ASYNC_TASK_5, BI_FUNCTION_S_S_2);
         System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         System.out.println(future.join());
