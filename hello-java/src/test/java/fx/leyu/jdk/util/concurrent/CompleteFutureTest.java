@@ -288,6 +288,25 @@ public class CompleteFutureTest {
         System.out.println("END");
     }
 
+    @Test(timeout = 4500)
+    public void testThenAccept() {
+        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用线程为  MAIN_TASK_0 所在线程
+        CompletableFuture<Void> future = MAIN_TASK_0.thenAccept(CONSUMER_2);
+        testSleep(2);
+        System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
+        future.join();
+    }
+
+    @Test(timeout = 2500)
+    public void testThenAcceptAsync() {
+        // MAIN_TASK_0 完成后执行 CONSUMER_2，使用线程为  MAIN_TASK_0 所在线程
+        CompletableFuture<Void> future = MAIN_TASK_0.thenAcceptAsync(CONSUMER_2);
+        testSleep(2);
+        System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
+        future.join();
+    }
+
+
     @Test
     public void testThenApply() {
         // MAIN_TASK_0 后执行 FUNCTION_2
