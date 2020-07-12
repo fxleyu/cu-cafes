@@ -47,6 +47,13 @@ public class CompleteFutureTest {
         return list.toString();
     };
 
+    Function<List<String>, CompletableFuture<String>> FUNCTION_COMPOSE_2 = (list) -> {
+        testSleep(2);
+        System.out.println((System.currentTimeMillis() / 1000) + " FUNCTION_COMPOSE_2 " + Thread.currentThread().getName());
+        list.add("FUNCTION_COMPOSE_2");
+        return CompletableFuture.supplyAsync(list::toString);
+    };
+
     BiFunction<List<String>, Throwable, String> BI_FUNCTION_2 = (list, throwable) -> {
         testSleep(2);
         System.out.println((System.currentTimeMillis() / 1000) + " BiFunction " + Thread.currentThread().getName());
@@ -340,6 +347,20 @@ public class CompleteFutureTest {
     }
 
     @Test
+    public void testThenApply() {
+        // MAIN_TASK_0 后执行 FUNCTION_2
+        MAIN_TASK_0.thenApply(FUNCTION_2)
+                .join();
+    }
+
+    @Test
+    public void testThenApplyAsync() {
+        // MAIN_TASK_0 后执行 FUNCTION_2，FUNCTION_2 异步执行
+        MAIN_TASK_0.thenApplyAsync(FUNCTION_2)
+                .join();
+    }
+
+    @Test
     public void testThenCombine() {
         // MAIN_TASK_0, ASYNC_TASK_5 都执行完后，执行BI_FUNCTION_S_S_2 使用线程为最晚执行完所在线程
         CompletableFuture<String> future = MAIN_TASK_0.thenCombine(ASYNC_TASK_5, BI_FUNCTION_S_S_2);
@@ -356,17 +377,17 @@ public class CompleteFutureTest {
     }
 
     @Test
-    public void testThenApply() {
-        // MAIN_TASK_0 后执行 FUNCTION_2
-        MAIN_TASK_0.thenApply(FUNCTION_2)
-                .join();
+    public void testThenCompose() {
+        // MAIN_TASK_0 返回结果作为 FUNCTION_COMPOSE_2 入参，FUNCTION_COMPOSE_2 使用 MAIN_TASK_0 所在的线程执行
+        CompletableFuture<String> future = MAIN_TASK_0.thenCompose(FUNCTION_COMPOSE_2);
+        System.out.println(future.join());
     }
 
     @Test
-    public void testThenApplyAsync() {
-        // MAIN_TASK_0 后执行 FUNCTION_2，FUNCTION_2 异步执行
-        MAIN_TASK_0.thenApplyAsync(FUNCTION_2)
-                .join();
+    public void testThenComposeAsync() {
+        // MAIN_TASK_0 返回结果作为 FUNCTION_COMPOSE_2 入参，FUNCTION_COMPOSE_2 使用 ForkJoinPool.commonPool 所在的线程执行
+        CompletableFuture<String> future = MAIN_TASK_0.thenComposeAsync(FUNCTION_COMPOSE_2);
+        System.out.println(future.join());
     }
 
     @Test
