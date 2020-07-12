@@ -187,6 +187,7 @@ public class CompleteFutureTest {
     public void testExceptionally() {
         // 被触发，抛出定义异常
         Assert.assertTrue(ASYNC_TASK_5.completeExceptionally(new IllegalArgumentException()));
+        // 处理异常
         ASYNC_TASK_5 = ASYNC_TASK_5.exceptionally((exception) -> null);
         Assert.assertNull(ASYNC_TASK_5.join());
     }
