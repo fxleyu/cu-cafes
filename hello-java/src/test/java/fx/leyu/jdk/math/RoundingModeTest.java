@@ -32,7 +32,7 @@ public class RoundingModeTest {
     }
 
     /**
-     * CEILING 基准是无穷
+     * CEILING 天花板 基准是正无穷
      */
     @Test
     public void testCeiling() {
@@ -43,7 +43,7 @@ public class RoundingModeTest {
     }
 
     /**
-     * FLOOR 基准是无穷
+     * FLOOR 基准是负无穷
      */
     @Test
     public void testFloor() {
