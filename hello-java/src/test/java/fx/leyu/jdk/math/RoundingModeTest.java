@@ -54,7 +54,7 @@ public class RoundingModeTest {
     }
 
     /**
-     * hALF_UP 基准是四舍五入（基准是 0）
+     * HALF_UP 基准是四舍五入（基准是 0）
      */
     @Test
     public void testHalfUp() {
@@ -65,14 +65,14 @@ public class RoundingModeTest {
     }
 
     /**
-     * HALF_UP 基准是五舍六入（基准是 0）
+     * HALF_DOWN 基准是五舍六入（基准是 0）
      */
     @Test
     public void testHalfDown() {
-        Assert.assertEquals("2", new BigDecimal("1.5").setScale(ZERO_SCALE, RoundingMode.HALF_UP).toString());
-        Assert.assertEquals("1", new BigDecimal("1.4").setScale(ZERO_SCALE, RoundingMode.HALF_UP).toString());
-        Assert.assertEquals("-1", new BigDecimal("-1.4").setScale(ZERO_SCALE, RoundingMode.HALF_UP).toString());
-        Assert.assertEquals("-2", new BigDecimal("-1.5").setScale(ZERO_SCALE, RoundingMode.HALF_UP).toString());
+        Assert.assertEquals("1", new BigDecimal("1.5").setScale(ZERO_SCALE, RoundingMode.HALF_DOWN).toString());
+        Assert.assertEquals("2", new BigDecimal("1.6").setScale(ZERO_SCALE, RoundingMode.HALF_DOWN).toString());
+        Assert.assertEquals("-1", new BigDecimal("-1.5").setScale(ZERO_SCALE, RoundingMode.HALF_DOWN).toString());
+        Assert.assertEquals("-2", new BigDecimal("-1.6").setScale(ZERO_SCALE, RoundingMode.HALF_DOWN).toString());
     }
 
 }
