@@ -3,7 +3,7 @@ package fx.leyu.jdk.lang;
 import org.junit.Test;
 
 public class ArrayTest {
-    @Test
+    @Test(expected = ArrayStoreException.class)
     public void test() {
         String[] strings = new String[2];
         Object[] objects = strings;
