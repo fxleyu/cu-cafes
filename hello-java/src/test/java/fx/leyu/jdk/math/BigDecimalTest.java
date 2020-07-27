@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class BigDecimalTest {
     @Test
@@ -19,5 +20,17 @@ public class BigDecimalTest {
 
         Assert.assertEquals("-10E-24",
                 new BigDecimal("-0.00000000000000000000001").toEngineeringString());
+    }
+
+    @Test
+    public void testDivide() {
+        BigDecimal a = new BigDecimal("1.00");
+        BigDecimal b = new BigDecimal("3.00");
+
+        Assert.assertEquals("0.33", a.divide(b, RoundingMode.HALF_UP).toPlainString());
+
+        Assert.assertEquals("0.3", a.divide(b, 1, RoundingMode.HALF_UP).toPlainString());
+        Assert.assertEquals("0.33", a.divide(b, 2, RoundingMode.HALF_UP).toPlainString());
+        Assert.assertEquals("0.333", a.divide(b, 3, RoundingMode.HALF_UP).toPlainString());
     }
 }
