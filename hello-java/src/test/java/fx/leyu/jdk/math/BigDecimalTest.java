@@ -33,4 +33,11 @@ public class BigDecimalTest {
         Assert.assertEquals("0.33", a.divide(b, 2, RoundingMode.HALF_UP).toPlainString());
         Assert.assertEquals("0.333", a.divide(b, 3, RoundingMode.HALF_UP).toPlainString());
     }
+
+    @Test
+    public void testEquals() {
+        BigDecimal zero = new BigDecimal("0");
+        Assert.assertEquals(0, zero.scale());
+        Assert.assertEquals(BigDecimal.ZERO, zero);
+    }
 }
