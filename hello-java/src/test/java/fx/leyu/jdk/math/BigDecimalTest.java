@@ -39,5 +39,9 @@ public class BigDecimalTest {
         BigDecimal zero = new BigDecimal("0");
         Assert.assertEquals(0, zero.scale());
         Assert.assertEquals(BigDecimal.ZERO, zero);
+
+        zero = new BigDecimal("0.00");
+        Assert.assertEquals(2, zero.scale());
+        Assert.assertNotEquals(BigDecimal.ZERO, zero);
     }
 }
