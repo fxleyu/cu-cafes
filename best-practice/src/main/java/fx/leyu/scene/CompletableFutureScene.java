@@ -11,7 +11,7 @@ import java.util.concurrent.CompletableFuture;
  *
  * @author fxleyu
  */
-public class CompleteFutureScene {
+public class CompletableFutureScene {
     @Test
     public void test() {
         CompletableFuture<List<String>> userCenterFuture = CompletableFuture.supplyAsync(() -> {
