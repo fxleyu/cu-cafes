@@ -8,6 +8,7 @@ import java.math.RoundingMode;
 
 public class RoundingModeTest {
     private static final int ZERO_SCALE = 0;
+    private static final int TWO_SCALE = 2;
 
     /**
      * UP 基准是 0
@@ -62,6 +63,11 @@ public class RoundingModeTest {
         Assert.assertEquals("1", new BigDecimal("1.4").setScale(ZERO_SCALE, RoundingMode.HALF_UP).toString());
         Assert.assertEquals("-1", new BigDecimal("-1.4").setScale(ZERO_SCALE, RoundingMode.HALF_UP).toString());
         Assert.assertEquals("-2", new BigDecimal("-1.5").setScale(ZERO_SCALE, RoundingMode.HALF_UP).toString());
+
+        Assert.assertEquals("1.50", new BigDecimal("1.495").setScale(TWO_SCALE, RoundingMode.HALF_UP).toString());
+        Assert.assertEquals("1.49", new BigDecimal("1.494").setScale(TWO_SCALE, RoundingMode.HALF_UP).toString());
+        Assert.assertEquals("-1.00", new BigDecimal("-1.004").setScale(TWO_SCALE, RoundingMode.HALF_UP).toString());
+        Assert.assertEquals("-1.01", new BigDecimal("-1.005").setScale(TWO_SCALE, RoundingMode.HALF_UP).toString());
     }
 
     /**
