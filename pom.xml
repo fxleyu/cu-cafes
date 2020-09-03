@@ -22,6 +22,7 @@
         <module>hello-log</module>
         <module>hello-junit</module>
         <module>hello-io</module>
+        <module>hello-cache</module>
     </modules>
     <packaging>pom</packaging>
 
