@@ -418,15 +418,22 @@ public class CompleteFutureTest {
 
     @Test
     public void test() {
-        CompletableFuture<List<String>>  one = CompletableFuture.supplyAsync(() -> {
-            System.out.println(System.currentTimeMillis() + " future 1 START: " + Thread.currentThread().getName());
-            testSleep(3);
-            System.out.println(System.currentTimeMillis() + " future 1 END: " + Thread.currentThread().getName());
-            return Lists.newArrayList("one");
+        // A -> B
+        // A -> C
+        // B -> D
+        // C -> D
+        CompletableFuture<String> A = CompletableFuture.supplyAsync(() -> {
+            try {
+                TimeUnit.MINUTES.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return "A";
         });
-
-        System.out.println(System.currentTimeMillis() + " main : " + Thread.currentThread().getName());
-        System.out.println(one.join());
+        CompletableFuture<String> B = A.thenApply(x -> x + " + B");
+        CompletableFuture<String> C = A.thenApply(x -> x + " + C");
+        CompletableFuture<String> D = B.thenCombine(C, (b, c) -> b + " + " + c);
+        System.out.println(D.join());
     }
 
     @Test
