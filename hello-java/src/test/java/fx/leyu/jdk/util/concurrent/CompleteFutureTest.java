@@ -49,7 +49,7 @@ public class CompleteFutureTest {
         }
 
         if (x != null) {
-            x.add("HAHAHA");
+            x.add("Haha");
         }
     };
 
@@ -133,7 +133,7 @@ public class CompleteFutureTest {
         CompletableFuture<String> result = ASYNC_TASK_5.applyToEither(MAIN_TASK_0, FUNCTION_2);
         System.out.println((System.currentTimeMillis() / 1000) + " main : " + Thread.currentThread().getName());
         testSleep(2);
-        System.out.println("result.join()");
+        System.out.println(result.join());
     }
 
     @Test(timeout = 2500)
@@ -298,7 +298,7 @@ public class CompleteFutureTest {
     }
 
     @Test
-    public void testRunAfterBothAync() {
+    public void testRunAfterBothAsync() {
         // ASYNC_TASK_5 MAIN_TASK_0 均完成后执行 RUNNABLE_2，RUNNABLE_2 在 ForkJoinPool.commonPool
         CompletableFuture<Void> future = MAIN_OTHER_TASK_0.runAfterBothAsync(MAIN_TASK_0, RUNNABLE_2);
         // 执行时间 5（ASYNC_TASK_5， or main testSleep） + 2（RUNNABLE_2）
@@ -382,8 +382,8 @@ public class CompleteFutureTest {
     }
 
     @Test
-    public void testThenCombineAysn() {
-        // MMAIN_TASK_0, ASYNC_TASK_5 都执行完后，执行BI_FUNCTION_S_S_2，使用线程为 ForkJoinPool.commonPool
+    public void testThenCombineAsync() {
+        // MAIN_TASK_0, ASYNC_TASK_5 都执行完后，执行BI_FUNCTION_S_S_2，使用线程为 ForkJoinPool.commonPool
         CompletableFuture<String> future = MAIN_TASK_0.thenCombineAsync(ASYNC_TASK_5, BI_FUNCTION_S_S_2);
         System.out.println((System.currentTimeMillis() / 1000)  + " main : " + Thread.currentThread().getName());
         System.out.println(future.join());
@@ -424,7 +424,7 @@ public class CompleteFutureTest {
         // C -> D
         CompletableFuture<String> A = CompletableFuture.supplyAsync(() -> {
             try {
-                TimeUnit.MINUTES.sleep(2);
+                TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
