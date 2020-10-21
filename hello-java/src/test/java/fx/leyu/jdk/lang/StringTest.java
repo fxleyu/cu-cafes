@@ -83,6 +83,6 @@ public class StringTest {
     public void testReplaceRichText() {
         String string = "开卡立得<font color='#ff0000'>18</font>元红包，再领20元黑卡消费金";
         String expected = "开卡立得18元红包，再领20元黑卡消费金";
-        Assert.assertEquals(expected, string.replaceAll("\\<[^>]+>", ""));
+        Assert.assertEquals(expected, string.replaceAll("<[^>]+>", ""));
     }
 }
