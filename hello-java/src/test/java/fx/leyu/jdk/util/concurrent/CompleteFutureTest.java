@@ -4,11 +4,13 @@ import com.google.common.collect.Lists;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
+import sun.lwawt.macosx.CSystemTray;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -453,6 +455,16 @@ public class CompleteFutureTest {
 
         System.out.println(System.currentTimeMillis() + " main : " + Thread.currentThread().getName());
         System.out.println(result.join());
+    }
+
+    @Test(expected = CompletionException.class)
+    public void testBusinessException() {
+        CompletableFuture<String> completableFuture = CompletableFuture.completedFuture(null)
+                    .thenApplyAsync(x -> {
+                        throw new RuntimeException("test");
+                    });
+        completableFuture.join();
+
     }
 
 
