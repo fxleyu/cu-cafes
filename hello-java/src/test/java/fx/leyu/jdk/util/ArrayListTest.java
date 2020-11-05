@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public class ArrayListTest {
@@ -38,5 +39,12 @@ public class ArrayListTest {
 
         List<Integer> listB = Lists.newArrayList();
         Stream<Integer> streamB = listB.stream();
+    }
+
+    @Test
+    public void testRemove() {
+        ArrayList<Integer> listA = Lists.newArrayList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        listA.removeIf(x -> x % 2 == 0);
+        System.out.println(listA);
     }
 }
