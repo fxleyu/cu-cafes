@@ -10,8 +10,8 @@ public class ExceptionTest {
         Assert.assertEquals(ExceptionDemo.returnStringWithFinally(), ExceptionDemo.FINALLY_STRING);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testFinallyException() {
-        System.out.println(ExceptionDemo.getOne());
+        ExceptionDemo.getOne();
     }
 }

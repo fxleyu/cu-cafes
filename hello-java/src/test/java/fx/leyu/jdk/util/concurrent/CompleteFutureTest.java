@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
-import sun.lwawt.macosx.CSystemTray;
 
 import java.util.List;
 import java.util.Objects;
