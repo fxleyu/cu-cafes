@@ -20,7 +20,7 @@ public class VolatileDemo {
 
     static class Worker {
         public void print() {
-            System.out.println("[WORKER][START]" + this);
+            System.out.println("[WORKER][START] " + this);
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
