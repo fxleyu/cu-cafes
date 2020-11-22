@@ -23,6 +23,7 @@
         <module>hello-junit</module>
         <module>hello-io</module>
         <module>hello-cache</module>
+        <module>hello-mysql</module>
     </modules>
     <packaging>pom</packaging>
 
