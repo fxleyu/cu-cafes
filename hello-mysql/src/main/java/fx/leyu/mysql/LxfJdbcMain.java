@@ -50,6 +50,15 @@ public class LxfJdbcMain {
                 int n = ps.executeUpdate();
                 System.out.println("DELETE id = " + n);
             }
+            String sql = "SELECT * FROM students;";
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
+                // 4.处理数据库的返回结果(使用ResultSet类)
+                try (ResultSet rs = statement.executeQuery()) {
+                    while (rs.next()) {
+                        System.out.println(rs.getString(1));
+                    }
+                }
+            }
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
