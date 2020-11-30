@@ -29,8 +29,8 @@ public class LxfJdbcTransactionMain {
             conn.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
 
             insert(conn);
-            select(conn);
-            delete(conn);
+            //select(conn);
+            //delete(conn);
 
             conn.commit();
         } catch (Exception throwable) {
@@ -43,14 +43,7 @@ public class LxfJdbcTransactionMain {
             }
             throwable.printStackTrace();
         } finally {
-            if (Objects.nonNull(connection)) {
-                try {
-                connection.setAutoCommit(false);
-                connection.close();
-                } catch (SQLException sqlException) {
-                    sqlException.printStackTrace();
-                }
-            }
+
         }
     }
 
