@@ -10,6 +10,7 @@ import java.sql.SQLException;
  * @author fxleyu
  */
 public class Main {
+    // jdbc:mysql://<hostname>:<port>/<db>?key1=value1&key2=value2
     private static final String JDBC_URL = "jdbc:mysql://127.0.0.1:3306/sys";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "12345678";
