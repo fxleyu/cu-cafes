@@ -38,3 +38,9 @@ INSERT INTO students (name, gender, grade, score) VALUES ('小王', 1, 3, 90);
 INSERT INTO students (name, gender, grade, score) VALUES ('小林', 0, 3, 91);
 INSERT INTO students (name, gender, grade, score) VALUES ('小贝', 0, 3, 77);
 ```
+
+# MySQL
+## 事务
+在可重复隔离级别：
+1. 在 A 事务期间，B 事务新增了行。A 事物不可以读到 B 事务新增到行。
+2. 在 A 事务期间，B 事务新增了行。A 事务对于 B 事务新增行进行了更新。A 事务可以读到 B 事务新增的行。

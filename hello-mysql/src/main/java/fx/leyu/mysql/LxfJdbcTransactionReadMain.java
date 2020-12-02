@@ -26,7 +26,7 @@ public class LxfJdbcTransactionReadMain {
 
             System.out.println("-------------");
             TimeUnit.SECONDS.sleep(10);
-            update(conn);
+            //update(conn);
             select(conn);
         } catch (SQLException | InterruptedException throwable) {
             conn.rollback();
