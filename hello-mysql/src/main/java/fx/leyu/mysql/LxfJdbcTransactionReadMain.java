@@ -26,6 +26,7 @@ public class LxfJdbcTransactionReadMain {
 
             System.out.println("-------------");
             TimeUnit.SECONDS.sleep(10);
+            update(conn);
             select(conn);
         } catch (SQLException | InterruptedException throwable) {
             conn.rollback();
@@ -36,12 +37,21 @@ public class LxfJdbcTransactionReadMain {
         }
     }
 
+    private static void update(Connection conn) throws SQLException {
+        String sql = "UPDATE students SET name=? WHERE name=?;";
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setObject(1, "fxleyu");
+            statement.setObject(2, "Bob");
+            statement.executeUpdate();
+        }
+    }
+
     private static void select(Connection conn) throws SQLException {
         String sql = "SELECT * FROM students;";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
-                    System.out.println(rs.getString(1));
+                    System.out.println(rs.getString(1) + "," + rs.getString(2));
                 }
             }
         }
