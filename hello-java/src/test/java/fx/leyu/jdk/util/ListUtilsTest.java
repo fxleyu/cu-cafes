@@ -5,7 +5,6 @@ import org.apache.commons.collections4.ListUtils;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Objects;
 
 public class ListUtilsTest {
     @Test
