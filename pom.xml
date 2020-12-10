@@ -24,6 +24,7 @@
         <module>hello-io</module>
         <module>hello-cache</module>
         <module>hello-mysql</module>
+        <module>hello-mq</module>
     </modules>
     <packaging>pom</packaging>
 
