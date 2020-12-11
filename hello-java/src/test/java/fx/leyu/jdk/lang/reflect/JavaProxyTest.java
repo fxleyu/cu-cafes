@@ -13,12 +13,16 @@ public class JavaProxyTest {
         InvocationHandler handler = new AroundInvocationHandler(new One());
         OneInterface one = (OneInterface) Proxy.newProxyInstance(JavaProxyTest.class.getClassLoader(),
                 new Class<?>[] { OneInterface.class }, handler);
-        one.hello();
+        one.helloInt();
 
         handler = new AroundInvocationHandler(new Two());
-        TwoInterface two = (TwoInterface) Proxy.newProxyInstance(JavaProxyTest.class.getClassLoader(),
-                new Class<?>[] { TwoInterface.class }, handler);
+        Object proxy = Proxy.newProxyInstance(JavaProxyTest.class.getClassLoader(),
+                new Class<?>[] {TwoInterface.class, OneInterface.class}, handler);
+        TwoInterface two = (TwoInterface) proxy;
         two.hello();
+        one = (OneInterface)proxy;
+        // 运行时错误
+        // one.helloInt();
     }
 
     private static class AroundInvocationHandler implements InvocationHandler {
@@ -38,7 +42,7 @@ public class JavaProxyTest {
     }
 
     interface OneInterface {
-        int hello();
+        int helloInt();
     }
 
     interface TwoInterface {
@@ -48,7 +52,7 @@ public class JavaProxyTest {
     private static class One implements OneInterface {
 
         @Override
-        public int hello() {
+        public int helloInt() {
             System.out.println("Hello World!");
             return -1;
         }
@@ -60,6 +64,11 @@ public class JavaProxyTest {
         @Override
         public void hello() {
             System.out.println("Hello World! 2");
+        }
+
+        public int helloInt() {
+            System.out.println("Hello World!");
+            return -1;
         }
     }
 
