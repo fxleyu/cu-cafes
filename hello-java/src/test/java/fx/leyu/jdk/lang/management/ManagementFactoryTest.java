@@ -50,6 +50,16 @@ public class ManagementFactoryTest {
     }
 
     @Test
+    public void testMemoryPoolMXBeans() {
+        List<MemoryPoolMXBean> beanList = ManagementFactory.getMemoryPoolMXBeans();
+        beanList.forEach(bean -> {
+            System.out.println(bean.getName()
+                    + "  \n -> manager : " + Arrays.toString(bean.getMemoryManagerNames())
+                    + "  \n -> " +  " : " + bean.getCollectionUsage());
+        });
+    }
+
+    @Test
     public void testThreadMXBean() {
         ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
         long[] threadIds = threadMXBean.getAllThreadIds();
