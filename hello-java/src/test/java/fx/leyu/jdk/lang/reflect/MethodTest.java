@@ -4,8 +4,9 @@ import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
-public class MothedTest {
+public class MethodTest {
     
     @Test
     public void testCommonMessage() {
@@ -32,4 +33,23 @@ public class MothedTest {
         System.out.println(obj);
     }
 
+    @Test
+    public void test() {
+        Class<MethodClass> clazz = MethodClass.class;
+        // public
+        System.out.println(Arrays.toString(clazz.getMethods()));
+
+        // public
+        System.out.println(Arrays.toString(clazz.getDeclaredMethods()));
+    }
+
+    public static class MethodClass {
+        private void privateMethod() {}
+
+        protected void protectedMethod() {}
+
+        void defaultMethod() {}
+
+        public void publicMethod() {}
+    }
 }
