@@ -41,15 +41,6 @@ public class ManagementFactoryTest {
     }
 
     @Test
-    public void testAllThreadIds() {
-        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
-        long[] threadIds = threadMXBean.getAllThreadIds();
-        for (long threadId : threadIds) {
-            System.out.println(threadMXBean.getThreadInfo(threadId));
-        }
-    }
-
-    @Test
     public void testMemoryMXBean() {
         MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
         System.out.println("HeapMemoryUsage : " + memoryMXBean.getHeapMemoryUsage());
@@ -57,4 +48,15 @@ public class ManagementFactoryTest {
         System.out.println("HeapMemoryUsage : " + memoryMXBean.getObjectPendingFinalizationCount());
         System.out.println("ObjectName : " + memoryMXBean.getObjectName());
     }
+
+    @Test
+    public void testThreadMXBean() {
+        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+        long[] threadIds = threadMXBean.getAllThreadIds();
+        for (long threadId : threadIds) {
+            System.out.println(threadMXBean.getThreadInfo(threadId));
+        }
+    }
+
+
 }
