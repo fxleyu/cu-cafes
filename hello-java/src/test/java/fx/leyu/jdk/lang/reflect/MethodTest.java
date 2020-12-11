@@ -39,17 +39,45 @@ public class MethodTest {
         // public
         System.out.println(Arrays.toString(clazz.getMethods()));
 
-        // public
+        // 声明参数
         System.out.println(Arrays.toString(clazz.getDeclaredMethods()));
     }
 
+    @Test
+    public void testInvoke() {
+        MethodClass methodClass = new MethodClass();
+        Arrays.stream(methodClass.getClass().getDeclaredMethods())
+                .forEach(method -> {
+                    try {
+                        method.setAccessible(true);
+                        if (method.getParameterCount() == 0) {
+                            System.out.println(method.invoke(methodClass));
+                        }
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                });
+    }
+
     public static class MethodClass {
-        private void privateMethod() {}
+        private String privateMethod() {
+            return "privateMethod";
+        }
 
-        protected void protectedMethod() {}
+        protected String protectedMethod() {
+            return "protectedMethod";
+        }
 
-        void defaultMethod() {}
+        String defaultMethod() {
+            return "defaultMethod";
+        }
 
-        public void publicMethod() {}
+        public String publicMethod() {
+            return "publicMethod";
+        }
+
+        public void voidMethod() {
+            return;
+        }
     }
 }
