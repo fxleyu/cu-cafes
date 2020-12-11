@@ -21,7 +21,7 @@ public class ManagementFactoryTest {
     }
 
     @Test
-    public void testCompilationMXBean() throws ClassNotFoundException {
+    public void testCompilationMXBean() {
         CompilationMXBean compilationMXBean = ManagementFactory.getCompilationMXBean();
         System.out.println(compilationMXBean.getName());
     }
