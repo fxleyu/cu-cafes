@@ -1,10 +1,15 @@
 package fx.leyu.jdk.lang.management;
 
+import com.google.common.collect.Lists;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.ListUtils;
 import org.junit.Test;
 
 import java.lang.management.*;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class ManagementFactoryTest {
@@ -63,6 +68,20 @@ public class ManagementFactoryTest {
     public void testOperatingSystemMXBean() {
         OperatingSystemMXBean bean = ManagementFactory.getOperatingSystemMXBean();
         System.out.println(bean.getName() + " : " + bean.getArch());
+    }
+
+    @Test
+    public void testPlatformManagementInterfaces() {
+        Set<Class<? extends PlatformManagedObject>> set = ManagementFactory.getPlatformManagementInterfaces();
+        set.forEach(bean -> {
+            System.out.println(bean.getCanonicalName());
+        });
+    }
+
+    @Test
+    public void testRuntimeMXBean() {
+        RuntimeMXBean bean = ManagementFactory.getRuntimeMXBean();
+        System.out.println(bean.getInputArguments());
     }
 
     @Test
