@@ -16,3 +16,10 @@ ParNew : [Par Eden Space, Par Survivor Space]
 ConcurrentMarkSweep : [Par Eden Space, Par Survivor Space, CMS Old Gen]
 ```
 
+1.8 默认获取的内存管理信息如下：
+```
+CodeCacheManager : [Code Cache]
+Metaspace Manager : [Metaspace, Compressed Class Space]
+PS Scavenge : [PS Eden Space, PS Survivor Space]
+PS MarkSweep : [PS Eden Space, PS Survivor Space, PS Old Gen]
+```
