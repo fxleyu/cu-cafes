@@ -1,13 +1,9 @@
 package fx.leyu.jdk.lang.management;
 
-import com.google.common.collect.Lists;
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.ListUtils;
 import org.junit.Test;
 
 import java.lang.management.*;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
