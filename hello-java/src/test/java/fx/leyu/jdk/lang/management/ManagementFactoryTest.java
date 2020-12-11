@@ -2,10 +2,8 @@ package fx.leyu.jdk.lang.management;
 
 import org.junit.Test;
 
-import java.lang.management.ClassLoadingMXBean;
-import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryMXBean;
-import java.lang.management.ThreadMXBean;
+import java.lang.management.*;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ManagementFactoryTest {
@@ -19,6 +17,12 @@ public class ManagementFactoryTest {
         System.out.println("TotalLoadedClassCount : " + classLoadingMXBean.getTotalLoadedClassCount());
         System.out.println("UnloadedClassCount : " + classLoadingMXBean.getUnloadedClassCount());
         System.out.println("ObjectName ?: " + classLoadingMXBean.getObjectName());
+    }
+
+    @Test
+    public void testGarbageCollectorMXBeans() {
+        List<GarbageCollectorMXBean> garbageCollectorList = ManagementFactory.getGarbageCollectorMXBeans();
+        garbageCollectorList.forEach(garbageCollectorMXBean -> System.out.println(garbageCollectorMXBean.getName()));
     }
 
     @Test
