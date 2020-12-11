@@ -60,6 +60,12 @@ public class ManagementFactoryTest {
     }
 
     @Test
+    public void testOperatingSystemMXBean() {
+        OperatingSystemMXBean bean = ManagementFactory.getOperatingSystemMXBean();
+        System.out.println(bean.getName() + " : " + bean.getArch());
+    }
+
+    @Test
     public void testThreadMXBean() {
         ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
         long[] threadIds = threadMXBean.getAllThreadIds();
