@@ -3,6 +3,7 @@ package fx.leyu.jdk.lang.management;
 import org.junit.Test;
 
 import java.lang.management.*;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -69,9 +70,12 @@ public class ManagementFactoryTest {
     @Test
     public void testPlatformManagementInterfaces() {
         Set<Class<? extends PlatformManagedObject>> set = ManagementFactory.getPlatformManagementInterfaces();
-        set.forEach(bean -> {
-            System.out.println(bean.getCanonicalName());
-        });
+        set.forEach(this::printPlatformManagedObject);
+    }
+
+    private void printPlatformManagedObject(Class<? extends PlatformManagedObject> bean) {
+        Method[] a = bean.getMethods();
+        System.out.println(Arrays.toString(a));
     }
 
     @Test
