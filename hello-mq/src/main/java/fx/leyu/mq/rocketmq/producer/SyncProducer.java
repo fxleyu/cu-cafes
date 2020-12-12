@@ -22,7 +22,7 @@ public class SyncProducer {
         producer.start();
         for (int i = 0; i < 10; i++) {
             //Create a message instance, specifying topic, tag and message body.
-            Message msg = new Message("FX_Topic_Test", "FX_Tag",
+            Message msg = new Message("FX_Topic_Test_z", "tagx",
                     ("[fxleyu] Hello RocketMQ x " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
             //Call send message to deliver message to one of brokers.
             SendResult sendResult = producer.send(msg);

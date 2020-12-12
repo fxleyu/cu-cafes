@@ -15,16 +15,15 @@ import java.util.stream.Collectors;
 public class Consumer {
     public static void main(String[] args) throws MQClientException {
         // Instantiate with specified consumer group name.
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("mq_fxleyu_group_name_4");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("mq_fxleyu_group_name_x1");
 
         // Specify name server addresses.
         consumer.setNamesrvAddr("127.0.0.1:9876");
         consumer.setConsumeThreadMin(1);
         consumer.setConsumeThreadMax(1);
-        consumer.setConsumeMessageBatchMaxSize(3);
-
+        consumer.setConsumeMessageBatchMaxSize(1);
         // Subscribe one more more topics to consume.
-        consumer.subscribe("FX_Topic_Test", "*");
+        consumer.subscribe("FX_Topic_Test_z", "*");
 
         AtomicInteger integer = new AtomicInteger(0);
         // Register callback to execute on arrival of messages fetched from brokers.
@@ -39,9 +38,10 @@ public class Consumer {
                 }
 
                 // System.out.printf("%s Receive New Messages -  %s %n", Thread.currentThread().getName(), msgs);
-                String msg = msgs.stream().map(x -> new String(x.getBody())).collect(Collectors.joining());
+                String msg = msgs.stream().map(x -> new String(x.getMsgId())).collect(Collectors.joining("-"));
+                //msgs.forEach(System.out::println);
                 System.out.println("msg's size is " + integer.addAndGet(msgs.size()) + ", msg is " + msg);
-                return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
             }
         });
 
