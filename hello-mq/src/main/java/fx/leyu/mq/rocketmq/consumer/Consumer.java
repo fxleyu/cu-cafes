@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
 public class Consumer {
     public static void main(String[] args) throws MQClientException {
         // Instantiate with specified consumer group name.
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("mq_fxleyu_group_name3");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("mq_fxleyu_group_name_4");
 
         // Specify name server addresses.
-        consumer.setNamesrvAddr("localhost:9876");
+        consumer.setNamesrvAddr("127.0.0.1:9876");
         consumer.setConsumeThreadMin(1);
         consumer.setConsumeThreadMax(1);
         consumer.setConsumeMessageBatchMaxSize(3);

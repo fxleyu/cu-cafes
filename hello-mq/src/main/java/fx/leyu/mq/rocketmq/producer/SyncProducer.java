@@ -17,7 +17,7 @@ public class SyncProducer {
         DefaultMQProducer producer = new
                 DefaultMQProducer("mq_fxleyu_group_name");
         // Specify name server addresses.
-        producer.setNamesrvAddr("localhost:9876");
+        producer.setNamesrvAddr("127.0.0.1:9876");
         //Launch the instance.
         producer.start();
         for (int i = 0; i < 10; i++) {
