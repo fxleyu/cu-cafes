@@ -16,6 +16,7 @@
 - [Redis](./hello-redis/README.md) Redis 练习
 - [ZooKeeper](./hello-zookeeper/README.md)
 - [LOG](./hello-log/README.md) 熟悉日志框架
+- [MQ](./hello-mq) 熟悉消息队列
 
 # 代码架构
 - MAVEN 管理
