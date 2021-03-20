@@ -9,4 +9,12 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>hello-io</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.caucho</groupId>
+      <artifactId>hessian</artifactId>
+      <version>4.0.38</version>
+    </dependency>
+  </dependencies>
 </project>

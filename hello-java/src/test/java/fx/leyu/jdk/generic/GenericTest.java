@@ -16,6 +16,7 @@ public class GenericTest {
 
         List<String> stringList = Lists.newArrayList();
         rawTypeList = stringList;
+        // 编译失败
         //genericList = stringList;
     }
 
