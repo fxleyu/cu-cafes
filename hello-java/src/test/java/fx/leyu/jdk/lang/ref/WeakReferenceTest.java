@@ -3,19 +3,27 @@ package fx.leyu.jdk.lang.ref;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
+import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class WeakReferenceTest {
-    private static final int _1_MB = 1 * 1024 * 1024;
-    @Test(expected = OutOfMemoryError.class)
-    public void test() throws InterruptedException {
-        WeakReference<List<char[]>> weakReference = new WeakReference<>(Lists.newArrayList());
+    private static final int _512_KB = 1 * 1024 * 512;
+    //-XX:+HeapDumpOnOutOfMemoryError -Xmx20m -Xms20m -XX:+PrintGCDetails
+    @Test(expected = NullPointerException.class)
+    public void test() {
+        WeakReference<List<char[]>>[] holder = new WeakReference[2];
+        holder[0] = new WeakReference<>(Lists.newArrayList());
+        holder[1] = new WeakReference<>(Lists.newArrayList());
+
         for (int i = 0; i < 10000; i++) {
-            weakReference.get().add(new char[_1_MB]);
-            TimeUnit.MILLISECONDS.sleep(100);
-            System.out.println("i = " + i + "; size = " + weakReference.get().size());
+            holder[i%2].get().add(new char[_512_KB]);
+            printInfo(i, holder);
         }
+    }
+
+    private void printInfo(int i, Reference<List<char[]>>[] holder) {
+        System.out.println("i = " + i + "; X size = " + holder[0].get().size());
+        System.out.println("i = " + i + "; Y size = " + holder[1].get().size());
     }
 }
