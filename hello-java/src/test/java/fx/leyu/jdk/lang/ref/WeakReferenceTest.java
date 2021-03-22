@@ -2,7 +2,6 @@ package fx.leyu.jdk.lang.ref;
 
 import com.google.common.collect.Lists;
 import org.apache.commons.collections4.CollectionUtils;
-import org.checkerframework.checker.units.qual.C;
 import org.junit.Test;
 
 import java.lang.ref.Reference;
