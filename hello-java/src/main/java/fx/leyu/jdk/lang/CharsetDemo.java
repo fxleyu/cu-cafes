@@ -2,12 +2,11 @@ package fx.leyu.jdk.lang;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class CharsetDemo {
 
-    public static void main(String[] args) throws UnsupportedEncodingException, FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException {
         handleUtf8();
         handleGbk();
     }
