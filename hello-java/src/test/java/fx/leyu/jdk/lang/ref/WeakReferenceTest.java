@@ -2,6 +2,7 @@ package fx.leyu.jdk.lang.ref;
 
 import com.google.common.collect.Lists;
 import org.apache.commons.collections4.CollectionUtils;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.Test;
 
 import java.lang.ref.Reference;
@@ -50,7 +51,8 @@ public class WeakReferenceTest {
         WeakReference<List<char[]>> holder = new WeakReference<>(Lists.newLinkedList());
 
         for (int i = 0; i < 20; i++) {
-            holder.get().add(new char[_512_KB]);
+            char[] chs = new char[_512_KB];
+            holder.get().add(chs);
             System.out.println("i = " + i + "; size = " + holder.get().size());
         }
     }
