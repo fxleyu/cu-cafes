@@ -46,7 +46,7 @@ public class WeakReferenceTest {
     }
 
     //-XX:+HeapDumpOnOutOfMemoryError -Xmx20m -Xms20m -XX:+PrintGCDetails
-    @Test(expected = OutOfMemoryError.class)
+    @Test(expected = NullPointerException.class)
     public void testOne() {
         WeakReference<List<char[]>> holder = new WeakReference<>(Lists.newLinkedList());
 
