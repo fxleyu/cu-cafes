@@ -38,8 +38,16 @@ public class ArrayListTest {
         Stream<Integer> streamA = listA.parallelStream();
         streamA.count();
 
-        List<Integer> listB = Lists.newArrayList();
-        Stream<Integer> streamB = listB.stream();
+        List<Integer> listB = Lists.newArrayList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        Stream<Integer> streamB = listB
+                .stream()
+                .filter(x -> x % 2 == 0)
+                .map( x -> x * 2)
+                .map( x -> x + 1)
+                ;
+        streamB = streamB;
+        System.out.printf(streamB.collect(Collectors.toList()).toString());
+        System.out.println(streamB.map( x -> x+1).count());
     }
 
     @Test
