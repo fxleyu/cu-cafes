@@ -11,6 +11,7 @@ public class Foo {
     public void first(Runnable printFirst) throws InterruptedException {
         synchronized (lock) {
             while (index.get() % 3 != 0) {
+                lock.notifyAll();
                 lock.wait();
             }
             printFirst.run();
@@ -22,6 +23,7 @@ public class Foo {
     public void second(Runnable printSecond) throws InterruptedException {
         synchronized (lock) {
             while (index.get() % 3 != 1) {
+                lock.notifyAll();
                 lock.wait();
             }
             printSecond.run();
@@ -33,6 +35,7 @@ public class Foo {
     public void third(Runnable printThird) throws InterruptedException {
         synchronized (lock) {
             while (index.get() % 3 != 2) {
+                lock.notifyAll();
                 lock.wait();
             }
             printThird.run();
