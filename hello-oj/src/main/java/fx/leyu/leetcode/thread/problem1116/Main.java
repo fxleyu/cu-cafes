@@ -4,7 +4,7 @@ import java.util.function.IntConsumer;
 
 public class Main {
     public static void main(String[] args) {
-        ZeroEvenOdd zeroEvenOdd = new ZeroEvenOdd(10000);
+        ZeroEvenOdd1 zeroEvenOdd = new ZeroEvenOdd1(4);
         IntConsumer intConsumer = System.out::print;
         new Thread(() -> {
             try {
