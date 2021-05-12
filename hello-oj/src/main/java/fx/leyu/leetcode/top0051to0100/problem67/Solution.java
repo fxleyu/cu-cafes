@@ -16,4 +16,16 @@ public class Solution {
         }
         return result.reverse().toString();
     }
+
+    public String addBinary1(String a, String b) {
+        byte[] result = new byte[Math.max(a.length(), b.length()) + 1];
+        char carry = '0';
+        for (int i = a.length() - 1, j = b.length() - 1; i > -1 || j > -1; i--, j--) {
+            char
+        }
+        if (carry > 0) {
+            result.append("1");
+        }
+        return result.reverse().toString();
+    }
 }
