@@ -91,5 +91,9 @@ public class StringTest {
     public void test() {
         String str = String.format("可用%s豆抵扣%s元", 4, new BigDecimal("8.00100").stripTrailingZeros());
         System.out.println(str);
+
+        int x = 3;
+        Integer y = null;
+        Assert.assertTrue(y != x);
     }
 }
