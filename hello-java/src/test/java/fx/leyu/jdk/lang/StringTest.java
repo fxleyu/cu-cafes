@@ -96,4 +96,12 @@ public class StringTest {
         Integer y = null;
         Assert.assertTrue(y != x);
     }
+
+    @Test
+    public void testStartWith() {
+        String a = "abc";
+        String b = "abcd";
+        Assert.assertTrue(!a.startsWith(b));
+        Assert.assertTrue(b.startsWith(a));
+    }
 }
