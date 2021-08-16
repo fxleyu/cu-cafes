@@ -2,13 +2,20 @@ package fx.leyu.jdk.lang;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CharsetDemo {
 
     public static void main(String[] args) throws FileNotFoundException {
-        handleUtf8();
-        handleGbk();
+        int[] x = new int[2];
+        for (int i = 0; i < x.length; i++) {
+            x[i]++;
+        }
+        System.out.println(Arrays.toString(x));
+
+        //handleUtf8();
+        //handleGbk();
     }
     
     private static void handleGbk() throws FileNotFoundException {
