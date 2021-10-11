@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -84,5 +85,23 @@ public class StringTest {
         String string = "开卡立得<font color='#ff0000'>18</font>元红包，再领20元黑卡消费金";
         String expected = "开卡立得18元红包，再领20元黑卡消费金";
         Assert.assertEquals(expected, string.replaceAll("<[^>]+>", ""));
+    }
+
+    @Test
+    public void test() {
+        String str = String.format("可用%s豆抵扣%s元", 4, new BigDecimal("8.00100").stripTrailingZeros());
+        System.out.println(str);
+
+        int x = 3;
+        Integer y = null;
+        Assert.assertTrue(y != x);
+    }
+
+    @Test
+    public void testStartWith() {
+        String a = "abc";
+        String b = "abcd";
+        Assert.assertTrue(!a.startsWith(b));
+        Assert.assertTrue(b.startsWith(a));
     }
 }

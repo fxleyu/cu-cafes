@@ -14,7 +14,7 @@ public class SolutionTest {
 
     @Test
     public void testPlusOne() {
-        Assert.assertArrayEquals(new int[]{1, 2, 4}, solution.plusOne(new int[]{1, 2, 3}));
-        Assert.assertArrayEquals(new int[]{4, 3, 2, 2}, solution.plusOne(new int[]{4, 3, 2, 1}));
+        Assert.assertArrayEquals(new int[]{1, 2, 4}, solution.plusOne1(new int[]{1, 2, 3}));
+        Assert.assertArrayEquals(new int[]{4, 3, 2, 2}, solution.plusOne1(new int[]{4, 3, 2, 1}));
     }
 }

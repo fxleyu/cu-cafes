@@ -474,4 +474,40 @@ public class CompleteFutureTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testDAG() throws InterruptedException {
+        CompletableFuture<String> a = CompletableFuture.supplyAsync(() -> {
+            testSleep(1);
+            System.out.println("A");
+            return null;
+        });
+        CompletableFuture<String> b = a.thenApply((string) -> {
+           System.out.println("B");
+           return null;
+        });
+        CompletableFuture<String> c = a.thenApply((string) -> {
+            System.out.println("C");
+            return null;
+        });
+        CompletableFuture<String> d = a.thenApply((string) -> {
+            System.out.println("D");
+            return null;
+        });
+        CompletableFuture<String> e = d.thenApply((string) -> {
+            System.out.println("E");
+            return null;
+        });
+        CompletableFuture<String> f = d.thenApply((string) -> {
+            System.out.println("F");
+            return null;
+        });
+        CompletableFuture<String> g = e.thenApply((string) -> {
+            System.out.println("G");
+            return null;
+        });
+
+        b.join();
+
+    }
 }
