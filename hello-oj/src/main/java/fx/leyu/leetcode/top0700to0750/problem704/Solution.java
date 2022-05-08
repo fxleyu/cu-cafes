@@ -10,14 +10,16 @@ class Solution {
 
         int start = 0;
         int end = nums.length - 1;
-        while (start >= 0 && end < nums.length && start <= end) {
+        while (start <= end) {
             int index = (start + end) / 2;
             if (nums[index] == target) {
                 return index;
             }
             if (nums[index] < target) {
+                // next, [mid + 1, end]
                 start = index + 1;
             } else {
+                // next, [start, mid - 1]
                 end = index - 1;
             }
         }
