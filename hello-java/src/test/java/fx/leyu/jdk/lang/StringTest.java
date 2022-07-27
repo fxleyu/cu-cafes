@@ -104,4 +104,10 @@ public class StringTest {
         Assert.assertTrue(!a.startsWith(b));
         Assert.assertTrue(b.startsWith(a));
     }
+
+    @Test
+    public void beforeX() {
+        String prefix = StringUtils.substringBefore("mayfair-bigdata/insight/dev/extract/58529099974a491d.txt", "/");
+        System.out.println(prefix);
+    }
 }
