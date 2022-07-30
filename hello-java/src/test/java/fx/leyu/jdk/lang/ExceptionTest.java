@@ -14,4 +14,21 @@ public class ExceptionTest {
     public void testFinallyException() {
         ExceptionDemo.getOne();
     }
+
+    @Test(expected = NullPointerException.class)
+    public void exceptionPrint() {
+        try {
+            ExceptionDemo.getOne();
+        } catch (Throwable exception) {
+            System.out.println(exception.getClass().getSimpleName());
+            System.out.println(exception.getClass().getName());
+            System.out.println(exception.getClass().getCanonicalName());
+            while (!exception.equals(exception.getCause())) {
+                exception = exception.getCause();
+                System.out.println(exception.getClass().getSimpleName());
+                System.out.println(exception.getClass().getName());
+                System.out.println(exception.getClass().getCanonicalName());
+            }
+        }
+    }
 }
