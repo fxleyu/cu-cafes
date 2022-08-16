@@ -39,4 +39,15 @@ public class MapTest {
         map.entrySet().removeIf(stringStringEntry -> Objects.equals(stringStringEntry.getKey(), "1"));
         Assert.assertEquals(1, MapUtils.size(map));
     }
+
+    @Test
+    public void testMapValue() {
+        String value = "value_before";
+        Map<String, String> map = new HashMap<>();
+        map.put("1", value);
+        value = "value_after";
+        System.out.println(map.get("1"));
+        System.out.println(value);
+        Assert.assertEquals(1, MapUtils.size(map));
+    }
 }
