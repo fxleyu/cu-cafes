@@ -18,5 +18,6 @@ public class SetUtilsTest {
             // A B
             System.out.println(s);
         }
+        System.out.println(minus.size());
     }
 }
