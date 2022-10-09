@@ -16,7 +16,7 @@ public class ExceptionDemo {
         try {
             return 1;
         } finally {
-            throw new NullPointerException("x");
+            throw new RuntimeException("x", new NullPointerException("xxx"));
         }
     }
 }
