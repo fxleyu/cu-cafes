@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+
 public class BigDecimalTest {
     @Test
     public void test() {
@@ -45,4 +46,13 @@ public class BigDecimalTest {
         Assert.assertEquals(2, zero.scale());
         Assert.assertFalse(systemZero.equals(zero));
     }
+
+    @Test
+    public void testEquxxals() {
+        String x = "categorias, código do produto e ";
+        System.out.println(x);
+        x = x.toUpperCase();
+        System.out.println(x);
+    }
+
 }
