@@ -18,6 +18,9 @@
 - [LOG](./hello-log/README.md) 熟悉日志框架
 - [MQ](./hello-mq) 熟悉消息队列
 
+
+事务防止悬挂
+
 # 代码架构
 - MAVEN 管理
 - Git 代码管理
