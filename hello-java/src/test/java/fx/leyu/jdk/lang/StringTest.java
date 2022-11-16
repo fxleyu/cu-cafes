@@ -1,6 +1,7 @@
 package fx.leyu.jdk.lang;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -109,5 +110,15 @@ public class StringTest {
     public void beforeX() {
         String prefix = StringUtils.substringBefore("mayfair-bigdata/insight/dev/extract/58529099974a491d.txt", "/");
         System.out.println(prefix);
+    }
+
+    @Test
+    public void testSp() {
+        String x = "112,113,22,1,1,12";
+        String[] arr = StringUtils.split(x, ",");
+        for (String s : arr) {
+            System.out.println(NumberUtils.isCreatable(s));
+            System.out.println(s);
+        }
     }
 }
