@@ -1,16 +1,16 @@
 package fx.leyu.interview.alibaba1688;
 
-import com.google.common.collect.Lists;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class ToolTest {
     @Test
     public void test() {
-        List<FundNetValue> input = Lists.newArrayList();
+        List<FundNetValue> input = new ArrayList<>();
         //12,12,21,15,27,16,21,22,25,20,16,17
         input.add(new FundNetValue(new Date(1L), new BigDecimal("12")));
         input.add(new FundNetValue(new Date(2L), new BigDecimal("12")));

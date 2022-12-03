@@ -23,6 +23,7 @@ public class BigDecimalTest {
                 new BigDecimal("-0.00000000000000000000001").toEngineeringString());
     }
 
+
     @Test
     public void testDivide() {
         BigDecimal a = new BigDecimal("1.00");
