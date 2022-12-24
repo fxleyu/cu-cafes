@@ -79,6 +79,9 @@ public class MapTest {
         value = "value_after";
         System.out.println(map.get("1"));
         System.out.println(value);
-        Assert.assertEquals(1, MapUtils.size(map));
+        //Assert.assertEquals(1, MapUtils.size(map));
+
+        int MAX_LOOP_COUNT = 2_0000;
+        System.out.println("MAX_LOOP_COUNT > " + MAX_LOOP_COUNT);
     }
 }
