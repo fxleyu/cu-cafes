@@ -5,10 +5,13 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.apache.commons.collections4.ComparatorUtils;
 import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MapTest {
 
@@ -83,5 +86,13 @@ public class MapTest {
 
         int MAX_LOOP_COUNT = 2_0000;
         System.out.println("MAX_LOOP_COUNT > " + MAX_LOOP_COUNT);
+
+        String x = "\uD835\uDE8C \uD835\uDE91\uD835\uDE8A\uD835\uDE96\uD835\uDE99\uD835\uDE8A \uD835\uDE97\uD835\uDE8A\uD835\uDE90\uD835\uDE8A\uD835\uDE9B,\uD835\uDE71\uD835\uDE92\uD835\uDE9C\uD835\uDE91\uD835\uDE8A\uD835\uDE9B\uD835\uDE92 \uD835\uDE8A\uD835\uDE9C\uD835\uDE9D\uD835\uDE8A\uD835\uDE97, \uD835\uDE9A\uD835\uDE9E\uD835\uDE9C\uD835\uDE8B\uD835\uDE8A, \uD835\uDE90\uD835\uDE98\uD835\uDE95\uD835\uDE8F\uD835\uDE8E\uD835\uDE97 \uD835\uDE96\uD835\uDE8E\uD835\uDE8D\uD835\uDE92\uD835\uDE8C\uD835\uDE8A\uD835\uDE95 \uD835\uDE91\uD835\uDE8A\uD835\uDE95\uD835\uDE95";
+        System.out.println(x);
+        System.out.println(StringUtils.substringBeforeLast("https://www.instagram.com/anavikalia?ddd", "?"));
+        System.out.println(StringUtils.contains("https://www.instagram.com/anavikalia?ddd", "?"));
+        System.out.println(StringUtils.uncapitalize(x));
+        //StringUtils.uncapitalize()
+        System.out.println(RandomStringUtils.randomAlphanumeric(8));
     }
 }
