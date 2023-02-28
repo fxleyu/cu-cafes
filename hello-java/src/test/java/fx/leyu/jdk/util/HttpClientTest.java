@@ -42,7 +42,7 @@ public class HttpClientTest {
         System.out.println(JSONObject.toJSONString(null));
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpGet httpget = new HttpGet("https://us8.api.mailchimp.com/3.0/ping");
         httpget.addHeader("Authorization",  "Basic " + apiKye);
         CloseableHttpResponse response = httpclient.execute(httpget);
@@ -62,7 +62,7 @@ public class HttpClientTest {
     public void addStore() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpPost httpget = new HttpPost("https://us8.api.mailchimp.com/3.0/ecommerce/stores");
 
         Map<String, String> body = Maps.newHashMap();
@@ -95,7 +95,7 @@ public class HttpClientTest {
         connectionManager.setDefaultMaxPerRoute(50);//1.3
         CredentialsProvider provider = new BasicCredentialsProvider();
         UsernamePasswordCredentials credentials
-                = new UsernamePasswordCredentials("anystring", "42a8f45bfa0aeefab3dc6bdcc393beaa-us8");
+                = new UsernamePasswordCredentials("anystring", "xxx-us8");
         provider.setCredentials(AuthScope.ANY, credentials);
         HttpClientContext localContext = HttpClientContext.create();
         localContext.setCredentialsProvider(provider);
@@ -109,7 +109,7 @@ public class HttpClientTest {
                 //.setRetryHandler(new StandardHttpRequestRetryHandler())
                 //.disableAuthCaching()//2.2
                 .build();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpGet httpget = new HttpGet("https://us8.api.mailchimp.com/3.0/lists");
 
         Map<String, Object> body = Maps.newHashMap();
@@ -139,7 +139,7 @@ public class HttpClientTest {
     public void addAudiences() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpPost httpget = new HttpPost("https://us8.api.mailchimp.com/3.0/lists");
 
         Map<String, Object> body = Maps.newHashMap();
@@ -166,7 +166,7 @@ public class HttpClientTest {
     public void addUser() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpPost httpget = new HttpPost("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/customers");
 
         Map<String, Object> body = Maps.newHashMap();
@@ -193,7 +193,7 @@ public class HttpClientTest {
     public void updateUser() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpPut httpget = new HttpPut("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/customers/fxleyuZ");
 
         Map<String, Object> body = Maps.newHashMap();
@@ -221,7 +221,7 @@ public class HttpClientTest {
     public void addProduct() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpPost httpget = new HttpPost("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/products");
 
         List<Object> variants = Lists.newArrayList();
@@ -258,7 +258,7 @@ public class HttpClientTest {
     public void deleteProduct() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpDelete httpget = new HttpDelete("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/products/productA");
 
         List<Object> variants = Lists.newArrayList();
@@ -300,7 +300,7 @@ public class HttpClientTest {
     public void getProduct() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpGet httpget = new HttpGet("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/products/productA2");
 
         List<Object> variants = Lists.newArrayList();
@@ -339,7 +339,7 @@ public class HttpClientTest {
     public void updateProduct() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpPatch httpget = new HttpPatch("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/products/productA");
 
         List<Object> variants = Lists.newArrayList();
@@ -378,7 +378,7 @@ public class HttpClientTest {
     public void addCart() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpPost httpget = new HttpPost("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/carts");
 
         List<Object> lines = Lists.newArrayList();
@@ -421,7 +421,7 @@ public class HttpClientTest {
     public void updateCart() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpPatch httpget = new HttpPatch("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/carts/cart-v1-fxleyu");
 
         List<Object> lines = Lists.newArrayList();
@@ -464,7 +464,7 @@ public class HttpClientTest {
     public void deleteCart() throws IOException {
         // 42a8f45bfa0aeefab3dc6bdcc393beaa-us8
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String apiKye = Base64Utils.encodeToString("anystring:42a8f45bfa0aeefab3dc6bdcc393beaa-us8".getBytes());
+        String apiKye = Base64Utils.encodeToString("anystring:xxx-us8".getBytes());
         HttpDelete httpget = new HttpDelete("https://us8.api.mailchimp.com/3.0/ecommerce/stores/URBANIC_001/carts/cart-v1-fxleyu");
 
         List<Object> lines = Lists.newArrayList();
