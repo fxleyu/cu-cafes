@@ -1,7 +1,6 @@
 package fx.leyu.jdk.lang;
 
 import org.junit.Test;
-import org.springframework.beans.BeanUtils;
 
 public class CloneTest {
     @Test
@@ -11,7 +10,7 @@ public class CloneTest {
         obj.cloneObjItem.item = "HelloWorld";
 
         CloneObj objCopy = new CloneObj();
-        BeanUtils.copyProperties(obj, objCopy);
+        //BeanUtils.copyProperties(obj, objCopy);
         System.out.println(obj.cloneObjItem);
         System.out.println(objCopy);
     }
