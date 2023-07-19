@@ -69,4 +69,15 @@ public class CompletableFutureScene {
         }
         System.out.println(future.join());
     }
+
+    @Test
+    public void tessst() {
+        CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(() -> 10);
+        CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> "Hello");
+
+        future1.thenAcceptBoth(future2, (result1, result2) -> {
+            System.out.println("Result from future1: " + result1);
+            System.out.println("Result from future2: " + result2);
+        });
+    }
 }
