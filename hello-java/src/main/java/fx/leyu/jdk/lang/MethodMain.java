@@ -1,5 +1,6 @@
 package fx.leyu.jdk.lang;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.RandomUtils;
@@ -12,6 +13,7 @@ import java.util.List;
 public class MethodMain {
 
     public static void main(String[] args) throws IllegalAccessException {
+        System.out.println(JSON.toJSONString(null));
         Long nll = null;
         Long x = RandomUtils.nextInt(6, 9) > 6 ? nll : 0L;
 
