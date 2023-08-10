@@ -8,5 +8,7 @@ public class VersionUtilsTest {
     public void testVersion() {
         Assert.assertFalse(VersionUtils.aBiggerThanB("6.1000.1.1", "7.90.1"));
         Assert.assertFalse(VersionUtils.aBiggerThanB("7.0", "7.0"));
+        Assert.assertFalse(VersionUtils.aBiggerThanB("7.2.0", "7.3"));
+
     }
 }

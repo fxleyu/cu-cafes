@@ -15,8 +15,8 @@ public class VersionUtils {
         String[] bVersionNums = StringUtils.split(bVersion, ".");
         int min = NumberUtils.min(aVersionNums.length, bVersionNums.length);
         for (int i = 0; i < min; i++) {
-            int a = NumberUtils.toInt(aVersionNums[0]);
-            int b = NumberUtils.toInt(bVersionNums[0]);
+            int a = NumberUtils.toInt(aVersionNums[i]);
+            int b = NumberUtils.toInt(bVersionNums[i]);
             if (a == b) {
                 continue;
             }
