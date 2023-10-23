@@ -6,8 +6,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ProducerConsumerLockUtils {
     
     public static int num = 0;
-    private static int MAX = 6;
-    private static Lock producerConsumerLock = new ReentrantLock();
+    private static final int MAX = 6;
+    private static final Lock producerConsumerLock = new ReentrantLock();
     
     public synchronized void acquireProducerLock(){
         while (num >= MAX) {

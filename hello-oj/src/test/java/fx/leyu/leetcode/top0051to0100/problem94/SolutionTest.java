@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SolutionTest {
-    private Solution solution = new Solution();
+    private final Solution solution = new Solution();
     @Test
     public void test() {
         TreeNode p = new TreeNode(1);

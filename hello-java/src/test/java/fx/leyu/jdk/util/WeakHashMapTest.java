@@ -8,11 +8,11 @@ import org.junit.Test;
 import java.util.*;
 
 public class WeakHashMapTest {
-    private static Map<String, String> map = new WeakHashMap<>();
-    private static Set<String> set = Collections.newSetFromMap(new WeakHashMap<String, Boolean>());
+    private static final Map<String, String> map = new WeakHashMap<>();
+    private static final Set<String> set = Collections.newSetFromMap(new WeakHashMap<String, Boolean>());
 
     private static final int MAX = 1000000;
-    private static List<String> list = Lists.newArrayListWithCapacity(MAX);
+    private static final List<String> list = Lists.newArrayListWithCapacity(MAX);
 
     @BeforeClass
     public static void beforeClass() {

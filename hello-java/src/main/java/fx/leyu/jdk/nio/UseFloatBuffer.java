@@ -4,7 +4,7 @@ import java.nio.FloatBuffer;
 
 // https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html
 public class UseFloatBuffer {
-    public static void main( String args[] ) throws Exception {
+    public static void main(String[] args) throws Exception {
         FloatBuffer buffer = FloatBuffer.allocate( 10 );
 
         for (int i=0; i<buffer.capacity(); ++i) {

@@ -3,7 +3,7 @@ package fx.leyu.jdk.nio;
 import java.nio.ByteBuffer;
 
 public class SliceBuffer {
-    static public void main( String args[] ) throws Exception {
+    static public void main(String[] args) throws Exception {
         ByteBuffer buffer = ByteBuffer.allocate( 10 );
 
         for (int i=0; i<buffer.capacity(); ++i) {

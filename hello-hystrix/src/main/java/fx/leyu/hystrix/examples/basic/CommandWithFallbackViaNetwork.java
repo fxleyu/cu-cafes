@@ -92,7 +92,7 @@ public class CommandWithFallbackViaNetwork extends HystrixCommand<String> {
         public void test() {
             HystrixRequestContext context = HystrixRequestContext.initializeContext();
             try {
-                assertEquals(null, new CommandWithFallbackViaNetwork(1).execute());
+                assertNull(new CommandWithFallbackViaNetwork(1).execute());
 
                 HystrixInvokableInfo<?> command1 = HystrixRequestLog.getCurrentRequest().getAllExecutedCommands().toArray(new HystrixInvokableInfo<?>[2])[0];
                 assertEquals("GetValueCommand", command1.getCommandKey().name());

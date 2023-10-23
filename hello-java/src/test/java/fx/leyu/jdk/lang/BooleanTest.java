@@ -6,7 +6,7 @@ import org.junit.Test;
 public class BooleanTest {
     @Test
     public void testEqual() {
-        Assert.assertFalse(Boolean.TRUE.equals(false));
-        Assert.assertTrue(Boolean.TRUE.equals(true));
+        Assert.assertNotEquals(false, (boolean) Boolean.TRUE);
+        Assert.assertEquals(true, (boolean) Boolean.TRUE);
     }
 }

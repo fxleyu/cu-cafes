@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  * @author fxleyu
  */
 public class LogTest {
-    private static Logger LOGGER = LoggerFactory.getLogger(LogTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LogTest.class);
 
     @Test
     public void testLog() {

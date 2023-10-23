@@ -7,7 +7,7 @@ import java.nio.channels.FileChannel;
 
 // https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html
 public class CopyFile {
-    static public void main( String args[] ) throws Exception {
+    static public void main(String[] args) throws Exception {
         if (args.length<2) {
             System.err.println( "Usage: java CopyFile infile outfile" );
             System.exit( 1 );

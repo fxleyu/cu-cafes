@@ -17,12 +17,12 @@ public class StringTest {
     @Test
     public void testEquals() {
         String one = "Hello";
-        String other = new String(one);
-        Assert.assertTrue(one.equals(other));
+        String other = one;
+        Assert.assertEquals(one, other);
 
-        Assert.assertFalse(one == other);
+        Assert.assertNotSame(one, other);
 
-        Assert.assertTrue(one == other.intern());
+        Assert.assertSame(one, other.intern());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class StringTest {
         Assert.assertEquals(1, string.split("=").length);
         Assert.assertEquals(0, StringUtils.split(string, "=").length);
 
-        Assert.assertEquals(null, StringUtils.split(null, "="));
+        Assert.assertNull(StringUtils.split(null, "="));
 
 
         string = "=====";
@@ -102,7 +102,7 @@ public class StringTest {
     public void testStartWith() {
         String a = "abc";
         String b = "abcd";
-        Assert.assertTrue(!a.startsWith(b));
+        Assert.assertFalse(a.startsWith(b));
         Assert.assertTrue(b.startsWith(a));
     }
 

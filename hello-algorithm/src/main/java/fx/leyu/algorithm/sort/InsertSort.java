@@ -10,7 +10,7 @@ public class InsertSort {
 		
 //	int data[] = {1,2,3,4,5,6,7,8,9,10,1};
 		
-		int data[] = {10,9,8,7,6,5,4,3,2,1,5};
+		int[] data = {10,9,8,7,6,5,4,3,2,1,5};
 		
 		insertSort2(data);
 		
@@ -50,7 +50,7 @@ public class InsertSort {
 		}
 	}
 
-	private static void swap(int data[],int i, int j) {
+	private static void swap(int[] data, int i, int j) {
 		// TODO Auto-generated method stub
 		int temp =  data[i];
 		data[i] = data[j];
@@ -63,7 +63,7 @@ public class InsertSort {
 		{
 			System.out.print(data[i]+"   ");
 		}
-		System.out.println("");
+		System.out.println();
 		
 	}
 

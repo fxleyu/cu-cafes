@@ -10,14 +10,14 @@ public class IntegerTest {
 
     @Test
     public void testMinValue() {
-        Assert.assertTrue(Integer.MIN_VALUE == -Integer.MIN_VALUE);
+        Assert.assertEquals(Integer.MIN_VALUE, -Integer.MIN_VALUE);
     }
 
     @Test
     public void testBitOperation() {
         String string = Integer.toString(Integer.MAX_VALUE, 2);
         int value = Integer.valueOf("-" + string, 2);
-        Assert.assertTrue(value - 1 == Integer.MIN_VALUE);
+        Assert.assertEquals(Integer.MIN_VALUE, value - 1);
     }
 
     @Test(expected = NumberFormatException.class)

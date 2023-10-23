@@ -38,7 +38,7 @@ public class Consumer {
                 }
 
                 // System.out.printf("%s Receive New Messages -  %s %n", Thread.currentThread().getName(), msgs);
-                String msg = msgs.stream().map(x -> new String(x.getMsgId())).collect(Collectors.joining("-"));
+                String msg = msgs.stream().map(x -> x.getMsgId()).collect(Collectors.joining("-"));
                 //msgs.forEach(System.out::println);
                 System.out.println("msg's size is " + integer.addAndGet(msgs.size()) + ", msg is " + msg);
                 return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;

@@ -18,7 +18,7 @@ public class ReaderWriterSolution {
     public static final int NUM_OF_READERS = 3;
     public static final int NUM_OF_WRITERS = 2;
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         RWLock database = new Database();
 
         Thread[] readerArray = new Thread[NUM_OF_READERS];
@@ -66,8 +66,8 @@ interface RWLock {
 
 class Database implements RWLock {
     private int readerCount; // the number of active readers
-    private Semaphore mutex; // controls access to readerCount
-    private Semaphore db; // controls access to the database
+    private final Semaphore mutex; // controls access to readerCount
+    private final Semaphore db; // controls access to the database
 
     public Database() {
         readerCount = 0;
@@ -149,8 +149,8 @@ class Database implements RWLock {
 
 class Reader implements Runnable {
 
-    private RWLock database;
-    private int readerNum;
+    private final RWLock database;
+    private final int readerNum;
 
     public Reader(int readerNum, RWLock database) {
         this.readerNum = readerNum;
@@ -183,8 +183,8 @@ class Reader implements Runnable {
  *
  */
 class Writer implements Runnable {
-    private RWLock database;
-    private int writerNum;
+    private final RWLock database;
+    private final int writerNum;
 
     public Writer(int w, RWLock d) {
         writerNum = w;
@@ -231,7 +231,7 @@ class SleepUtilities {
     public static void nap(int duration) {
         int sleeptime = (int) (NAP_TIME * Math.random());
         try {
-            Thread.sleep(sleeptime * 1000);
+            Thread.sleep(sleeptime * 1000L);
         } catch (InterruptedException e) {
         }
     }

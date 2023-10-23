@@ -18,7 +18,7 @@ public class SolutionTest {
         result.next.next = new ListNode(4);
         result.next.next.next = new ListNode(3);
 
-        Assert.assertTrue(result.equals(head));
+        Assert.assertEquals(result, head);
 
     }
 }

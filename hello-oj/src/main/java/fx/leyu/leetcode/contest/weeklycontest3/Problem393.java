@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Problem393 {
-    private Map<Integer, String> map = new HashMap<>();
+    private final Map<Integer, String> map = new HashMap<>();
     {
         map.put(2, "110");
         map.put(3, "1110");

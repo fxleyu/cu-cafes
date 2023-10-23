@@ -23,7 +23,7 @@ import java.net.HttpCookie;
 public class Order {
 
     private final int orderId;
-    private UserAccount user;
+    private final UserAccount user;
 
     public Order(int orderId) {
         this.orderId = orderId;

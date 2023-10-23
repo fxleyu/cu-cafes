@@ -21,7 +21,7 @@ public class Problem397 {
         }
                 
         Queue<Pair> queue = new LinkedList<>();
-        queue.add(new Pair((long)n, 0));
+        queue.add(new Pair(n, 0));
         while (!queue.isEmpty()) {
             Pair pair = queue.poll();
             if (pair.value == 1) {

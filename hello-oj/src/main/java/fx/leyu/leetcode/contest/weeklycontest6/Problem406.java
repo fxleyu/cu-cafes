@@ -14,9 +14,7 @@ public class Problem406 {
     
     public int[][] reconstructQueue(int[][] people) {
         List<int[]> workList = new ArrayList<>();
-        for (int[] p : people) {
-            workList.add(p);
-        }
+        Collections.addAll(workList, people);
         
         Collections.sort(workList, new Comparator<int[]>() {
             @Override

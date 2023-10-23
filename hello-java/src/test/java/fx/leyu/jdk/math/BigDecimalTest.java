@@ -45,7 +45,7 @@ public class BigDecimalTest {
         zero = new BigDecimal("0.00");
         BigDecimal systemZero = BigDecimal.ZERO;
         Assert.assertEquals(2, zero.scale());
-        Assert.assertFalse(systemZero.equals(zero));
+        Assert.assertNotEquals(systemZero, zero);
     }
 
     @Test

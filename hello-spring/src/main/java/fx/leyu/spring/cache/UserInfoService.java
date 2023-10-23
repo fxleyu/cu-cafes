@@ -10,7 +10,7 @@ import java.util.Objects;
 
 @Component
 public class UserInfoService {
-    private static Map<String, String> userInfoMap = new HashMap<>();
+    private static final Map<String, String> userInfoMap = new HashMap<>();
 
     static {
         userInfoMap.put("fxleyu", "fxleyu@qq.com");

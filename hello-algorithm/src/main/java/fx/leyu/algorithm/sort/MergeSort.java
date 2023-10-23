@@ -12,7 +12,7 @@ public class MergeSort {
 		/*int data[] = new int[10];		
 		input(data);*/
 		
-		int data[] = {1,2,3,4,5,6,7,8,9,10};
+		int[] data = {1,2,3,4,5,6,7,8,9,10};
 		
 	//	int data[] = {10,9,8,7,6,5,4,3,2,1};
 		
@@ -29,7 +29,7 @@ public class MergeSort {
 		{
 			System.out.print(data[i]+"   ");
 		}
-		System.out.println("");
+		System.out.println();
 		
 	}
 
@@ -52,7 +52,7 @@ public class MergeSort {
 		int j = mid+1;
 		int len = high-low+1;
 		int k = 0;
-		int temp[] = new int[len];
+		int[] temp = new int[len];
 		while(i<=mid && j<=high)
 		{
 			if(data[i]<data[j])
@@ -81,7 +81,7 @@ public class MergeSort {
 		
 	}
 
-	private static  void input(int data[]) {
+	private static  void input(int[] data) {
 		// TODO Auto-generated method stub
 		/*Scanner sca = new Scanner(System.in);
 		for (int i = 0; i < data.length; i++) {

@@ -3,8 +3,8 @@ package fx.leyu.leetcode.top0101to0150.problem146;
 import java.util.*;
 
 class LRUCache {
-    private Map<Integer, Integer> map;
-    private LinkedList<Integer> accessList;
+    private final Map<Integer, Integer> map;
+    private final LinkedList<Integer> accessList;
     private final int capacity;
 
     public LRUCache(int capacity) {

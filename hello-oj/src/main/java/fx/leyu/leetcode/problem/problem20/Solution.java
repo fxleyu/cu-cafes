@@ -17,7 +17,7 @@ import java.util.Stack;
  */
 public class Solution {
     
-    private static Map<Character, Character> map = new HashMap<Character, Character>();
+    private static final Map<Character, Character> map = new HashMap<Character, Character>();
     
     static {        
         map.put('(', ')');

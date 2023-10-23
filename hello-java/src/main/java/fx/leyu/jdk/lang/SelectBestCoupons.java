@@ -34,8 +34,8 @@ import java.util.Map;
 public class SelectBestCoupons {
 
     static class Shop {
-        private String selectedId;
-        private BigDecimal discountAmount;
+        private final String selectedId;
+        private final BigDecimal discountAmount;
 
         public Shop(String selectedId, BigDecimal discountAmount) {
             this.selectedId = selectedId;
@@ -44,8 +44,8 @@ public class SelectBestCoupons {
     }
 
     static class Coupons {
-        private List<Shop> shopList;
-        private BigDecimal couponsTotalAmount;
+        private final List<Shop> shopList;
+        private final BigDecimal couponsTotalAmount;
 
         public Coupons(List<Shop> shopList, BigDecimal couponsTotalAmount) {
             this.shopList = shopList;

@@ -26,7 +26,7 @@ public class JavaProxyTest {
     }
 
     private static class AroundInvocationHandler implements InvocationHandler {
-        private Object proxyImpl;
+        private final Object proxyImpl;
 
         AroundInvocationHandler(Object proxyImpl) {
             this.proxyImpl = proxyImpl;

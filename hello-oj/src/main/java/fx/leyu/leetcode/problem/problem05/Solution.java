@@ -16,7 +16,7 @@ package fx.leyu.leetcode.problem.problem05;
  */
 public class Solution {
     
-    private static int FAIL = -1;
+    private static final int FAIL = -1;
     
     public static void main(String[] args) {
         System.out.println(new Solution().longestPalindrome(""));

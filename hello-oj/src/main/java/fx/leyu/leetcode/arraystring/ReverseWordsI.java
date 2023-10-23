@@ -16,7 +16,7 @@ public class ReverseWordsI {
                 if (reversed.length() != 0) {
                     reversed.append(' ');
                 }
-                reversed.append(s.substring(i, j));
+                reversed.append(s, i, j);
             }
         }
         return reversed.toString();

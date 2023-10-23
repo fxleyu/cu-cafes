@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Solution03 {
     
-    private Map<Integer, Integer> table = new HashMap<>();
+    private final Map<Integer, Integer> table = new HashMap<>();
     
     public static void main(String[] args) {
         // TODO Auto-generated method stub

@@ -28,11 +28,7 @@ public class SetDemo {
         Integer ratio = 100;
         Random rand = new Random(System.currentTimeMillis()%100);//随机数种子
         int time = rand.nextInt(100); //随机数
-        if (ratio <= time) {
-            System.out.println(true);
-        } else {
-            System.out.println(false);
-        }
+        System.out.println(ratio <= time);
 
         int random = RandomUtils.nextInt(1, 101);
         int percentage = 100;

@@ -37,7 +37,7 @@ public class MatcherUtils {
         String input = "都市报道60分 (2016-08-28） && 2016年3月2日黄历|农历2016-12-30吉时 -汉典老黄历 && ​一周吉凶提醒 2015/12/15-2015/12/21_姜宜绘_新浪博客";
         String replacement = "$1年$2月$3日";
         MatchFilter matchFilter = new MatchFilter() {
-            Set<Integer> set = new HashSet<Integer>();
+            final Set<Integer> set = new HashSet<Integer>();
             {
                 set.add(4);
                 set.add(6);

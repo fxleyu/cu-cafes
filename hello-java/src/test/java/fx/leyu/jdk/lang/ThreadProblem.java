@@ -3,6 +3,7 @@ package fx.leyu.jdk.lang;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class ThreadProblem {
     private static final BigDecimal FOUR = BigDecimal.valueOf(4);
@@ -35,21 +36,21 @@ public class ThreadProblem {
         BigDecimal arctan1_239 = arctan(239, scale);
         BigDecimal pi = arctan1_5.multiply(FOUR).
                 subtract(arctan1_239).multiply(FOUR);
-        return pi.setScale(digits, BigDecimal.ROUND_HALF_UP);
+        return pi.setScale(digits, RoundingMode.HALF_UP);
     }
 
     public static BigDecimal arctan(int inverseX, int scale) {
         BigDecimal result, numer, term;
         BigDecimal invX = BigDecimal.valueOf(inverseX);
-        BigDecimal invX2 = BigDecimal.valueOf(inverseX * inverseX);
-        numer = BigDecimal.ONE.divide(invX, scale, roundingMode);
+        BigDecimal invX2 = BigDecimal.valueOf((long) inverseX * inverseX);
+        numer = BigDecimal.ONE.divide(invX, scale, RoundingMode.HALF_EVEN);
         result = numer;
         int i = 1;
         do {
-            numer = numer.divide(invX2, scale, roundingMode);
+            numer = numer.divide(invX2, scale, RoundingMode.HALF_EVEN);
             int denom = 2 * i + 1;
             term = numer.divide(BigDecimal.valueOf(denom), scale,
-                    roundingMode);
+                    RoundingMode.HALF_EVEN);
             if ((i % 2) != 0)
                 result = result.subtract(term);
             else

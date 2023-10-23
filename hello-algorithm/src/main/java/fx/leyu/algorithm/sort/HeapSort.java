@@ -9,7 +9,7 @@ public class HeapSort {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int data[] = {1,2,3,4,5,6,7,8,9,10,1};
+		int[] data = {1,2,3,4,5,6,7,8,9,10,1};
 		
 //		int data[] = {16,14,10,8,7,9,3,2,4,1};
 		
@@ -67,7 +67,7 @@ public class HeapSort {
 		
 	}
 
-	private static void swap(int data[],int i, int j) {
+	private static void swap(int[] data, int i, int j) {
 		// TODO Auto-generated method stub
 		int temp =  data[i];
 		data[i] = data[j];
@@ -80,7 +80,7 @@ public class HeapSort {
 		{
 			System.out.print(data[i]+"   ");
 		}
-		System.out.println("");
+		System.out.println();
 		
 	}
 

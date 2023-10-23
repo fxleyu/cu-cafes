@@ -8,7 +8,7 @@ public class SortTheSortedArray {
     public static void main(String[] args) {
         // Generate data
         int arraySize = 32768;
-        int data[] = new int[arraySize];
+        int[] data = new int[arraySize];
 
         Random rnd = new Random(0);
         for (int c = 0; c < arraySize; ++c) {

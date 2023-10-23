@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ExtendsWeakReferenceTest {
-    private static final int _512_KB = 1 * 1024 * 512;
+    private static final int _512_KB = 1024 * 512;
 
     //-XX:+HeapDumpOnOutOfMemoryError -Xmx20m -Xms20m -XX:+PrintGCDetails
     @Test(expected = OutOfMemoryError.class)

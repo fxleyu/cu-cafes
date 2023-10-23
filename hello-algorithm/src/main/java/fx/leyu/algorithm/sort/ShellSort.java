@@ -8,7 +8,7 @@ public class ShellSort {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-	int data[] = {1,2,3,4,5,6,7,8,9,10,1};
+	int[] data = {1,2,3,4,5,6,7,8,9,10,1};
 		
 //		int data[] = {49,38,65,97,76,13,27,49,55,04};
 		
@@ -42,7 +42,7 @@ public class ShellSort {
 		
 	}
 
-	private static void swap(int data[],int i, int j) {
+	private static void swap(int[] data, int i, int j) {
 		// TODO Auto-generated method stub
 		int temp =  data[i];
 		data[i] = data[j];
@@ -55,7 +55,7 @@ public class ShellSort {
 		{
 			System.out.print(data[i]+"   ");
 		}
-		System.out.println("");
+		System.out.println();
 		
 	}
 

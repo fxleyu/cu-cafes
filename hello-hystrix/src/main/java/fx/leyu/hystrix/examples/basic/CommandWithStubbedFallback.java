@@ -94,9 +94,9 @@ public class CommandWithStubbedFallback extends HystrixCommand<CommandWithStubbe
             assertTrue(command.isResponseFromFallback());
             assertEquals(1234, account.customerId);
             assertEquals("ca", account.countryCode);
-            assertEquals(true, account.isFeatureXPermitted);
-            assertEquals(true, account.isFeatureYPermitted);
-            assertEquals(false, account.isFeatureZPermitted);
+            assertTrue(account.isFeatureXPermitted);
+            assertTrue(account.isFeatureYPermitted);
+            assertFalse(account.isFeatureZPermitted);
         }
     }
 }

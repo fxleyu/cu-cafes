@@ -6,10 +6,10 @@ import java.nio.channels.FileChannel;
 
 // https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html
 public class WriteSomeBytes {
-    private static final byte message[] = { 83, 111, 109, 101, 32,
+    private static final byte[] message = { 83, 111, 109, 101, 32,
             98, 121, 116, 101, 115, 46 };
 
-    public static void main( String args[] ) throws Exception {
+    public static void main(String[] args) throws Exception {
         FileOutputStream fout = new FileOutputStream( "writesomebytes.txt" );
         FileChannel fc = fout.getChannel();
 

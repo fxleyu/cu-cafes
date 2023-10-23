@@ -24,7 +24,7 @@ public class SolutionTest {
         result.next.next.next.next.next = new ListNode(4);
         result.next.next.next.next.next.next = new ListNode(5);
         result.next.next.next.next.next.next.next = new ListNode(6);
-        Assert.assertTrue(result.equals(new Solution().mergeKLists(input)));
+        Assert.assertEquals(result, new Solution().mergeKLists(input));
 
     }
 
@@ -35,7 +35,7 @@ public class SolutionTest {
         input[1] = new ListNode(1);
 
         ListNode result = new ListNode(1);
-        Assert.assertTrue(result.equals(new Solution().mergeKLists(input)));
+        Assert.assertEquals(result, new Solution().mergeKLists(input));
     }
 
     @Test
@@ -58,6 +58,6 @@ public class SolutionTest {
         result.next.next.next.next.next = new ListNode(4);
         result.next.next.next.next.next.next = new ListNode(5);
         result.next.next.next.next.next.next.next = new ListNode(6);
-        Assert.assertTrue(result.equals(new Solution().mergeKLists(input)));
+        Assert.assertEquals(result, new Solution().mergeKLists(input));
     }
 }

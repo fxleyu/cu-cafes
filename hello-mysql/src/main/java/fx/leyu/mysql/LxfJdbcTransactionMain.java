@@ -42,8 +42,6 @@ public class LxfJdbcTransactionMain {
                 sqlException.printStackTrace();
             }
             throwable.printStackTrace();
-        } finally {
-
         }
     }
 

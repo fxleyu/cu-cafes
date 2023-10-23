@@ -13,9 +13,9 @@ public class BitSetTest {
     @Test
     public void test() {
         BitSet bitSet = new BitSet();
-        Assert.assertTrue(!bitSet.get(1));
+        Assert.assertFalse(bitSet.get(1));
         bitSet.set(2);
-        Assert.assertTrue(!bitSet.get(1));
+        Assert.assertFalse(bitSet.get(1));
         Assert.assertTrue(bitSet.get(2));
     }
 }

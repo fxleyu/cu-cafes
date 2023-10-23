@@ -13,7 +13,7 @@ public class ObjectTest {
     @Test
     public void testEquals() {
         Object obj = new Object();
-        Assert.assertFalse(obj.equals(null));
+        Assert.assertNotEquals(null, obj);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class ObjectTest {
                 e.printStackTrace();
             }
         }
-        Assert.assertEquals(true, true);
+        Assert.assertTrue(true);
     }
 
     @Test
@@ -47,6 +47,6 @@ public class ObjectTest {
         synchronized (obj) {
             obj.notify();
         }
-        Assert.assertEquals(null, null);
+        Assert.assertNull(null);
     }
 }

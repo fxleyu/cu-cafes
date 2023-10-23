@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReaderWriterLockUtils {
 
     private int readerNum = 0;
-    private static Lock readerWriterLock = new ReentrantLock();
+    private static final Lock readerWriterLock = new ReentrantLock();
 
     public synchronized void acquireReaderLock() {
         while (readerNum == 0) {

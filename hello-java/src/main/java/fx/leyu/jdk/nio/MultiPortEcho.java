@@ -12,10 +12,10 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class MultiPortEcho {
-    private int ports[];
-    private ByteBuffer echoBuffer = ByteBuffer.allocate( 1024 );
+    private final int[] ports;
+    private final ByteBuffer echoBuffer = ByteBuffer.allocate( 1024 );
 
-    public MultiPortEcho( int ports[] ) throws IOException {
+    public MultiPortEcho(int[] ports) throws IOException {
         this.ports = ports;
 
         go();
@@ -95,13 +95,13 @@ public class MultiPortEcho {
         }
     }
 
-    static public void main( String args[] ) throws Exception {
+    static public void main(String[] args) throws Exception {
         if (args.length<=0) {
             System.err.println( "Usage: java MultiPortEcho port [port port ...]" );
             System.exit( 1 );
         }
 
-        int ports[] = new int[args.length];
+        int[] ports = new int[args.length];
 
         for (int i=0; i<args.length; ++i) {
             ports[i] = Integer.parseInt( args[i] );

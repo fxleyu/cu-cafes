@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 public class ServerSocketTest {
 
@@ -15,7 +16,7 @@ public class ServerSocketTest {
             new Thread(() -> {
                 try {
                     OutputStream outputStream = socket.getOutputStream();
-                    outputStream.write("Hi, 我是乐雨！".getBytes("utf-8"));
+                    outputStream.write("Hi, 我是乐雨！".getBytes(StandardCharsets.UTF_8));
                     outputStream.close();
                     socket.close();
                 } catch (IOException e) {

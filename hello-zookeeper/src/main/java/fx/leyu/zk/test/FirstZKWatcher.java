@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 public class FirstZKWatcher implements Watcher {
-    private static CountDownLatch latch = new CountDownLatch(1);
+    private static final CountDownLatch latch = new CountDownLatch(1);
 
     public static void main(String[] args) throws IOException {
         ZooKeeper zooKeeper = new ZooKeeper("192.168.199.120:2181", 5000, new FirstZKWatcher());

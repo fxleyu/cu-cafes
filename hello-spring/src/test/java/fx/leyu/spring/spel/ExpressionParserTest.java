@@ -87,7 +87,7 @@ public class ExpressionParserTest {
     public void testFunctionRegistered() throws NoSuchMethodException {
         StandardEvaluationContext context = new StandardEvaluationContext();
         context.registerFunction("capitalize",
-                StringUtils.class.getDeclaredMethod("capitalize", new Class[]{String.class}));
+                StringUtils.class.getDeclaredMethod("capitalize", String.class));
 
         String value = parser.parseExpression("#capitalize('hello')").getValue(context, String.class);
         Assert.assertEquals("Hello", value);

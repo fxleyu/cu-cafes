@@ -230,7 +230,7 @@ public class CreditCardCommand extends HystrixCommand<CreditCardAuthorizationRes
 
     }
 
-    public static enum TransactionType {
+    public enum TransactionType {
         AUTH_CAPTURE
     }
 

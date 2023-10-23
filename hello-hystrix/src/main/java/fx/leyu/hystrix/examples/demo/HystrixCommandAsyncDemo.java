@@ -162,7 +162,7 @@ public class HystrixCommandAsyncDemo {
             }).flatMap(new Func1<Pair<PaymentInformation, Order>, Observable<CreditCardAuthorizationResult>>() {
                 @Override
                 public Observable<CreditCardAuthorizationResult> call(Pair<PaymentInformation, Order> pair) {
-                    return new CreditCardCommand(pair.b(), pair.a(), new BigDecimal(123.45)).observe();
+                    return new CreditCardCommand(pair.b(), pair.a(), new BigDecimal("123.45")).observe();
                 }
             });
         } catch (IllegalArgumentException ex) {
@@ -201,15 +201,14 @@ public class HystrixCommandAsyncDemo {
 
                     if (shouldLog) {
                         // print out metrics
-                        StringBuilder out = new StringBuilder();
-                        out.append("\n");
-                        out.append("#####################################################################################").append("\n");
-                        out.append("# CreditCardCommand: " + getStatsStringFromMetrics(creditCardMetrics)).append("\n");
-                        out.append("# GetOrderCommand: " + getStatsStringFromMetrics(orderMetrics)).append("\n");
-                        out.append("# GetUserAccountCommand: " + getStatsStringFromMetrics(userAccountMetrics)).append("\n");
-                        out.append("# GetPaymentInformationCommand: " + getStatsStringFromMetrics(paymentInformationMetrics)).append("\n");
-                        out.append("#####################################################################################").append("\n");
-                        System.out.println(out.toString());
+                        String out = "\n" +
+                                "#####################################################################################" + "\n" +
+                                "# CreditCardCommand: " + getStatsStringFromMetrics(creditCardMetrics) + "\n" +
+                                "# GetOrderCommand: " + getStatsStringFromMetrics(orderMetrics) + "\n" +
+                                "# GetUserAccountCommand: " + getStatsStringFromMetrics(userAccountMetrics) + "\n" +
+                                "# GetPaymentInformationCommand: " + getStatsStringFromMetrics(paymentInformationMetrics) + "\n" +
+                                "#####################################################################################" + "\n";
+                        System.out.println(out);
                     }
                 }
             }

@@ -77,7 +77,6 @@ public class MethodTest {
         }
 
         public void voidMethod() {
-            return;
         }
     }
 }

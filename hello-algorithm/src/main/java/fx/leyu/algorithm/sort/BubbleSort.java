@@ -10,7 +10,7 @@ public class BubbleSort {
 		
 	//	int data[] = {1,2,3,4,5,6,7,8,9,10};
 		
-		int data[] = {10,9,8,7,6,5,4,3,2,1};
+		int[] data = {10,9,8,7,6,5,4,3,2,1};
 		
 		bubbleSort(data);
 		
@@ -47,7 +47,7 @@ public class BubbleSort {
 		{
 			System.out.print(data[i]+"   ");
 		}
-		System.out.println("");
+		System.out.println();
 		
 	}
 

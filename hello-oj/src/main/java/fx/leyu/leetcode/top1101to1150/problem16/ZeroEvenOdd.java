@@ -4,11 +4,11 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ZeroEvenOdd {
-    private int n;
-    private AtomicInteger index = new AtomicInteger(1);
-    private Semaphore zeroSemaphore = new Semaphore(1);
-    private Semaphore evenSemaphore = new Semaphore(0);
-    private Semaphore oddSemaphore = new Semaphore(0);
+    private final int n;
+    private final AtomicInteger index = new AtomicInteger(1);
+    private final Semaphore zeroSemaphore = new Semaphore(1);
+    private final Semaphore evenSemaphore = new Semaphore(0);
+    private final Semaphore oddSemaphore = new Semaphore(0);
 
     public ZeroEvenOdd(int n) {
         this.n = n;
@@ -23,10 +23,7 @@ public class ZeroEvenOdd {
         while (true) {
             zeroSemaphore.acquire();
             printNumber.accept(0);
-            boolean shouldReturn = false;
-            if (index.get() + 1 > n) {
-                shouldReturn = true;
-            }
+            boolean shouldReturn = index.get() + 1 > n;
             if (index.get() % 2 == 0) {
                 evenSemaphore.release();
             } else {
@@ -45,10 +42,7 @@ public class ZeroEvenOdd {
         while (true) {
             evenSemaphore.acquire();
             printNumber.accept(index.get());
-            boolean shouldReturn = false;
-            if (index.get() + 2 > n) {
-                shouldReturn = true;
-            }
+            boolean shouldReturn = index.get() + 2 > n;
             if (index.getAndIncrement() < n) {
                 zeroSemaphore.release();
             }
@@ -62,10 +56,7 @@ public class ZeroEvenOdd {
         while (true) {
             oddSemaphore.acquire();
             printNumber.accept(index.get());
-            boolean shouldReturn = false;
-            if (index.get() + 2 > n) {
-                shouldReturn = true;
-            }
+            boolean shouldReturn = index.get() + 2 > n;
             if (index.getAndIncrement() < n) {
                 zeroSemaphore.release();
             }

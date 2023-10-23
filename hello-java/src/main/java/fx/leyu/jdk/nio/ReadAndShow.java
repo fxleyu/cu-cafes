@@ -6,7 +6,7 @@ import java.nio.channels.FileChannel;
 
 // https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html
 public class ReadAndShow {
-    public static void main( String args[] ) throws Exception {
+    public static void main(String[] args) throws Exception {
         FileInputStream fin = new FileInputStream( "writesomebytes.txt" );
         FileChannel fc = fin.getChannel();
 

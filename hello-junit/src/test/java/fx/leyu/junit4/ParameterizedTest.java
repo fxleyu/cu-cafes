@@ -13,9 +13,9 @@ import java.util.Collection;
  */
 @RunWith(value = Parameterized.class)
 public class ParameterizedTest {
-    private double expected;
-    private double valueOne;
-    private double valueTwo;
+    private final double expected;
+    private final double valueOne;
+    private final double valueTwo;
 
     public ParameterizedTest(double expected, double valueOne, double valueTwo) {
         this.expected = expected;
