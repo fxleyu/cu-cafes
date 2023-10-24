@@ -19,6 +19,14 @@ public class ListTest {
         Assert.assertNotNull(list);
     }
 
+    @Test(expected = NullPointerException.class)
+    public void testNull4ForEach() {
+        List<String> list = null;
+        for (String str : list) {
+            System.out.println(str);
+        }
+    }
+
     @Test
     public void testString() {
         List<String> strList = Lists.newArrayList("A", "B", null, null, "C", "D");
