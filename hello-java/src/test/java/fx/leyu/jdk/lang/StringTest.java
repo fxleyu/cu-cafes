@@ -1,5 +1,6 @@
 package fx.leyu.jdk.lang;
 
+import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Assert;
@@ -10,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class StringTest {
@@ -120,5 +122,12 @@ public class StringTest {
             System.out.println(NumberUtils.isCreatable(s));
             System.out.println(s);
         }
+    }
+
+    @Test
+    public void testJoin() {
+        List<String> str = Lists.newArrayList("xe2", "xd2", "x2");
+        String joinString = StringUtils.join(str, ',');
+        System.out.println(joinString);
     }
 }
