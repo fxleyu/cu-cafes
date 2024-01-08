@@ -41,3 +41,5 @@
 备注：代码使用 Alibaba Coding Guidance
 
 愿国运昌隆，永远进步。
+
+> 拒绝二手需求
