@@ -7,6 +7,6 @@ public class BooleanTest {
     @Test
     public void testEqual() {
         Assert.assertNotEquals(false, (boolean) Boolean.TRUE);
-        Assert.assertEquals(true, (boolean) Boolean.TRUE);
+        Assert.assertTrue((boolean) Boolean.TRUE);
     }
 }
