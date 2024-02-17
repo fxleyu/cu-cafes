@@ -10,7 +10,7 @@
 - [JVM](./hello-jvm/README.md) 用于验证 JVM 相关特性
 - [Algorithm](./hello-algorithm/README.md) 用于练习一些高级的算法
 - [Spring](./hello-spring/README.md) 练习 Spring 相关内容
-- [OJ](./hello-oj) 用于练习一些练习题，例如 [Leet Code](https://leetcode-cn.com/problemset/algorithms/) 等
+- [OJ](./hello-oj/README.md) 用于练习一些练习题，例如 [Leet Code](https://leetcode-cn.com/problemset/algorithms/) 等
 - [Hadoop](./hello-hadoop/README.md) 熟悉 Hadoop
 - [Hystrix](./hello-hystrix/README.md) Hystrix 框架
 - [Redis](./hello-redis/README.md) Redis 练习
