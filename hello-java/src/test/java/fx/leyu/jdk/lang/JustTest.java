@@ -10,19 +10,19 @@ public class JustTest {
     }
 
     private double f(int i) {
-        return c(40, i) * q(0.6, i) * q(0.4, 40 - i);
+        return c(50, i) * q(0.6, i) * q(0.4, 50 - i);
     }
 
     private double q(double v, int n) {
         if (n == 0) {
-            System.out.println(v + "^" + n + " = " + 1);
+            System.out.println(v + " ^ " + n + " = " + 1);
             return 1;
         }
         double x = 1;
         for (int i = 1; i <= n; i++) {
             x = x * v;
         }
-        System.out.println(v + "^" + n + " = " + x);
+        System.out.println(v + " ^ " + n + " = " + x);
         return x;
     }
 
