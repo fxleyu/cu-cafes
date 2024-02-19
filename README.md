@@ -7,21 +7,16 @@
 
 ## 项目涉及内容
 - [Java SE API](./hello-java/README.md) 用于练习 JDK 中相关内容
-- [JVM](./hello-jvm) 用于验证 JVM 相关特性
+- [JVM](./hello-jvm/README.md) 用于验证 JVM 相关特性
 - [Algorithm](./hello-algorithm/README.md) 用于练习一些高级的算法
 - [Spring](./hello-spring/README.md) 练习 Spring 相关内容
-- [OJ](./hello-oj) 用于练习一些练习题，例如 [Leet Code](https://leetcode-cn.com/problemset/algorithms/) 等
+- [OJ](./hello-oj/README.md) 用于练习一些练习题，例如 [Leet Code](https://leetcode-cn.com/problemset/algorithms/) 等
 - [Hadoop](./hello-hadoop/README.md) 熟悉 Hadoop
 - [Hystrix](./hello-hystrix/README.md) Hystrix 框架
 - [Redis](./hello-redis/README.md) Redis 练习
 - [ZooKeeper](./hello-zookeeper/README.md)
 - [LOG](./hello-log/README.md) 熟悉日志框架
-- [MQ](./hello-mq) 熟悉消息队列
-
-
-事务防止悬挂
-
-第一性原则
+- [MQ](./hello-mq/README.md) 熟悉消息队列
 
 # 代码架构
 - MAVEN 管理
@@ -40,6 +35,8 @@
 
 备注：代码使用 Alibaba Coding Guidance
 
-愿国运昌隆，永远进步。
-
 > 拒绝二手需求，就像拒绝二手烟一样
+
+事务防止悬挂
+
+第一性原则
